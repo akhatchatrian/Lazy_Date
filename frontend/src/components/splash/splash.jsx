@@ -7,6 +7,7 @@ class Splash extends React.Component {
         return (
             <main className="main-bg">
                 <section>
+                    <div className="header-bg"></div>
                     {/* <SignupFormContainer /> */}
                 </section>
                 <header className="hiw-container">
