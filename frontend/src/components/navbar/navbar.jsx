@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import Popup from '../login_signup/popup'
+import '../../stylesheets/navbar/navbar.css';
 
 
 class Navbar extends React.Component {
@@ -10,7 +11,7 @@ class Navbar extends React.Component {
         this.state = { showPopup: false };
         this.togglePopup = this.togglePopup.bind(this);
         this.logOutAndClear = this.logOutAndClear.bind(this);
-        this.redirectToHome = this.redirectToHome.bind(this);
+        // this.redirectToHome = this.redirectToHome.bind(this);
     }
 
     togglePopup() {
