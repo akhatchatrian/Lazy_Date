@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './navbar';
-import { signUp, signIn, signOut, clearErrors } from '../../actions/session_actions';
+import { signup, login, logout, clearErrors } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -9,9 +9,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 
 const mapDispatchToProps = dispatch => ({
-    signUp: id => dispatch(signUp(id)),
-    signIn: id => dispatch(signIn(id)),
-    signOut: () => dispatch(signOut()),
+    signup: id => dispatch(signup(id)),
+    login: id => dispatch(login(id)),
+    logout: () => dispatch(logout()),
     clearErrors: () => dispatch(clearErrors())
 })
 

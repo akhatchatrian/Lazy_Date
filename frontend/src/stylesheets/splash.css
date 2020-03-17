@@ -3,3 +3,18 @@
     height: 500px;
     width: 500px;
 }
+
+.hiw-container {
+    width: 100%;
+    height: 400px;
+    background-color: #FF3390;
+}
+
+.hiw-banner {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hiw-box {
+    width: 100px;
+}

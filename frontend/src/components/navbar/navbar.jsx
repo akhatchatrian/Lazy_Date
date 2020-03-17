@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
-import Popup from '../signin_signup/popup';
+import Popup from '../login_signup/popup'
 
 
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
 
-
         this.state = { showPopup: false };
         this.togglePopup = this.togglePopup.bind(this);
-        this.signOutAndClear = this.signOutAndClear.bind(this);
+        this.logOutAndClear = this.logOutAndClear.bind(this);
         this.redirectToHome = this.redirectToHome.bind(this);
     }
 
@@ -20,8 +19,8 @@ class Navbar extends React.Component {
         });
     }
 
-    signOutAndClear() {
-        this.props.signOut();
+    logOutAndClear() {
+        this.props.logout();
         this.setState({ showPopup: false })
     }
 
@@ -32,16 +31,16 @@ class Navbar extends React.Component {
     render() {
         // window.scrollTo(0, 0);
 
-        const { currentUserId, signOut, signIn, clearErrors } = this.props;
+        const { currentUserId, logout, login, clearErrors } = this.props;
 
-        const loginLogout = currentUserId ? (
+        const loginLogoutDisplay = currentUserId ? (
             <div>
-                <p className="signin-signout" onClick={this.signOutAndClear}>Sign out</p>
+                <p className="login-logout" onClick={this.logOutAndClear}>Log out</p>
                 <p>User Profile </p>
             </div>
         ) : (
                 <div>
-                    <p className="signin-signout" onClick={this.togglePopup}>Sign in</p>
+                    <p className="login-logout" onClick={this.togglePopup}>Log in</p>
 
                     {this.state.showPopup ?
 
@@ -58,10 +57,8 @@ class Navbar extends React.Component {
 
         return (
             <div className="navbar">
-                <div className="navbar-inner" id='inner' >
-                    {loginLogout}
-
-                </div>
+                <div><p>Logo</p></div>
+                    {loginLogoutDisplay}
             </div>
         )
     }
