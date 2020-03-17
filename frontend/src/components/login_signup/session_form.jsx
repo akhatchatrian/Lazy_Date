@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import '../../stylesheets/navbar/session_forms.css';
+
 // import ErrorList from '../error_list';
 
 class SessionForm extends React.Component {

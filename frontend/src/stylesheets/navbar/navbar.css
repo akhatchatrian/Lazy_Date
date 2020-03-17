@@ -1,22 +1,12 @@
 .navbar {
     /* position: relative; */
+    font-family: 'Helvetica', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #FFFFFF;
     border-bottom: 1px solid gainsboro;
-    /* 
-    width: 100%;
-    height: auto;
-    height: 100px;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 13px;
-    padding-right: 0px; */
-    border: 1px solid blue; 
+    /* border: 1px solid blue;  */
 }
 
 .navbar > img {
