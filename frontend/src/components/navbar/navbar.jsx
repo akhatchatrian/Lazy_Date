@@ -36,12 +36,12 @@ class Navbar extends React.Component {
 
         const loginLogoutDisplay = currentUserId ? (
             <div>
-                <p className="login-logout" onClick={this.logOutAndClear}>Log out</p>
+                <p className="login-logout-btn" onClick={this.logOutAndClear}>Log out</p>
                 <p>User Profile </p>
             </div>
         ) : (
                 <div>
-                    <p className="login-logout" onClick={this.togglePopup}>Log in</p>
+                    <p className="login-logout-btn" onClick={this.togglePopup}>Log in</p>
 
                     {this.state.showPopup ?
 
@@ -58,8 +58,8 @@ class Navbar extends React.Component {
 
         return (
             <div className="navbar">
-                <div><p>Logo</p></div>
-                    {loginLogoutDisplay}
+                <img src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png" alt=""/>
+                {loginLogoutDisplay}
             </div>
         )
     }
