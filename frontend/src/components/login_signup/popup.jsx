@@ -60,12 +60,12 @@ class Popup extends React.Component {
                 </div>
             );
 
-        const toggleButton = (this.state.formType === "Log in") ? (
-            <button className='login-signup-toggle' onClick={this.toggleFormType}>Register</button>
-        ) : (
-                <button className='login-signup-toggle' onClick={this.toggleFormType}>Log in</button>
+        // const toggleButton = (this.state.formType === "Log in") ? (
+        //     <button className='login-signup-toggle' onClick={this.toggleFormType}>Register</button>
+        // ) : (
+        //         <button className='login-signup-toggle' onClick={this.toggleFormType}>Log in</button>
 
-            )
+        //     )
 
         const sessionFormHeader = (this.state.formType === "Log in") ? (
             <p className='form-name'>Log in</p>
@@ -85,7 +85,7 @@ class Popup extends React.Component {
                 <div className="popup-inner">
                     <div className='popup-topline'>
                         {sessionFormHeader}
-                        {toggleButton}
+                        {/* {toggleButton} */}
                     </div>
 
                     {display}

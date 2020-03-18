@@ -10,8 +10,10 @@
 .signup-form-box {
     background-color: white;
     border-radius: 10px;
-    height: 60%;
-    width: 30%;
+    /* height: 500px;
+    width: 450px; */
+    height: 85%;
+    width: 23%;
     position: relative;
     left: 10%;
 }

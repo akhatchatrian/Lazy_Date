@@ -4,6 +4,7 @@ import { yelpSearch } from "../../actions/yelp_actions";
 
 
 const msp = state => ({
+    loggedIn: state.session.isAuthenticated
 })
 
 const mdp = dispatch => ({
