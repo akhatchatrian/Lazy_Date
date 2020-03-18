@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import '../../assets/stylesheets/navbar/session_forms.css';
+
 // import ErrorList from '../error_list';
 
-class SessionForm extends React.Component {
+class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +13,7 @@ class SessionForm extends React.Component {
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.loginDemoUser = this.loginDemoUser.bind(this);
+        // this.loginDemoUser = this.loginDemoUser.bind(this);
     }
 
     handleSubmit(e) {
@@ -39,22 +41,12 @@ class SessionForm extends React.Component {
         )
 
 
-       const firstName = (
-           this.props.formType === 'Sign up' ? (
-            <div className="field">
-                   <label className='field-label firstname-label'>First name {this.props.formType === 'Sign up' ? required : null} 
-                        <input className='form-field' type="text" onChange={this.handleInput('username')} placeholder="Please enter first name" />
-               </label>
-            </div >
-
-           ) : null
-       )
 
        const {errors} = this.props;
     
         return (
             <div>
-                <form className="session-form" onSubmit={this.handleSubmit}>
+                <form className="signup-form" onSubmit={this.handleSubmit}>
                     <div className='session-errors'>
                         <ul>
                             {/* <ErrorList errors={this.props.errors} /> */}
@@ -64,24 +56,30 @@ class SessionForm extends React.Component {
                     </div>
 
 
+
+                    <div className="field">
+                        <label className='field-label firstname-label'>First name {this.props.formType === 'Sign up' ? required : null}
+                            <input className='form-field' type="text" onChange={this.handleInput('username')} placeholder="Please enter first name" />
+                        </label>
+                    </div >
+
+
                     <div className="field">
                         <label className='field-label email-label'>Email address {this.props.formType === 'Sign up' ? required : null} 
                             <input className='form-field' type="text" onChange={this.handleInput('email')} placeholder="Please enter email" />
                         </label>
                     </div>
-                    {firstName}
-                
+                    
+        
                     <div className="field">
                         <label className='field-label password-label'>Password {this.props.formType === 'Sign up' ? required : null} 
-                            <input className='form-field' type="password" onChange={this.handleInput('password')} placeholder="Pleaes enter password" />
+                            <input className='form-field' type="password" onChange={this.handleInput('password')} placeholder="Please enter password" />
                         </label>
                     </div>
 
                     <div className='form-field-btns'>
-                        <button className="signin-register-btn">{(this.props.formType) === 'Sign up' ? 'Register' : 'Log in'}</button>
-                        
-                        {/*only shows demo user button on login form */}
-                        {this.props.formType === 'Log in' ? <button className="demo-user-btn" onClick={this.loginDemoUser}>Demo User</button> : null}
+                        <button className="signup-btn">Sign Up</button>
+                        <button className="demo-user-btn" onClick={this.loginDemoUser}>Demo User</button>
                     </div>
                 </form>
             </div>
@@ -89,4 +87,4 @@ class SessionForm extends React.Component {
     }
 }
 
-export default SessionForm;
+export default SignupForm;

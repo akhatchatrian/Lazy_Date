@@ -1,0 +1,43 @@
+.navbar {
+    /* position: relative; */
+    font-family: 'Helvetica', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid gainsboro;
+    /* border: 1px solid blue;  */
+}
+
+.navbar > img {
+    height: 50px;
+    width: auto;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.login-logout-btn {
+    height: fit-content;
+    width: fit-content;
+    border: 1.5px solid rgb(151, 150, 150);
+    color: rgb(151, 150, 150);
+    
+    font-family: 'Helvetica', sans-serif;
+    font-size: 15px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: auto;
+    padding: 10px; /* this is for the hover circle, do not remove */
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 0px 15% 0 -30%;
+}
+
+.login-logout-btn:hover {
+    background-color: white;
+    border: 1.5px solid #F08B8F;
+    color: #F08B8F;
+    cursor: pointer;
+}

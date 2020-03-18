@@ -1,0 +1,25 @@
+.footer {
+    background-color: #6F66FF;
+    display: flex;
+    height: 120px;
+    width: 100%;
+}
+
+.footer-left {
+    width: 50%;
+}
+
+.footer-right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+a {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 0 15px 0 15px;
+}
