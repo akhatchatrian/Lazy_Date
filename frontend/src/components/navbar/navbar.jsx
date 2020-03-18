@@ -7,7 +7,6 @@ import '../../assets/stylesheets/navbar/navbar.css';
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = { showPopup: false };
         this.togglePopup = this.togglePopup.bind(this);
         this.logOutAndClear = this.logOutAndClear.bind(this);
