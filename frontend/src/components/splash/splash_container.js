@@ -3,7 +3,7 @@ import Splash from "./splash";
 
 
 const msp = state => ({
-
+    loggedIn: state.session.isAuthenticated
 })
 
 const mdp = dispatch => ({
