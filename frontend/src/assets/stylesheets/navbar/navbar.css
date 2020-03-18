@@ -17,12 +17,15 @@
 .login-logout-btn {
     height: fit-content;
     width: fit-content;
-    border: 1px solid gainsboro;
-
+    border: 1.5px solid rgb(151, 150, 150);
+    color: rgb(151, 150, 150);
+    
     font-family: 'Helvetica', sans-serif;
+    font-size: 15px;
     white-space: nowrap;
     display: flex;
     justify-content: center;
+    align-items: center;
     min-width: auto;
     padding: 10px; /* this is for the hover circle, do not remove */
     border-radius: 30px;
@@ -32,6 +35,7 @@
 
 .login-logout-btn:hover {
     background-color: white;
-    border: 1px solid #F08B8F;
+    border: 1.5px solid #F08B8F;
+    color: #F08B8F;
     cursor: pointer;
 }
