@@ -42,7 +42,7 @@ class Splash extends React.Component {
                 </div>
               </div>
             </header>
-            {/* <Footer /> */}
+            <Footer />
           </main>
         );
     }
