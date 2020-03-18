@@ -1,4 +1,4 @@
-import { RECEIVE_YELP_DATA } from '../actions/session_actions';
+import { RECEIVE_YELP_DATA } from '../actions/yelp_actions';
 
 export default function(state = {}, action) {
   switch (action.type) {

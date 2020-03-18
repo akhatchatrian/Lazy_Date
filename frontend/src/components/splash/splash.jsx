@@ -10,7 +10,6 @@ class Splash extends React.Component {
     }
 
     render() {
-        console.log(this.props.yelpData)
         return (
             <main className="main-bg">
                 <section className="header-container">

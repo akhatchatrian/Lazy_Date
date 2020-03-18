@@ -4,7 +4,6 @@ import { yelpSearch } from "../../actions/yelp_actions";
 
 
 const msp = state => ({
-    yelpData: state.yelpData
 })
 
 const mdp = dispatch => ({
