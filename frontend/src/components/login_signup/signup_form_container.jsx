@@ -2,7 +2,7 @@ import React from 'react';
 import { signup} from '../../actions/session_actions';
 import { connect } from 'react-redux';
 // import SignupForm from './signup_form';
-import SessionForm from './session_form';
+import SessionForm from './signup_form';
 
 
 
