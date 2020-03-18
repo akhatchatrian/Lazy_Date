@@ -16,18 +16,19 @@ class Splash extends React.Component {
                     <div className="hiw-banner">
                         <div className="hiw-box">
                             <p>Tell us you and your date's interests</p>
-                            <img src="../../assets/images/undraw_interests.png"/>
+                            <div className="hiw-img-1"></div>
                         </div>
                         <div className="hiw-box">
                             <p>Generate a list of great date ideas</p>
-                            <img src="../../assets/images/undraw_list.png"/>
+                            <div className="hiw-img-2"></div>
                         </div>
                         <div className="hiw-box">
                             <p>Go on an unforgettable date!</p>
-                            <img src="/assets/undraw_date"/>
+                            <div className="hiw-img-3"></div>
                         </div>
                     </div>
                 </header>
+                <footer></footer>
             </main>
         )
     }
