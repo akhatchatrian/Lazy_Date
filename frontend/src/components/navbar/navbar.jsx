@@ -32,9 +32,9 @@ class Navbar extends React.Component {
     render() {
         // window.scrollTo(0, 0);
 
-        const { currentUserId, logout, login, clearErrors } = this.props;
+        const { loggedIn, logout, login, clearErrors } = this.props;
 
-        const loginLogoutDisplay = currentUserId ? (
+        const loginLogoutDisplay = loggedIn ? (
             <div>
                 <p className="login-logout-btn" onClick={this.logOutAndClear}>Log out</p>
                 <p>User Profile </p>
@@ -48,7 +48,7 @@ class Navbar extends React.Component {
                         <Popup
                             text='hello'
                             closePopup={this.togglePopup}
-                            currentUser={currentUserId}
+                            // currentUser={currentUserId}
                             clearErrors={clearErrors}
                         /> : null
                     }

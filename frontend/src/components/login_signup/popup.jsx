@@ -43,7 +43,7 @@ class Popup extends React.Component {
 
     closePopup() {
         this.props.closePopup()
-        this.props.clearErrors()
+        // this.props.clearErrors()
     }
 
     
