@@ -36,6 +36,7 @@ class Navbar extends React.Component {
 
         const loginLogoutDisplay = loggedIn ? (
             <div>
+                <p>Hello, {this.props.currentUser.email}</p>
                 <p className="login-logout-btn" onClick={this.logOutAndClear}>Log out</p>
                 <p>User Profile </p>
             </div>

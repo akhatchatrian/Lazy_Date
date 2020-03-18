@@ -4,8 +4,8 @@ import { signup, login, logout, clearErrors } from '../../actions/session_action
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => ({
-    loggedIn: state.session.isAuthenticated
-    // currentUserId: state.session.currentUserId,
+    loggedIn: state.session.isAuthenticated,
+    currentUser: state.session.user
 })
 
 
