@@ -3,7 +3,13 @@ import React from "react";
 import "../../stylesheets/splash.css"
 
 class Splash extends React.Component {
+
+    componentDidMount() {
+        this.props.yelpSearch();
+    }
+
     render() {
+        console.log(this.props.yelpData)
         return (
             <main className="main-bg">
                 <section>
