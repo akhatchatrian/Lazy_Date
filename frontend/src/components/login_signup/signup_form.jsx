@@ -73,7 +73,7 @@ class SignupForm extends React.Component {
         
                     <div className="field">
                         <label className='field-label password-label'>Password {this.props.formType === 'Sign up' ? required : null} 
-                            <input className='form-field' type="password" onChange={this.handleInput('password')} placeholder="Pleaes enter password" />
+                            <input className='form-field' type="password" onChange={this.handleInput('password')} placeholder="Please enter password" />
                         </label>
                     </div>
 

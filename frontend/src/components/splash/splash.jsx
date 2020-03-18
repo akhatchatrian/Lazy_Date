@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../footer";
 
 import "../../assets/stylesheets/splash/splash.css";
 
@@ -9,6 +10,10 @@ class Splash extends React.Component {
                 <section className="header-container">
                     <div className="signup-form-box">
                         {/* <SignupFormContainer /> */}
+                    </div>
+                    <div className="slogan-box">
+                        <p>You know who.</p>
+                        <p>We know where.</p>
                     </div>
                 </section>
                 <header className="hiw-container">
@@ -28,7 +33,7 @@ class Splash extends React.Component {
                         </div>
                     </div>
                 </header>
-                <footer></footer>
+                <Footer />
             </main>
         )
     }

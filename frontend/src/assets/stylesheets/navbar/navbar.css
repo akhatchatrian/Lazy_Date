@@ -12,6 +12,8 @@
 .navbar > img {
     height: 50px;
     width: auto;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .login-logout-btn {
@@ -28,7 +30,7 @@
     align-items: center;
     min-width: auto;
     padding: 10px; /* this is for the hover circle, do not remove */
-    border-radius: 30px;
+    border-radius: 5px;
     box-sizing: border-box;
     margin: 0px 15% 0 -30%;
 }
