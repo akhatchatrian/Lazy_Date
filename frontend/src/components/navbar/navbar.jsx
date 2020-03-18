@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import Popup from '../login_signup/popup'
-import '../../stylesheets/navbar/navbar.css';
+import '../../assets/stylesheets/navbar/navbar.css';
 
 
 class Navbar extends React.Component {
