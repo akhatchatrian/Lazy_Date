@@ -1,6 +1,7 @@
 const axios = require('axios');
 const express = require("express");
 const router = express.Router();
+const keys = require('../../config/keys');
 
 router.get("/data", (req, res) => {
     getYelpData().then(response =>
@@ -11,10 +12,10 @@ router.get("/data", (req, res) => {
 function getYelpData() {
     return axios.get('https://api.yelp.com/v3/businesses/search', {
         params: {
-            location: 'Houston'
+            location: 'San Francisco'
         },
         headers: {
-            'Authorization': 'Bearer sE_0n-3QIe3A4vJszN_mub1XTqIbHjBQSCLdKhAF9q5wKIZEcmqR087McHZJmca3Oxt6IRMacQHki6AMOFYt-H4_lX-gUYF3q_zW5ogM0ekPsYdCJ7W6TjaO7idxXnYx'
+            'Authorization': keys.yelpAPI
         }
     }).then(response => {
         return response.data;
