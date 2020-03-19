@@ -13,9 +13,12 @@ class Interests extends React.Component {
     }
 
     continue() {
-        this.props.updateState(this.state.categories);
-        // debugger
-        this.props.nextStep()
+        if (this.state.categories.length != 0) {
+            this.props.updateState(this.state.categories);
+            this.props.nextStep()
+        } else {
+            // Add functionality to render errors here
+        }
     }
 
     updateValues(e) {

@@ -17,7 +17,7 @@ class DateSearchForm extends React.Component {
                 activeLifestyle: ["hiking trails", "bungee jumping"]
             },
             conditions: {
-                age: 0,
+                age: false,
                 location: "",
                 price: 0
             }
@@ -26,11 +26,11 @@ class DateSearchForm extends React.Component {
         this.nextStep = this.nextStep.bind(this);
         this.prevStep = this.prevStep.bind(this);
         this.updateState = this.updateState.bind(this);
+        this.updateConditions = this.updateConditions.bind(this);
+        this.updateFilters = this.updateFilters.bind(this);
     }
 
     updateState(fieldList) {
-
-        // Get a load of this beaut
         let optionKeys = Object.keys(this.state.options);
         let newOps = Object.assign({}, this.state.options);
 
@@ -41,6 +41,14 @@ class DateSearchForm extends React.Component {
         }
 
         this.setState({options: newOps})
+    }
+
+    updateConditions(newConditions) {
+        this.setState({conditions: newConditions})
+    }
+
+    updateFilters(newList) {
+        this.setState({options: newList})
     }
 
     nextStep() {
@@ -66,8 +74,7 @@ class DateSearchForm extends React.Component {
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     currentUser={this.props.currentUser}
-                    conditions={this.state.conditions}
-                    updateState={this.updateState}
+                    updateConditions={this.updateConditions}
                 />
             case 1:
                 return <Interests
@@ -78,21 +85,21 @@ class DateSearchForm extends React.Component {
                     updateState={this.updateState}
                 />
             case 2:
-                debugger
                 return <Intimacy
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     currentUser={this.props.currentUser}
                     options={this.state.options}
-                    updateState={this.updateState}
+                    updateFilters={this.updateFilters}
                 />
             case 3:
+                debugger
                 return <Adventurous
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     currentUser={this.props.currentUser}
                     options={this.state.options}
-                    updateState={this.updateState}
+                    updateFilters={this.updateFilters}
                 />
             default:
                 // return <Redirect to="TBD" />
