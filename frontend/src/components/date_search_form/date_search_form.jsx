@@ -30,22 +30,18 @@ class DateSearchForm extends React.Component {
 
     updateState(fieldList) {
 
-        // fieldList = ["artsEntertainment", "activeLifestyle"]
-        console.log(this.state.options)
-        let optionKeys = Object.keys(this.state.options) // ["nightlife", "artsEntertainment", "food", "activeLifestyle"]
-        
+        // Get a load of this beaut
+        let optionKeys = Object.keys(this.state.options);
+        let newOps = Object.assign({}, this.state.options);
+
         for (let i = 0; i < optionKeys.length; i++) {
             if (!fieldList.includes(optionKeys[i])) {
-                this.setState(
-                    {options: {[optionKeys[i]]: ""}}
-                )
+               newOps[optionKeys[i]] = ""
             }
         }
-        console.log(this.state.options)
+
+        this.setState({options: newOps})
     }
-
-
-
 
     nextStep() {
         if (this.state.currentStep < 3) {
@@ -62,8 +58,6 @@ class DateSearchForm extends React.Component {
             }))
         }
     }
-
-
 
     render() {
         switch (this.state.currentStep) {
@@ -84,7 +78,6 @@ class DateSearchForm extends React.Component {
                     updateState={this.updateState}
                 />
             case 2:
-                debugger
                 return <Intimacy
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
