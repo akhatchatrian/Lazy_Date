@@ -37,7 +37,7 @@ class Navbar extends React.Component {
             <div>
                 <p>Hello, {this.props.currentUser.email}</p>
                 <p className="login-logout-btn" onClick={this.logOutAndClear}>Log out</p>
-                <p>User Profile </p>
+                <p className='user-profile-btn'>User Profile </p>
             </div>
         ) : (
                 <div>
@@ -57,11 +57,16 @@ class Navbar extends React.Component {
 
 
         return (
-            <div className="navbar">
-                <img src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png" alt=""/>
-                {loginLogoutDisplay}
-            </div>
-        )
+          <div className="navbar">
+            {loggedIn ? (
+              <img
+                src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png"/>
+            ) : (
+              <img src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png"/>
+            )}
+            {loginLogoutDisplay}
+          </div>
+        );
     }
 }
 
