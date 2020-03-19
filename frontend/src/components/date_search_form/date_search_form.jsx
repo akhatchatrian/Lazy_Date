@@ -36,7 +36,7 @@ class DateSearchForm extends React.Component {
 
         for (let i = 0; i < optionKeys.length; i++) {
             if (!fieldList.includes(optionKeys[i])) {
-               newOps[optionKeys[i]] = ""
+               newOps[optionKeys[i]] = []
             }
         }
 
@@ -78,6 +78,7 @@ class DateSearchForm extends React.Component {
                     updateState={this.updateState}
                 />
             case 2:
+                debugger
                 return <Intimacy
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
