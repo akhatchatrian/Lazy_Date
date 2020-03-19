@@ -17,7 +17,9 @@ html, body {
     overflow: hidden;
     height: 100px;
     opacity: 97%;
-    /* position: fixed; */ /* do not use fixed for regular navbar - it overlaps the homepage */
+    /* position: fixed;  */
+    background-color: transparent;
+    /* do not use fixed for regular navbar - it overlaps the homepage */
     /* background-color: #FFFFFF;
     border-bottom: 1px solid gainsboro; */
     /* border: 1px solid blue;  */
@@ -26,13 +28,13 @@ html, body {
 
 
 .navbar-transparent {
-    position: absolute;
+    position: fixed; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     top: 0;
-    margin-bottom: 10%;
+    /* margin-bottom: 10%; */
     height: auto;
     background-color: transparent;
 }
