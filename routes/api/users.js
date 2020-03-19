@@ -82,7 +82,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, name: user.name, email: user.email }; // Again, should this be name? Probably not.
+        const payload = { id: user.id, name: user.name, email: user.email, userDateTemplates: user.userDateTemplates, savedDates: user.savedDates }; // Again, should this be name? Probably not.
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({

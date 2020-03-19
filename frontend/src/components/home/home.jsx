@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class Home extends Component {
-  componentDidMount() {}
+  componentDidMount() {debugger}
 
   render() {
     return (
