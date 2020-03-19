@@ -30,40 +30,54 @@ class Navbar extends React.Component {
 
     render() {
         // window.scrollTo(0, 0);
-
+        
         const { loggedIn, clearErrors } = this.props; // Temp removed login, logout for warnings
 
         const loginLogoutDisplay = loggedIn ? (
-            <div>
-                <p>Hello, {this.props.currentUser.email}</p>
-                <p className="login-logout-btn" onClick={this.logOutAndClear}>Log out</p>
-                <p className='user-profile-btn'>User Profile </p>
-            </div>
+          <div className="navbar-right-loggedin">
+            <p>Welcome back, {this.props.currentUser.name.slice(0, 1).toUpperCase() + this.props.currentUser.name.slice(1).toLowerCase()}!</p>
+            <p className="user-profile-btn">User Profile </p>
+            <p className="login-logout-btn" onClick={this.logOutAndClear}>
+              Log out
+            </p>
+          </div>
         ) : (
-                <div>
-                    <p className="login-logout-btn" onClick={this.togglePopup}>Log in</p>
+          <div className="navbar-right-loggedout">
+            <p className="login-logout-btn" onClick={this.togglePopup}>
+              Log in
+            </p>
 
-                    {this.state.showPopup ?
-
-                        <Popup
-                            text='hello'
-                            closePopup={this.togglePopup}
-                            // currentUser={currentUserId}
-                            clearErrors={clearErrors}
-                        /> : null
-                    }
-                </div>
-            );
-
+            {this.state.showPopup ? (
+              <Popup
+                text="hello"
+                closePopup={this.togglePopup}
+                // currentUser={currentUserId}
+                clearErrors={clearErrors}
+              />
+            ) : null}
+          </div>
+        );
 
         return (
           <div className="navbar">
-            {loggedIn ? (
+            {/* {loggedIn ? (
               <img src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent.png" />
             ) : (
               <img src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png" />
             )}
-            {loginLogoutDisplay}
+            {loginLogoutDisplay} */}
+               {!loggedIn ? (
+            <div className='navbar-transparent'>
+                <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent.png" />
+                {loginLogoutDisplay}
+              </div>
+            ) : (
+                <div className='navbar-reg'>
+                <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png" /> 
+                {/* onClick={this.redirectToHome} */}
+                {loginLogoutDisplay}
+              </div>
+            )}
           </div>
         );
     }
