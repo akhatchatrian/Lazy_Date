@@ -2,7 +2,7 @@ const Validator = require('validator');
 const validText = require('./valid-text');
 
 module.exports = function validateLoginInput(data) {
-  let errors = {type: 'login'};
+  let errors = {};
 
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : '';
@@ -18,6 +18,8 @@ module.exports = function validateLoginInput(data) {
   if (Validator.isEmpty(data.password)) {
     errors.password = 'Password field is required';
   }
+
+  Object.keys(errors).length === 0 ? errors : errors = Object.assign(errors, { type: "login" });
 
   return {
     errors,

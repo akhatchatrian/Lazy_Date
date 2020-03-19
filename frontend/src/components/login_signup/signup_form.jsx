@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, Switch } from 'react-router-dom';
 import '../../assets/stylesheets/navbar/signup_form.css';
+import { login } from '../../util/session_api_util';
 
 
 class SignupForm extends React.Component {
@@ -12,13 +13,23 @@ class SignupForm extends React.Component {
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginAfterRegister = this.loginAfterRegister.bind(this);
         // this.loginDemoUser = this.loginDemoUser.bind(this);
+    }
+
+    loginAfterRegister() {
+      if (!this.props.loggedIn) {
+        this.props.login({
+          email: this.state.email,
+          password: this.state.password
+        });
+      } 
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.signup(user)
+        this.props.signup(user).then(this.loginAfterRegister);  
     }
 
     handleInput(type) {

@@ -42,9 +42,7 @@ class LoginForm extends React.Component {
         const emailErrors = this.props.errors.email;
         const passwordErrors = this.props.errors.password;
         const isLoginError = this.props.errors.type === 'login';
-    
-        // const errors = this.props.errors.errorType === login ? this.props.errors : undefined;
- 
+     
         return (
           <div>
             <form className="login-form" onSubmit={this.handleSubmit}>
