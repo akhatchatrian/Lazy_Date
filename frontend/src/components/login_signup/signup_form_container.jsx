@@ -7,7 +7,6 @@ import SignupForm from './signup_form';
 
 const msp = (state, errors) => ({
     loggedIn: state.session.isAuthenticated,
-    // currentUser: state.session.currentUser,
     errors: state.errors.session,
 });
 

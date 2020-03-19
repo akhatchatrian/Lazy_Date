@@ -2,7 +2,7 @@ const Validator = require('validator');
 const validText = require('./valid-text');
 
 module.exports = function validateRegisterInput(data) {
-  let errors = {};
+  let errors = { };
 
   data.name = validText(data.name) ? data.name : '';
   data.email = validText(data.email) ? data.email : '';
@@ -28,9 +28,10 @@ module.exports = function validateRegisterInput(data) {
     errors.password = 'Password must be at least 6 characters';
   }
 
+  Object.keys(errors).length === 0 ? errors : errors = Object.assign(errors, { type: "signup" });
+
   return {
     errors,
-    isValid: Object.keys(errors).length === 0,
-    // errorType: register
+    isValid: Object.keys(errors).length === 0
   };
 };
