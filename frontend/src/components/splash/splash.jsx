@@ -11,7 +11,7 @@ class Splash extends React.Component {
 
     render() {
         return (
-          <main className="main-bg">
+          <main className="main-bg" onClick={this.props.clearErrors}>
             <section className="header-container">
               <div className="signup-form-box">
                 {this.props.loggedIn ? (
