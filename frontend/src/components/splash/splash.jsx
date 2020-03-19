@@ -1,7 +1,7 @@
 import React from "react";
 import SignupFormContainer from '../../components/login_signup/signup_form_container';
 import "../../assets/stylesheets/splash/splash.css";
-import Footer from "../footer"
+import Footer from "../footer";
 
 class Splash extends React.Component {
 
@@ -11,7 +11,7 @@ class Splash extends React.Component {
 
     render() {
         return (
-          <main className="main-bg">
+          <main className="main-bg" onClick={this.props.clearErrors}>
             <section className="header-container">
               <div className="signup-form-box">
                 {this.props.loggedIn ? (

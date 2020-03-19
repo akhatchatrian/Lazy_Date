@@ -11,10 +11,15 @@ class Popup extends React.Component {
             formType: "Log in",
             showOverlay: 'show-popup-overlay'
         }
-        this.toggleFormType = this.toggleFormType.bind(this);
+        // this.toggleFormType = this.toggleFormType.bind(this);
         this.closePopup = this.closePopup.bind(this);
     }
 
+    componentDidMount(){
+        this.props.clearErrors()
+    }
+
+    
     componentDidUpdate() {
         this.props.clearErrors()
     }
@@ -30,52 +35,35 @@ class Popup extends React.Component {
             )
     }
 
-    toggleFormType() {
-        (this.state.formType === 'Log in') ?
-            (this.setState({
-                formType: 'Sign up'
-            })) : (
-                (this.setState({
-                    formType: 'Log in'
-                }))
-            )
-    }
+    // toggleFormType() {
+    //     (this.state.formType === 'Log in') ?
+    //         (this.setState({
+    //             formType: 'Sign up'
+    //         })) : (
+    //             (this.setState({
+    //                 formType: 'Log in'
+    //             }))
+    //         )
+    // }
 
     closePopup() {
         this.props.closePopup()
-        // this.props.clearErrors()
+        this.props.clearErrors()
     }
 
     
     render() {
         // const {closePopup} = this.props;
 
-        const display = this.state.formType === 'Log in' ? (
-                <div>
-                    <LoginFormContainer formType={this.state.formType} closePopup={this.closePopUp}/>
-                </div>
-            ) : (
-                <div>
-                    <SignupFormContainer formType={this.state.formType} closePopup={this.closePopUp}/>
-                </div>
-            );
-
-        // const toggleButton = (this.state.formType === "Log in") ? (
-        //     <button className='login-signup-toggle' onClick={this.toggleFormType}>Register</button>
-        // ) : (
-        //         <button className='login-signup-toggle' onClick={this.toggleFormType}>Log in</button>
-
-        //     )
-
-        const sessionFormHeader = (this.state.formType === "Log in") ? (
-            <p className='form-name'>Log in</p>
-        ) : (
-            <div>
-                <p className='form-name'>Create your account</p>
-                <p className='form-name-caption'>Registration is easy.</p>
-            </div>
-        )
-            
+        // const display = this.state.formType === 'Log in' ? (
+        //         <div>
+        //             <LoginFormContainer formType={this.state.formType} closePopup={this.closePopUp}/>
+        //         </div>
+        //     ) : (
+        //         <div>
+        //             <SignupFormContainer formType={this.state.formType} closePopup={this.closePopUp}/>
+        //         </div>
+        //     );            
             
         return (
 
@@ -84,11 +72,9 @@ class Popup extends React.Component {
                 
                 <div className="popup-inner">
                     <div className='popup-topline'>
-                        {sessionFormHeader}
-                        {/* {toggleButton} */}
+                        <p className='form-name'>Log in</p>
                     </div>
-
-                    {display}
+                    <LoginFormContainer formType={this.state.formType} closePopup={this.closePopUp} />
                     {/* <button onClick={closePopup} onClick={this.toggleOverlay}>Close</button> */}
                 </div>
             </div>
