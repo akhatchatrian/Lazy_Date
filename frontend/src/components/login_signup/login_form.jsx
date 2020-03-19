@@ -39,7 +39,9 @@ class LoginForm extends React.Component {
             <span className="required">*</span>
             )
 
-        // const {errors} = this.props;
+        const emailErrors = this.props.errors.email;
+        const passwordErrors = this.props.errors.password;
+        const isLoginError = this.props.errors.type === 'login';
     
         // const errors = this.props.errors.errorType === login ? this.props.errors : undefined;
  
@@ -51,15 +53,13 @@ class LoginForm extends React.Component {
                 <label className="field-label email-label"> Email address
                   <input
                     className="form-field"
-                    id={this.props.errors.email ? "red-border" : ""}
+                    id={(emailErrors && isLoginError) ? "red-border" : ""}
                     type="text"
                     onChange={this.handleInput("email")}
                     placeholder="Please enter email"
                   />
                   <div className="error-text">
-                    {this.props.errors.email === undefined
-                      ? null
-                      : this.props.errors.email}
+                    {emailErrors === undefined ? null : !isLoginError ? null : emailErrors}
                   </div>
                 </label>
               </div>
@@ -69,15 +69,13 @@ class LoginForm extends React.Component {
                   Password
                   <input
                     className="form-field"
-                    id={this.props.errors.password ? "red-border" : ""}
+                    id={(passwordErrors && isLoginError)? "red-border" : ""}
                     type="password"
                     onChange={this.handleInput("password")}
                     placeholder="Please enter password"
                   />
                   <div className="error-text">
-                    {this.props.errors.password === undefined
-                      ? null
-                      : this.props.errors.password}
+                    {passwordErrors === undefined ? null : !isLoginError ? null : passwordErrors}
                   </div>
                 </label>
               </div>

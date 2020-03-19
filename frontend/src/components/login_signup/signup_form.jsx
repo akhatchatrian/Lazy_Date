@@ -39,9 +39,12 @@ class SignupForm extends React.Component {
             <span className="required">*</span>
         )
 
+             const emailErrors = this.props.errors.email;
+             const nameErrors = this.props.errors.name;
+             const passwordErrors = this.props.errors.password;
+             const isSignupError = this.props.errors.type === "signup";
 
-
-       const {errors} = this.props;
+    //    const {errors} = this.props;
         return (
           <div>
             <form className="signup-form" onSubmit={this.handleSubmit}>
@@ -52,15 +55,17 @@ class SignupForm extends React.Component {
                   First name {required}
                   <input
                     className="form-field"
-                    id={this.props.errors.name ? "red-border" : ""}
+                    id={nameErrors && isSignupError ? "red-border" : ""}
                     type="text"
                     onChange={this.handleInput("name")}
                     placeholder="Please enter first name"
                   />
                   <div className="error-text">
-                    {this.props.errors.name === undefined
+                    {nameErrors === undefined
                       ? null
-                      : this.props.errors.name}
+                      : !isSignupError
+                      ? null
+                      : nameErrors}
                   </div>
                 </label>
               </div>
@@ -70,15 +75,17 @@ class SignupForm extends React.Component {
                   Email address {required}
                   <input
                     className="form-field"
-                    id={this.props.errors.email ? "red-border" : ""}
+                    id={emailErrors && isSignupError ? "red-border" : ""}
                     type="text"
                     onChange={this.handleInput("email")}
                     placeholder="Please enter email"
                   />
                   <div className="error-text">
-                    {this.props.errors.email === undefined
+                    {emailErrors === undefined
                       ? null
-                      : this.props.errors.email}
+                      : !isSignupError
+                      ? null
+                      : emailErrors}
                   </div>
                 </label>
               </div>
@@ -88,15 +95,17 @@ class SignupForm extends React.Component {
                   Password {required}
                   <input
                     className="form-field"
-                    id={this.props.errors.password ? "red-border" : ""}
+                    id={passwordErrors && isSignupError ? "red-border" : ""}
                     type="password"
                     onChange={this.handleInput("password")}
                     placeholder="Please enter password"
                   />
                   <div className="error-text">
-                    {this.props.errors.password === undefined
+                    {passwordErrors === undefined
                       ? null
-                      : this.props.errors.password}
+                      : !isSignupError
+                      ? null
+                      : passwordErrors}
                   </div>
                 </label>
               </div>

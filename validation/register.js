@@ -2,7 +2,7 @@ const Validator = require('validator');
 const validText = require('./valid-text');
 
 module.exports = function validateRegisterInput(data) {
-  let errors = {};
+  let errors = { type: "signup" };
 
   data.name = validText(data.name) ? data.name : '';
   data.email = validText(data.email) ? data.email : '';
@@ -31,6 +31,6 @@ module.exports = function validateRegisterInput(data) {
   return {
     errors,
     isValid: Object.keys(errors).length === 0,
-    // errorType: register
+    errorType: "register"
   };
 };
