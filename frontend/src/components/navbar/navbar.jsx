@@ -59,10 +59,9 @@ class Navbar extends React.Component {
         return (
           <div className="navbar">
             {loggedIn ? (
-              <img
-                src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png"/>
+              <img src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent.png" />
             ) : (
-              <img src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png"/>
+              <img src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png" />
             )}
             {loginLogoutDisplay}
           </div>
