@@ -1,5 +1,8 @@
 import React from "react"
-
+import Basics from "./basics";
+import Interests from "./interests";
+import Intimacy from "./intimacy";
+import Adventurous from "./adventurous";
 
 class DateSearchForm extends React.Component {
     constructor(props) {
@@ -22,19 +25,26 @@ class DateSearchForm extends React.Component {
 
         this.nextStep = this.nextStep.bind(this);
         this.prevStep = this.prevStep.bind(this);
+        this.updateState = this.updateState.bind(this);
     }
 
     updateState(fieldList) {
-        let optionKeys = Object.keys(this.state.options)
 
+        // fieldList = ["artsEntertainment", "activeLifestyle"]
+        console.log(this.state.options)
+        let optionKeys = Object.keys(this.state.options) // ["nightlife", "artsEntertainment", "food", "activeLifestyle"]
+        
         for (let i = 0; i < optionKeys.length; i++) {
             if (!fieldList.includes(optionKeys[i])) {
-                this.setState({options:
-                    {[optionKeys[i]]: ""}
-                })
+                this.setState(
+                    {options: {[optionKeys[i]]: ""}}
+                )
             }
         }
+        console.log(this.state.options)
     }
+
+
 
 
     nextStep() {
@@ -63,6 +73,7 @@ class DateSearchForm extends React.Component {
                     prevStep={this.prevStep}
                     currentUser={this.props.currentUser}
                     conditions={this.state.conditions}
+                    updateState={this.updateState}
                 />
             case 1:
                 return <Interests
@@ -70,13 +81,16 @@ class DateSearchForm extends React.Component {
                     prevStep={this.prevStep}
                     currentUser={this.props.currentUser}
                     options={this.state.options}
+                    updateState={this.updateState}
                 />
             case 2:
+                debugger
                 return <Intimacy
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     currentUser={this.props.currentUser}
                     options={this.state.options}
+                    updateState={this.updateState}
                 />
             case 3:
                 return <Adventurous
@@ -84,9 +98,11 @@ class DateSearchForm extends React.Component {
                     prevStep={this.prevStep}
                     currentUser={this.props.currentUser}
                     options={this.state.options}
+                    updateState={this.updateState}
                 />
             default:
-                return <Redirect to="TBD" />
+                // return <Redirect to="TBD" />
+                return null;
         }
     }
 
