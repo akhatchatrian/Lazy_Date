@@ -12,7 +12,10 @@ router.get("/data", (req, res) => {
 function getYelpData() {
     return axios.get('https://api.yelp.com/v3/businesses/search', {
         params: {
-            location: 'San Francisco'
+            location: 'San Francisco',
+            categories: {
+
+            }
         },
         headers: {
             'Authorization': keys.yelpAPI
