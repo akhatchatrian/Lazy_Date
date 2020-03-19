@@ -12,9 +12,9 @@ const App = () => (
         <NavbarContainer />
         <Switch>
             <AuthRoute exact path="/" component={SplashContainer} />
-            {/* <ProtectedRoute exact path="/home" component={HomeContainer} /> */}
+            <ProtectedRoute path="/home" component={HomeContainer} />
             <ProtectedRoute exact path="/date" component={DateSearchFormContainer} />
-            <AuthRoute exact path="/home" component={HomeContainer} />
+            {/* <AuthRoute exact path="/home" component={HomeContainer} /> */}
         </Switch>
     </div>
 );

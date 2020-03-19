@@ -1,19 +1,78 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .navbar {
-    /* position: relative; */
+    position: relative;
     font-family: 'Helvetica', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFFFFF;
-    border-bottom: 1px solid gainsboro;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    overflow: hidden;
+    height: 100px;
+    opacity: 97%;
+    /* position: fixed; */ /* do not use fixed for regular navbar - it overlaps the homepage */
+    /* background-color: #FFFFFF;
+    border-bottom: 1px solid gainsboro; */
     /* border: 1px solid blue;  */
+    
 }
 
-.navbar > img {
+
+.navbar-transparent {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    margin-bottom: 10%;
+    height: auto;
+    background-color: transparent;
+}
+
+.navbar-reg {
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+     background-color: white;
+    border-bottom: 1px solid white;
+    /* border-bottom: 1px solid gainsboro; */
+}
+
+.logo {
+    /* height: 50px; */
     height: 50px;
     width: auto;
     padding: 10px;
     cursor: pointer;
+}
+
+.navbar-right-loggedin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 400px;
+    height: auto;
+}
+
+.navbar-right-loggedout {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    width: 400px;
+    height: auto;
+    margin-right: 2%;
 }
 
 .login-logout-btn {
@@ -32,7 +91,7 @@
     padding: 10px; /* this is for the hover circle, do not remove */
     border-radius: 5px;
     box-sizing: border-box;
-    margin: 0px 15% 0 -30%;
+    /* margin: 0px 15% 0 -30%; */
 }
 
 .login-logout-btn:hover {
