@@ -18,6 +18,7 @@ class Navbar extends React.Component {
         this.setState({
             showPopup: !this.state.showPopup
         });
+        this.props.clearErrors()
     }
 
     logOutAndClear() {
