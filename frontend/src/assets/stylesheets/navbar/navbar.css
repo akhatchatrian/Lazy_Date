@@ -97,6 +97,7 @@ html, body {
     padding: 10px; /* this is for the hover circle, do not remove */
     border-radius: 5px;
     box-sizing: border-box;
+    cursor: pointer;
     /* margin: 0px 15% 0 -30%; */
 }
 
