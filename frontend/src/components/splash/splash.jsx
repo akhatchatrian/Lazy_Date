@@ -43,6 +43,31 @@ class Splash extends React.Component {
                 </div>
               </div>
             </header>
+            <div className='why-container'>
+              <div className="why-img-1"></div>
+              <div className='why-text'>
+                  <h1 className='why-title'>Why LazyDate?</h1>
+                <p>
+                  Though meeting people has never been so easy.Dating is still hard. 
+                  Like really hard. Especially nowadays. People are busy, they are 
+                  lazy, or they’re just plain old clueless. It seems like between 
+                  work, family, and friends, it is harder than ever to put the 
+                  effort into your dating life that it deserves. Enter LazyDate. 
+                  <br>
+
+                  </br>
+                  Lazydate was first founded with the hope of solving the 
+                  timeless question, “what is the perfect date?”. Now, LazyDate 
+                  has become a battle cry for the lazy, busy, clueless, and 
+                  simply curious. A loud declaration that everyone deserves the
+                   perfect date, even if they don’t know what that is yet.  
+
+                </p>
+            
+              
+              </div>
+
+            </div>
             <Footer />
           </main>
         );
