@@ -7,41 +7,41 @@ class Adventurous extends React.Component {
         this.state = this.props.options;
 
         this.adventurous1 = {
-            nightLife: ["bars", "clubs"],
-            artsEntertainment: ["cinema"],
-            food: ["fast food"],
-            activeLifestyle: []
+            nightLife: ["bars", "jazzandblues", "meaderies", "cannabisdispensaries", "winetastingroom", "paintandsip"],
+            artsEntertainment: ["movietheaters", "museums", "aquariums", "planetarium", "driveintheater"],
+            food: ["cafes", "tapas", "diners", "breakfast_brunch", "dumplings", "sushi", "noodles"],
+            activeLifestyle: ["mini_golf", "beaches", "dancestudio", "yoga", "lakes"]
         }
 
         this.adventurous2 = {
-            nightLife: [],
-            artsEntertainment: ["escape room"],
-            food: ["fancy"],
-            activeLifestyle: ["hiking trails"]
+            nightLife: ["danceclubs", "karaoke", "cannabisdispensaries", "silentdisco", "cabaret"],
+            artsEntertainment: ["escapegames", "comedyclubs", "virtualrealitycenters", "planetarium", "driveintheater"],
+            food: ["creperies", "popuprestaurants", "hotpot", "raw_food", "streetvendors"],
+            activeLifestyle: ["hiking", "bubblesoccer", "climbing", "dancestudio", "trampoline"]
         }
 
         this.adventurous3 = {
-            nightLife: [],
-            artsEntertainment: [],
-            food: [],
-            activeLifestyle: ["bungee jumping"]
+            nightLife: ["karaoke", "musicvenues", "lasertag"],
+            artsEntertainment: ["psychic_astrology", "virtualrealitycenters"],
+            food: ["fondue", "popuprestaurants", "cajun", "russian", "gamemeat"],
+            activeLifestyle: ["bungeejumping", "axethrowing", "hot_air_balloons", "gun_ranges", "skydiving"]
         }
     
         this.continue = this.continue.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
-
     }
 
     continue() {
         this.props.nextStep()
-        this.props.updateFilters(this.state)
+        this.props.updateFilters(this.state.finalTerms)
+        
     }
 
     handleCheck(e) {
-        debugger
-        let newOps = {}
+
         let optKeys = Object.keys(this.state)
         let adventureItems;
+        let matches = [];
 
         switch(e.currentTarget.value) {
             case "1":
@@ -58,12 +58,19 @@ class Adventurous extends React.Component {
         }
 
         for (let i = 0; i < optKeys.length; i++) {
-            if (this.state[optKeys[i]].length != 0) {
-                newOps[optKeys[i]] = adventureItems[optKeys[i]]
-            }
+            let stateOptions = this.state[optKeys[i]];
+            let adventureOptions = adventureItems[optKeys[i]];
+
+            let allOptions = stateOptions.concat(adventureOptions);
+
+            let categoryMatches = allOptions.filter((item, index) => {
+                return allOptions.indexOf(item) != index
+            })
+
+            matches.push(...categoryMatches);
         }
 
-        this.setState(newOps)
+        this.setState({finalTerms: matches})
     }
 
     render(){
@@ -80,3 +87,5 @@ class Adventurous extends React.Component {
 }
 
 export default Adventurous;
+
+

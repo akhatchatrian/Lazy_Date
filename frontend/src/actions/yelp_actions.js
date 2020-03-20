@@ -7,8 +7,8 @@ export const receiveYelpData = yelpData => ({
     yelpData
 });
 
-export const yelpSearch = () => dispatch => (
-    YELPUtil.yelpSearch().then(response =>
+export const yelpSearch = (yelpPayload) => dispatch => (
+    YELPUtil.yelpSearch(yelpPayload).then(response =>
         dispatch(receiveYelpData(response.data))
     )
 )

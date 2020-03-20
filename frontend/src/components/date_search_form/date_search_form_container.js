@@ -7,7 +7,7 @@ const msp = state => ({
 });
 
 const mdp = dispatch => ({
-    yelpSearch: () => dispatch(yelpSearch())
+    yelpSearch: (yelpPayload) => dispatch(yelpSearch(yelpPayload))
 });
 
 export default connect(msp, mdp)(DateSeachForm);

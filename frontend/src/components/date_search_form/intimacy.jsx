@@ -7,30 +7,29 @@ class Intimacy extends React.Component {
         this.state = this.props.options;
 
         this.intimacy1 = {
-            nightLife: ["bars", "clubs"],
-            artsEntertainment: ["cinema"],
-            food: ["fast food"],
-            activeLifestyle: []
+            nightLife: ["bars", "danceclubs", "karaoke", "meaderies", "cannabisdispensaries", "paintandsip"],
+            artsEntertainment: ["movietheaters", "museums", "aquariums", "psychic_astrology", "virtualrealitycenters"],
+            food: ["cafes", "tapas", "hotpot", "raw_food", "diners", "dumplings", "sushi", "noodles", "breakfast_brunch"],
+            activeLifestyle: ["hiking", "axethrowing", "mini_golf", "beaches", "lakes"]
         }
 
         this.intimacy2 = {
-            nightLife: [],
-            artsEntertainment: ["escape room"],
-            food: ["fancy"],
-            activeLifestyle: ["hiking trails"]
+            nightLife: ["bars", "jazzandblues", "musicvenues", "karaoke", "lasertag", "cannabisdispensaries", "silentdisco", "winetastingroom", "paintandsip", "cabaret"],
+            artsEntertainment: ["escapegames", "comedyclubs", "museums", "aquariums", "psychic_astrology", "planetarium", "driveintheater"],
+            food: ["creperies", "popuprestaurants", "tapas", "raw_food", "dumplings", "sushi", "noodles", "streetvendors", "breakfast_brunch", "cajun", "russian"],
+            activeLifestyle: ["hiking", "axethrowing", "mini_golf", "bubblesoccer", "climbing", "yoga", "lakes", "trampoline"]
         }
 
         this.intimacy3 = {
-            nightLife: [],
-            artsEntertainment: [],
-            food: [],
-            activeLifestyle: ["bungee jumping"]
+            nightLife: ["bars", "cannabisdispensaries", "winetastingroom", "paintandsip", "cabaret"],
+            artsEntertainment: ["comedyclubs", "museums", "aquariums", "psychic_astrology"],
+            food: ["fondue", "tapas", "hotpot", "raw_food", "dumplings", "sushi", "noodles", "cajun", "russian", "gamemeat"],
+            activeLifestyle: ["bungeejumping", "axethrowing", "hot_air_balloons", "bubblesoccer", "dancestudio", "gun_ranges", "skydiving", "yoga", "lakes"]
         }
     
         this.continue = this.continue.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
     }
-
 
     continue() {
         this.props.nextStep()
@@ -38,7 +37,7 @@ class Intimacy extends React.Component {
     }
 
     handleCheck(e) {
-        debugger
+        // debugger
         let newOps = {}
         let optKeys = Object.keys(this.state)
         let intimacyItems;
