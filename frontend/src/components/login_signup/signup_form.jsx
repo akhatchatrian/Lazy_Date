@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../../assets/stylesheets/navbar/signup_form.css';
 import { login } from '../../util/session_api_util';
 
@@ -29,7 +29,7 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        if (Object.keys(user).length === 2){
+        if (Object.keys(user).length === 3){
           this.props.signup(user).then(this.loginAfterRegister);  
         } else {
           this.props.signup(user);  
@@ -53,7 +53,6 @@ class SignupForm extends React.Component {
         const required = (
             <span className="required">*</span>
         )
-            debugger
              const emailErrors = this.props.errors.email;
              const nameErrors = this.props.errors.name;
              const passwordErrors = this.props.errors.password;
