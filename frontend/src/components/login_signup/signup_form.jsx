@@ -29,7 +29,7 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        if (Object.keys(user).length === 3){
+        if (this.state.email !== "" && this.state.password !== "") {
           this.props.signup(user).then(this.loginAfterRegister);  
         } else {
           this.props.signup(user);  
