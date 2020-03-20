@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link, Redirect } from 'react-router-dom';
 import '../../assets/stylesheets/navbar/login_form.css';
 
 

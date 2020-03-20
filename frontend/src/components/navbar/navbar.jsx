@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'; // temp removed Link and Redirect to avoid warnings
+import { withRouter, Redirect } from 'react-router-dom'; // temp removed Link and Redirect to avoid warnings
 import Popup from '../login_signup/popup'
 import '../../assets/stylesheets/navbar/navbar.css';
 
@@ -24,9 +24,10 @@ class Navbar extends React.Component {
         this.setState({ showPopup: false })
     }
 
-    // redirectToHome() {
-    //     this.props.history.push('/')
-    // }
+    redirectToHome() {
+        // this.props.history.push('/')
+        // <Redirect to='/home/' />
+    }
 
     render() {
         // window.scrollTo(0, 0);
@@ -67,7 +68,7 @@ class Navbar extends React.Component {
               </div>
             ) : (
                 <div className='navbar-reg'>
-                <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png" /> 
+                <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png"  onClick={this.redirectToHome}/> 
                 {/* onClick={this.redirectToHome} */}
                 {loginLogoutDisplay}
               </div>

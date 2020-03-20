@@ -29,7 +29,11 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.signup(user).then(this.loginAfterRegister);  
+        if (Object.keys(user).length === 2){
+          this.props.signup(user).then(this.loginAfterRegister);  
+        } else {
+          this.props.signup(user);  
+        }
     }
 
     handleInput(type) {
@@ -49,11 +53,11 @@ class SignupForm extends React.Component {
         const required = (
             <span className="required">*</span>
         )
-
+            debugger
              const emailErrors = this.props.errors.email;
              const nameErrors = this.props.errors.name;
              const passwordErrors = this.props.errors.password;
-             const isSignupError = this.props.errors.type === "signup";
+             const isSignupError = this.props.errors.type === 'signup';
 
     //    const {errors} = this.props;
         return (
@@ -72,6 +76,7 @@ class SignupForm extends React.Component {
                     placeholder="Please enter first name"
                   />
                   <div className="error-text">
+                    {/* {nameErrors} */}
                     {nameErrors === undefined
                       ? null
                       : !isSignupError
@@ -92,6 +97,7 @@ class SignupForm extends React.Component {
                     placeholder="Please enter email"
                   />
                   <div className="error-text">
+                    {/* {emailErrors} */}
                     {emailErrors === undefined
                       ? null
                       : !isSignupError
@@ -112,6 +118,7 @@ class SignupForm extends React.Component {
                     placeholder="Please enter password"
                   />
                   <div className="error-text">
+                    {/* {passwordErrors} */}
                     {passwordErrors === undefined
                       ? null
                       : !isSignupError
