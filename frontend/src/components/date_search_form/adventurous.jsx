@@ -39,7 +39,7 @@ class Adventurous extends React.Component {
     }
 
     handleCheck(e) {
-        debugger
+        // debugger
         let optKeys = Object.keys(this.state)
         let adventureItems;
         let adventureLevel;
@@ -88,7 +88,7 @@ class Adventurous extends React.Component {
                 <input onClick={this.handleCheck} name="adventurousRating" type="radio" value="2" />
                 <input onClick={this.handleCheck} name="adventurousRating" type="radio" value="3" />
 
-                <button onClick={this.continue}>Next</button>
+                <button onClick={this.continue}>Submit Form</button>
             </div>
         )
     }

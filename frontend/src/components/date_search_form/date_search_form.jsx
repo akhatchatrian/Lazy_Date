@@ -4,6 +4,8 @@ import Interests from "./interests";
 import Intimacy from "./intimacy";
 import Adventurous from "./adventurous";
 import HomeContainer from "../home/home_container";
+import { Redirect } from "react-router"
+
 
 class DateSearchForm extends React.Component {
     constructor(props) {
@@ -85,12 +87,20 @@ class DateSearchForm extends React.Component {
     }
 
     formSubmission() {
-        let queryTerms = {
-            searchParams: this.state.options.join(","),
-            conditions: this.state.conditions
+        return {
+            yelpInfo: {
+                searchParams: this.state.options.join(","),
+                conditions: this.state.conditions
+            },
+            collectionInfo: {
+                intimacy: this.state.intimacy,
+                adventurous: this.state.adventurous,
+                interests: this.state.interests,
+                age: this.state.conditions.age,
+                location: this.state.conditions.location,
+                price: this.state.conditions.price
+            }
         }
-        
-        this.props.yelpSearch(queryTerms)
     }
 
     render() {
@@ -129,12 +139,23 @@ class DateSearchForm extends React.Component {
                     updateAdventurous={this.updateAdventurous}
                 />
             default:
-                debugger
-                this.formSubmission()
-                return <div>Here is the post-form</div>
+               return <Redirect to={{
+                   pathname: "/date/browse",
+                   state: this.formSubmission()
+               }} />
+                
         }
     }
 
 }
 
 export default DateSearchForm;
+
+
+{/* <Redirect
+  to={{
+    pathname: "/login",
+    search: "?utm=your+face",
+    state: { referrer: currentLocation }
+  }}
+/> */}

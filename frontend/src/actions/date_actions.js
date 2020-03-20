@@ -1,0 +1,14 @@
+import * as DATEUtil from '../util/date_util';
+
+export const RECEIVE_DATE_DATA = "RECEIVE_DATE_DATA";
+
+export const recieveDateData = dateData => ({
+    type: RECEIVE_DATE_DATA,
+    dateDate
+});
+
+export const createDateCollection = (dateData) => dispatch => (
+    DATEUtil.createDateCollection(dateData).then(response =>
+        dispatch(recieveDateData(response.data))
+    )
+)
