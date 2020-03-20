@@ -1,5 +1,5 @@
 .header-container {
-    background-image: url("../../images/splash-bg.jpg");
+    background-image: url("../../images/colorfulwallinvert.jpg");
     background-size: cover;
     height: 700px;
     width: 100%;
@@ -20,22 +20,27 @@
     width: 25%;
     position: relative;
     left: 10%;
+    font-family: 'Raleway', sans-serif;
 }
 
 .slogan-box {
-    position: relative;
+    position: flex;
+    vertical-align: baseline ;
+    align-self: center;
     left: 25%;
+    
 }
 
-.slogan-box p {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 80px;
+
+
+.slogan-box h2 {
+    color: #FF9994;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: 'Raleway', sans-serif;
     line-height: .3;
-    text-shadow: -1px 1px 0 #000, 
-                  1px 1px 0 #000, 
-                  1px -1px 0 #000,
-                 -1px -1px 0 #000; 
+    
 }
 
 .hiw-container {
@@ -49,7 +54,7 @@
     color: white;
     padding: 10px;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 .hiw-banner {
@@ -61,8 +66,8 @@
 .hiw-box {
     border-radius: 5px;
     background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    font-family: 'Raleway', sans-serif;
+    color:#FF9994;
     width: 350px;
     height: 250px;
 }
@@ -95,4 +100,17 @@
     border-radius: 0 0 5px 5px;
     height: 100%;
     width: 100%;
+}
+
+.signup-form label {
+    font-family: 'Raleway', sans-serif;
+    color: #FF9994;
+}
+
+.signup-btn {
+    background-color: #15beff;
+}
+
+::placeholder {
+    color:  #FF9994;
 }

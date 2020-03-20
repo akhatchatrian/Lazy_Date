@@ -80,10 +80,14 @@ html, body {
 .login-logout-btn {
     height: fit-content;
     width: fit-content;
-    border: 1.5px solid rgb(151, 150, 150);
-    color: rgb(151, 150, 150);
+    /* border: 1.5px solid rgb(151, 150, 150); */
+    border: 1.5px solid white;
+    /* color: rgb(151, 150, 150); */
+    color: #F08B8F;
+    background-color: white;
+    /* font-weight: bold; */
     
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 15px;
     white-space: nowrap;
     display: flex;
@@ -96,9 +100,9 @@ html, body {
     /* margin: 0px 15% 0 -30%; */
 }
 
-.login-logout-btn:hover {
-    background-color: white;
+/* .login-logout-btn:hover {
+    background-color: #F08B8F;
     border: 1.5px solid #F08B8F;
     color: #F08B8F;
     cursor: pointer;
-}
+} */

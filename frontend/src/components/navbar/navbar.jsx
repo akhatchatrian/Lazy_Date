@@ -62,12 +62,12 @@ class Navbar extends React.Component {
           <div className="navbar">
                {!loggedIn ? (
             <div className='navbar-transparent'>
-                <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent.png" />
+                <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent-white.png" />
                 {loginLogoutDisplay}
               </div>
             ) : (
                 <div className='navbar-reg'>
-                <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png" /> 
+                  <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent-white.png" /> 
                 {/* onClick={this.redirectToHome} */}
                 {loginLogoutDisplay}
               </div>

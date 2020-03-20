@@ -21,11 +21,11 @@ class Splash extends React.Component {
                   <SignupFormContainer />
                 )}
               </div>
-              <div className="slogan-box">
-                <p>You know who.</p>
-                <p>We know where.</p>
-              </div>
+             
             </section>
+            <div className="slogan-box">
+              <h2>Dating made easy</h2>
+            </div>
             <header className="hiw-container">
               <h2 className="hiw-title">How It Works</h2>
               <div className="hiw-banner">
