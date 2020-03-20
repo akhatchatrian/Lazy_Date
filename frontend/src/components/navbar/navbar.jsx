@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Redirect } from 'react-router-dom'; // temp removed Link and Redirect to avoid warnings
+import { withRouter, Link } from 'react-router-dom'; // temp removed Link and Redirect to avoid warnings
 import Popup from '../login_signup/popup'
 import '../../assets/stylesheets/navbar/navbar.css';
 
@@ -9,7 +9,7 @@ class Navbar extends React.Component {
         this.state = { showPopup: false };
         this.togglePopup = this.togglePopup.bind(this);
         this.logOutAndClear = this.logOutAndClear.bind(this);
-        // this.redirectToHome = this.redirectToHome.bind(this);
+        this.redirectToHome = this.redirectToHome.bind(this);
     }
 
     togglePopup() {
@@ -25,8 +25,7 @@ class Navbar extends React.Component {
     }
 
     redirectToHome() {
-        // this.props.history.push('/')
-        // <Redirect to='/home/' />
+        this.props.history.push('/home/')
     }
 
     render() {
@@ -61,15 +60,22 @@ class Navbar extends React.Component {
 
         return (
           <div className="navbar">
-               {!loggedIn ? (
-            <div className='navbar-transparent'>
-                <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent-white.png" />
+            {!loggedIn ? (
+              <div className="navbar-transparent">
+                <img
+                  className="logo"
+                  src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent-white.png"
+                  onClick={this.redirectToHome}
+                />
                 {loginLogoutDisplay}
               </div>
             ) : (
-                <div className='navbar-reg'>
-                  <img className='logo' src="https://lazydate-store.s3-us-west-1.amazonaws.com/lazydate-transparent-white.png" /> 
-                {/* onClick={this.redirectToHome} */}
+              <div className="navbar-reg">
+                <img
+                  className="logo"
+                  src="https://lazydate-store.s3-us-west-1.amazonaws.com/logo-temp.png"
+                  onClick={this.redirectToHome}
+                />
                 {loginLogoutDisplay}
               </div>
             )}

@@ -101,9 +101,9 @@ html, body {
     /* margin: 0px 15% 0 -30%; */
 }
 
-/* .login-logout-btn:hover {
-    background-color: #F08B8F;
+.login-logout-btn:hover {
+    /* background-color: #F08B8F;
     border: 1.5px solid #F08B8F;
-    color: #F08B8F;
+    color: #F08B8F; */
     cursor: pointer;
-} */
+}
