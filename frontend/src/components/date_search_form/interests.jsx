@@ -22,7 +22,6 @@ class Interests extends React.Component {
     }
 
     updateValues(e) {
-        // debugger
         let cats = this.state.categories.slice();
 
         if (cats.includes(e.currentTarget.value)) {

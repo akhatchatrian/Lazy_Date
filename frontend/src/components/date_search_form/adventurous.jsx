@@ -32,26 +32,31 @@ class Adventurous extends React.Component {
     }
 
     continue() {
-        this.props.nextStep()
         this.props.updateFilters(this.state.finalTerms)
+        this.props.updateAdventurous(this.state.adventurousLevel)
+        this.props.nextStep()
         
     }
 
     handleCheck(e) {
-
+        debugger
         let optKeys = Object.keys(this.state)
         let adventureItems;
+        let adventureLevel;
         let matches = [];
 
         switch(e.currentTarget.value) {
             case "1":
                 adventureItems = this.adventurous1;
+                adventureLevel = 1;
                 break;
             case "2":
                 adventureItems = this.adventurous2;
+                adventureLevel = 2;
                 break;
             case "3":
                 adventureItems = this.adventurous3;
+                adventureLevel = 3;
                 break;
             default:
                 adventureItems = "";
@@ -70,7 +75,10 @@ class Adventurous extends React.Component {
             matches.push(...categoryMatches);
         }
 
-        this.setState({finalTerms: matches})
+        this.setState({
+            finalTerms: matches,
+            adventurousLevel: adventureLevel
+        })
     }
 
     render(){

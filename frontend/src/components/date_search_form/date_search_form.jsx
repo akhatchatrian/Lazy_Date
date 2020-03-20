@@ -21,7 +21,10 @@ class DateSearchForm extends React.Component {
                 age: false,
                 location: "",
                 price: 0
-            }
+            },
+            intimacy: 0,
+            adventurous: 0,
+            interests: []
         }
 
         this.nextStep = this.nextStep.bind(this);
@@ -29,19 +32,24 @@ class DateSearchForm extends React.Component {
         this.updateState = this.updateState.bind(this);
         this.updateConditions = this.updateConditions.bind(this);
         this.updateFilters = this.updateFilters.bind(this);
+        this.updateIntimacy = this.updateIntimacy.bind(this);
+        this.updateAdventurous = this.updateAdventurous.bind(this);
     }
 
-    updateState(fieldList) {
+    updateState(interestList) {
         let optionKeys = Object.keys(this.state.options);
         let newOps = Object.assign({}, this.state.options);
 
         for (let i = 0; i < optionKeys.length; i++) {
-            if (!fieldList.includes(optionKeys[i])) {
+            if (!interestList.includes(optionKeys[i])) {
                newOps[optionKeys[i]] = []
             }
         }
 
-        this.setState({options: newOps})
+        this.setState({
+            options: newOps, 
+            interests: interestList
+        })
     }
 
     updateConditions(newConditions) {
@@ -50,6 +58,14 @@ class DateSearchForm extends React.Component {
 
     updateFilters(newList) {
         this.setState({options: newList})
+    }
+
+    updateIntimacy(intimacyLevel) {
+        this.setState({intimacy: intimacyLevel})
+    }
+
+    updateAdventurous(adventruousLevel) {
+        this.setState({adventurous: adventruousLevel})
     }
 
     nextStep() {
@@ -101,6 +117,7 @@ class DateSearchForm extends React.Component {
                     currentUser={this.props.currentUser}
                     options={this.state.options}
                     updateFilters={this.updateFilters}
+                    updateIntimacy={this.updateIntimacy}
                 />
             case 3:
                 return <Adventurous
@@ -109,8 +126,10 @@ class DateSearchForm extends React.Component {
                     currentUser={this.props.currentUser}
                     options={this.state.options}
                     updateFilters={this.updateFilters}
+                    updateAdventurous={this.updateAdventurous}
                 />
             default:
+                debugger
                 this.formSubmission()
                 return <div>Here is the post-form</div>
         }

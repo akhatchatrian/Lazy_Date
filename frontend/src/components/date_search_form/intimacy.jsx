@@ -4,7 +4,10 @@ class Intimacy extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = this.props.options;
+        this.state = {
+            currentOps: this.props.options,
+            levelChoice: 0
+        };
 
         this.intimacy1 = {
             nightLife: ["bars", "danceclubs", "karaoke", "meaderies", "cannabisdispensaries", "paintandsip"],
@@ -32,37 +35,45 @@ class Intimacy extends React.Component {
     }
 
     continue() {
+        this.props.updateFilters(this.state.currentOps)
+        this.props.updateIntimacy(this.state.levelChoice)
         this.props.nextStep()
-        this.props.updateFilters(this.state)
     }
 
     handleCheck(e) {
         // debugger
         let newOps = {}
-        let optKeys = Object.keys(this.state)
+        let optKeys = Object.keys(this.state.currentOps)
         let intimacyItems;
+        let intimacyLevel;
 
         switch(e.currentTarget.value) {
             case "1":
                 intimacyItems = this.intimacy1;
+                intimacyLevel = 1;
                 break;
             case "2":
                 intimacyItems = this.intimacy2;
+                intimacyLevel = 2;
                 break;
             case "3":
                 intimacyItems = this.intimacy3;
+                intimacyLevel = 3;
                 break;
             default:
                 intimacyItems = "";
         }
 
         for (let i = 0; i < optKeys.length; i++) {
-            if (this.state[optKeys[i]].length != 0) {
+            if (this.state.currentOps[optKeys[i]].length != 0) {
                 newOps[optKeys[i]] = intimacyItems[optKeys[i]]
             }
         }
 
-        this.setState(newOps)
+        this.setState({
+            currentOps: newOps,
+            levelChoice: intimacyLevel
+        })
     }
 
     render() {
