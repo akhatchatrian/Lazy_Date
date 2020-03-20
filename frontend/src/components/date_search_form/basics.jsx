@@ -53,10 +53,10 @@ class Basics extends React.Component {
                 </label>
 
                 <label>Price Range:
-                    <input onClick={this.handlePrice} name="priceRange" type="radio" value="$"/>
-                    <input onClick={this.handlePrice} name="priceRange" type="radio" value="$$"/>
-                    <input onClick={this.handlePrice} name="priceRange" type="radio" value="$$$"/>
-                    <input onClick={this.handlePrice} name="priceRange" type="radio" value="$$$$"/>
+                    <input onClick={this.handlePrice} name="priceRange" type="radio" value="1"/>
+                    <input onClick={this.handlePrice} name="priceRange" type="radio" value="2"/>
+                    <input onClick={this.handlePrice} name="priceRange" type="radio" value="3"/>
+                    <input onClick={this.handlePrice} name="priceRange" type="radio" value="4"/>
                 </label>
 
                 <button onClick={this.continue}>Next</button>

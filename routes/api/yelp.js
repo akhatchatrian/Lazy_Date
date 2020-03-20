@@ -10,13 +10,14 @@ router.post("/data", (req, res) => {
 });
 
 function getYelpData(request) {
-    conditions = request.body.conditions;
+    const conditions = request.body.conditions;
+    const searchParams = request.body.searchParams;
 
     return axios.get('https://api.yelp.com/v3/businesses/search', {
         params: {
             location: conditions.location,
-            price: "",
-            categories: "beach,"
+            price: conditions.price,
+            categories: searchParams
         },
         headers: {
             'Authorization': keys.yelpAPI
@@ -25,6 +26,7 @@ function getYelpData(request) {
         return response.data;
     }).catch(error => {
         console.log(error);
+        return error;
     });
 }
 
