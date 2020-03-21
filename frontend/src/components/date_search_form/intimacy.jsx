@@ -65,7 +65,7 @@ class Intimacy extends React.Component {
         }
 
         for (let i = 0; i < optKeys.length; i++) {
-            if (this.state.currentOps[optKeys[i]].length != 0) {
+            if (this.state.currentOps[optKeys[i]].length !== 0) {
                 newOps[optKeys[i]] = intimacyItems[optKeys[i]]
             }
         }
