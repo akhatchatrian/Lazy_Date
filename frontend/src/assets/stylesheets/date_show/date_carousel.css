@@ -1,0 +1,30 @@
+.date-carousel {
+    display: flex;
+    width: 50%;
+    height: auto;
+}
+
+.date-listings-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.date-listing {
+     box-sizing: border-box;
+    display: flex;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    height: 64px;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.date-listings-container:not(:first-child) {
+    margin-top: 3px;
+}
+
+.date-listings-container:not(:last-child) {
+    margin-bottom: 3px;
+}

@@ -1,16 +1,47 @@
-module.exports = User = mongoose.model("User", UserSchema);
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DateCollectionSchema = new Schema({
-  id: {
-    type: Integer,
-    required: true
-  },
-  collectionName: {
+  // collectionName: {
+  //   type: String
+  // },
+  // user: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'users'
+  // },
+  yelpInfo: {
+    searchParams: {
       type: String
+    },
+    conditions: {
+      age: {
+        type: Number
+      },
+      location: {
+        type: String
+      },
+      price: {
+        type: Number
+      } 
+    }
   },
-  dateList: [//dateIds go here]
+  collectionInfo: {
+    intimacy: {
+      type: Number
+    },
+    adventurous: {
+      type: Number
+    },
+    interests: Array,
+    age: Boolean,
+    location: {
+      type: String
+    },
+    price: {
+      type: Number
+    } 
+  }
 });
 
 module.exports = DateCollection = mongoose.model("DateCollection", DateCollectionSchema);
+
