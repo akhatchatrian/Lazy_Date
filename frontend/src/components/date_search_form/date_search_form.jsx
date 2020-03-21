@@ -152,10 +152,3 @@ class DateSearchForm extends React.Component {
 export default DateSearchForm;
 
 
-{/* <Redirect
-  to={{
-    pathname: "/login",
-    search: "?utm=your+face",
-    state: { referrer: currentLocation }
-  }}
-/> */}
