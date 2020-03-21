@@ -16,8 +16,8 @@ router.post("/data", (req, res) => {
     const collectionData = req.body.collectionInfo
 
     const newDateCollection = new DateCollection({
-        collectionName: req.body.collectionName,
-        user: req.user.id, // Should this be req.body.user.id?
+        // collectionName: req.body.collectionName,
+        // user: req.user.id,
         yelpInfo: {
             searchParams: yelpData.searchParams,
             conditions: {
@@ -43,3 +43,5 @@ router.post("/data", (req, res) => {
             return error;
         });
 });
+
+module.exports = router;

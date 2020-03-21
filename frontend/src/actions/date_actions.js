@@ -4,7 +4,7 @@ export const RECEIVE_DATE_DATA = "RECEIVE_DATE_DATA";
 
 export const recieveDateData = dateData => ({
     type: RECEIVE_DATE_DATA,
-    dateDate
+    dateData
 });
 
 //get ride of then when done
