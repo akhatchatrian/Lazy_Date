@@ -15,13 +15,14 @@ class DateShow extends React.Component {
 
     componentDidMount() {
         // Need to add post request for Date Collections 
-        this.props.createDateCollection(this.formData)
+        // this.props.createDateCollection(this.formData)
         this.props.yelpSearch(this.formData.yelpInfo)
+        this.deepMind()
     }
 
     deepMind() {
         const results = this.props.yelpData.businesses
-
+        // debugger
         results.sort((venue1 , venue2) => {
             // Laplace's Rule of Succession
             let smartRating1 = (venue1.rating * venue1.review_count + 6) / (venue1.review_count + 2);
@@ -33,11 +34,12 @@ class DateShow extends React.Component {
     }
 
     render() {
-        debugger
+        // debugger
         return(
             <div className='date-show-container'>
                 <div>Here be the Date Show page</div>
                 {/* <DateCarousel props={this.state.yelpData}/> // Not sure what yelp state is called, will update later */}
+                {/* {this.deepMind()} */}
             </div>
         )
     }
