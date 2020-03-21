@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import DateShow from './dateshow';
 import { yelpSearch } from "../../actions/yelp_actions";
-import { createDateCollection } from '../../util/date_util';
+import { createDateCollection, getDateCollection } from '../../util/date_util';
 
 
 const msp = (state, ownProps) => ({
@@ -12,7 +12,6 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch) => ({
     yelpSearch: (yelpPayload) => dispatch(yelpSearch(yelpPayload)),
-    createDateCollection: dateData => dispatch(createDateCollection(dateData))
 });
 
 export default connect(msp, mdp)(DateShow);

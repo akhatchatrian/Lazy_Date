@@ -7,7 +7,7 @@ class DateShow extends React.Component {
         super(props)
 
         this.state = {
-
+            
         }
 
         this.formData = this.props.location.state; //Object from DateSearchForm containing yelpInfo and collectionInfo keys.
@@ -15,9 +15,8 @@ class DateShow extends React.Component {
 
     componentDidMount() {
         // Need to add post request for Date Collections 
-        // this.props.createDateCollection(this.formData)
-        this.props.yelpSearch(this.formData.yelpInfo)
-        this.deepMind()
+        // this.props.yelpSearch(this.formData.yelpInfo)
+        // this.props.getDateCollection(this.props.currentUser.id)
     }
 
     deepMind() {
@@ -34,7 +33,6 @@ class DateShow extends React.Component {
     }
 
     render() {
-        // debugger
         return(
             <div className='date-show-container'>
                 <div>Here be the Date Show page</div>
