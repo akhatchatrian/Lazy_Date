@@ -11,10 +11,6 @@ router.get('/data/:user_id', (req, res) => {
     );
 });
 
-router.patch('/data/:user_id', (req, res) => {
-    
-})
-
 router.post("/data", (req, res) => {
     debugger
     const yelpData = req.body.yelpInfo
