@@ -77,13 +77,20 @@ class Intimacy extends React.Component {
     }
 
     render() {
+
+        const checkStatus = () => {
+            return this.state.levelChoice > 0;
+         }
+ 
+         let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+
         return (
             <div>How comfortable do you feel with your partner?
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="1" />
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="2" />
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="3" />
 
-                <button onClick={this.continue}>Next</button>
+                {nextButton}
             </div>
         )
     }

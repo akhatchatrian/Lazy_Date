@@ -4,7 +4,10 @@ class Adventurous extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = this.props.options;
+        this.state = {
+            currentOps: this.props.options,
+            adventurousLevel: 0
+        };
 
         this.adventurous1 = {
             nightLife: ["bars", "jazzandblues", "meaderies", "cannabisdispensaries", "winetastingroom", "paintandsip"],
@@ -35,12 +38,11 @@ class Adventurous extends React.Component {
         this.props.updateFilters(this.state.finalTerms)
         this.props.updateAdventurous(this.state.adventurousLevel)
         this.props.nextStep()
-        
     }
 
     handleCheck(e) {
         // debugger
-        let optKeys = Object.keys(this.state)
+        let optKeys = Object.keys(this.state.currentOps)
         let adventureItems;
         let adventureLevel;
         let matches = [];
@@ -63,7 +65,7 @@ class Adventurous extends React.Component {
         }
 
         for (let i = 0; i < optKeys.length; i++) {
-            let stateOptions = this.state[optKeys[i]];
+            let stateOptions = this.state.currentOps[optKeys[i]];
             let adventureOptions = adventureItems[optKeys[i]];
 
             let allOptions = stateOptions.concat(adventureOptions);
@@ -82,13 +84,20 @@ class Adventurous extends React.Component {
     }
 
     render(){
+
+        const checkStatus = () => {
+            return this.state.adventurousLevel > 0
+         }
+ 
+         let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+
         return (
             <div>How adventurous are you feeling?
                 <input onClick={this.handleCheck} name="adventurousRating" type="radio" value="1" />
                 <input onClick={this.handleCheck} name="adventurousRating" type="radio" value="2" />
                 <input onClick={this.handleCheck} name="adventurousRating" type="radio" value="3" />
 
-                <button onClick={this.continue}>Submit Form</button>
+                {nextButton}
             </div>
         )
     }

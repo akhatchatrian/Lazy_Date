@@ -35,6 +35,13 @@ class Interests extends React.Component {
     }
 
     render() {
+
+        const checkStatus = () => {
+            return this.state.categories.length > 0;
+         }
+ 
+         let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+
         return (
             <div>
                 <input type="checkbox" value="nightLife" onClick={this.updateValues} /> Nightlife
@@ -42,7 +49,7 @@ class Interests extends React.Component {
                 <input type="checkbox" value="food" onClick={this.updateValues} /> Food
                 <input type="checkbox" value="activeLifestyle" onClick={this.updateValues} /> Active Lifestyle
 
-                <button onClick={this.continue}>Continue</button>
+                {nextButton}
             </div>
         )
     }

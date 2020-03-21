@@ -12,6 +12,7 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch) => ({
     yelpSearch: (yelpPayload) => dispatch(yelpSearch(yelpPayload)),
+    createDateCollection: dateData => dispatch(createDateCollection(dateData)) 
 });
 
 export default connect(msp, mdp)(DateShow);

@@ -23,8 +23,28 @@ class Basics extends React.Component {
     }
 
     handlePrice(e) {
+
+        let newPrice;
+        switch (e.currentTarget.value) {
+            case "1":
+                newPrice = "1"
+                break;
+            case "2":
+                newPrice = "1,2"
+                break;
+            case "3":
+                newPrice = "1,2,3"
+                break;
+            case "4":
+                newPrice = "1,2,3,4"
+                break;
+            default:
+                return "1"
+                break;
+        }
+
         this.setState({
-            price: e.currentTarget.value
+            price: newPrice
         })
     }
 
@@ -40,6 +60,13 @@ class Basics extends React.Component {
     }
 
     render() {
+
+        const checkStatus = () => {
+           return this.state.location !== "" && this.state.price !== 0
+        }
+
+        let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+
         return(
             <form>
                 <h2>This is the Basics Page</h2>
@@ -59,7 +86,7 @@ class Basics extends React.Component {
                     <input onClick={this.handlePrice} name="priceRange" type="radio" value="4"/>
                 </label>
 
-                <button onClick={this.continue}>Next</button>
+                {nextButton}
             </form>
         )
     }
