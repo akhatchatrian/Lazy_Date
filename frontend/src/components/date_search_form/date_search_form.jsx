@@ -109,6 +109,7 @@ class DateSearchForm extends React.Component {
         }
 
         this.props.createDateCollection(formData)
+        return formData;
     }
 
     render() {

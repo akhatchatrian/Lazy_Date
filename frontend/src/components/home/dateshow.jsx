@@ -1,5 +1,7 @@
 import React from "react";
 import DateCarousel from './date_carousel.jsx';
+import { Link } from "react-router-dom";
+
 
 class DateShow extends React.Component {
 
@@ -15,8 +17,12 @@ class DateShow extends React.Component {
 
     componentDidMount() {
         // Need to add post request for Date Collections 
-        // this.props.yelpSearch(this.formData.yelpInfo)
+        this.props.yelpSearch(this.formData.yelpInfo)
         // this.props.getDateCollection(this.props.currentUser.id)
+    }
+
+    componentWillUpdate(){
+        // this.props.yelpSearch(this.props.session.sessionDate)
     }
 
     deepMind() {
@@ -33,13 +39,26 @@ class DateShow extends React.Component {
     }
 
     render() {
-        return(
-            <div className='date-show-container'>
-                <div>Here be the Date Show page</div>
-                {/* <DateCarousel props={this.state.yelpData}/> // Not sure what yelp state is called, will update later */}
-                {/* {this.deepMind()} */}
-            </div>
-        )
+        if (!this.props.yelpData) return null;
+        const businesses = this.props.yelpData.businesses;
+        if (!businesses) return null;
+
+        return (
+          <div className="date-show-container">
+            <div>Here be the Date Show page</div>
+            {businesses.length === 0 ? (
+              <div className='no-results-container'>
+                  <p>Sorry, date could not be generated with your selected options</p>
+                  <p>Please try again with different parameters.</p>
+                  <a href="#/date"><button class="create-date-btn">Create a new Date</button></a>
+              </div>
+            ) : (
+              <DateCarousel dates={businesses} />
+            )}
+
+            {/* {this.deepMind()} */}
+          </div>
+        );
     }
 
 }

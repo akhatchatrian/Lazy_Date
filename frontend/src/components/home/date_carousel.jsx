@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../assets/stylesheets/date_show/date_carousel.css';
 
 
 class DateCarousel extends React.Component {
@@ -14,6 +15,10 @@ class DateCarousel extends React.Component {
         this.handlePrevious = this.handlePrevious.bind(this);
     }
 
+
+    componentDidUpdate(){
+        if (!this.state.dates) this.setState({dates: this.props.dates})
+    }
 
     changeMainDate(idx) {
         this.setState({ currentDateIdx: idx });
@@ -38,13 +43,21 @@ class DateCarousel extends React.Component {
     render() {
         const { dates } = this.props;
 
+        if (!dates) return null;
+        // debugger
         return (
+          
             <div className='date-carousel'>
                    <div className='date-list-sidebar'>
                     {dates.map((date, idx) => {
                         return (
-                            <div className='date-listings-container' id={idx} key={idx} onMouseOver={e => this.handleHover(e)}>
-                                <img className='date-listing' src={date.image_urls[0]} />
+                            <div className='date-listing' id={idx} key={idx} onMouseOver={e => this.handleHover(e)}>
+                                <img className='date-img' src={date.image_url} />
+                                <div className='date-info-blurb'>
+                                    <h3>{date.name}</h3>
+                                    <p>Rating: {date.rating + "  "}({date.review_count} Reviews)</p>
+                                    <p>Category: {date.categories[0].title}</p>
+                                </div>
                             </div>
                         )
                     })}
@@ -52,16 +65,26 @@ class DateCarousel extends React.Component {
 
 
                 <div className='date-main-container'>
-                    <div className='arrow-icons'>
-                        <div className='left-arrow-icon' onClick={this.handlePrevious}>
-                            <button>Previous</button>
-                        </div>
+                    <div className='date-main-img-container'>
+                        <div className='arrow-icons'>
+                            <div className='left-arrow-icon' onClick={this.handlePrevious}>
+                                <button>Previous</button>
+                            </div>
 
-                        <div className='right-arrow-icon' onClick={this.handleNext}>
-                            <button>Previous</button>
+                            <div className='right-arrow-icon' onClick={this.handleNext}>
+                                <button>Next</button>
+                            </div>
                         </div>
+                        <img className='date-main-img' src={dates[this.state.currentDateIdx].image_url} />
                     </div>
-                    <img className='date-main' src={this.state.urls[this.state.currentDateIdx]} />
+
+                    <div className='date-detailed-info'>
+                        <h3>{dates[this.state.currentDateIdx].name}</h3>
+                        <h3>{dates[this.state.currentDateIdx].categories[0].title}</h3>
+                        <h3>{dates[this.state.currentDateIdx].price}</h3>
+                        <h3>{dates[this.state.currentDateIdx].rating}</h3>
+                        
+                    </div>
                 </div>
             </div>
         )
