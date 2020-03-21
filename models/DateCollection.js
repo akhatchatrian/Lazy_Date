@@ -1,41 +1,48 @@
-module.exports = User = mongoose.model("User", UserSchema);
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DateCollectionSchema = new Schema({
-  id: {
-    type: Integer,
-    required: true
-  },
   collectionName: {
-      type: String
+    type: String
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   },
   yelpInfo: {
-    searchParams: this.state.options.join(","),
-    conditions: this.state.conditions
+    searchParams: {
+      type: String
+    },
+    conditions: {
+      age: {
+        type: Integer
+      },
+      location: {
+        type: String
+      },
+      price: {
+        type: Integer
+      } 
+    }
   },
   collectionInfo: {
-    intimacy: this.state.intimacy,
-    adventurous: this.state.adventurous,
-    interests: this.state.interests,
-    age: this.state.conditions.age,
-    location: this.state.conditions.location,
-    price: this.state.conditions.price
-  },
-  dateList: [//dateIds go here]
+    intimacy: {
+      type: Integer
+    },
+    adventurous: {
+      type: Integer
+    },
+    interests: Array,
+    age: Boolean,
+    location: {
+      type: String
+    },
+    price: {
+      type: Integer
+    } 
+  }
 });
 
 module.exports = DateCollection = mongoose.model("DateCollection", DateCollectionSchema);
 
-yelpInfo: {
-  searchParams: this.state.options.join(","),
-  conditions: this.state.conditions
-},
-collectionInfo: {
-  intimacy: this.state.intimacy,
-  adventurous: this.state.adventurous,
-  interests: this.state.interests,
-  age: this.state.conditions.age,
-  location: this.state.conditions.location,
-  price: this.state.conditions.price
-}

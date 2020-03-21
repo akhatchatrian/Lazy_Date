@@ -9,6 +9,7 @@ const axios = require('axios');
 
 const users = require("./routes/api/users");
 const yelp = require('./routes/api/yelp')
+const dateCollection = require('./routes/api/date')
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/yelp", yelp);
+app.use("/api/date", dateCollection);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

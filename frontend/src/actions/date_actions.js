@@ -7,8 +7,15 @@ export const recieveDateData = dateData => ({
     dateDate
 });
 
+//get ride of then when done
 export const createDateCollection = (dateData) => dispatch => (
     DATEUtil.createDateCollection(dateData).then(response =>
+        dispatch(recieveDateData(response.data))
+    )
+)
+
+export const getDateCollection = (user) => dispatch => (
+    DATEUtil.getDateCollection.apply(user).then(response =>
         dispatch(recieveDateData(response.data))
     )
 )
