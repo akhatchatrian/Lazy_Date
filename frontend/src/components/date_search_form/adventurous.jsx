@@ -69,7 +69,7 @@ class Adventurous extends React.Component {
             let allOptions = stateOptions.concat(adventureOptions);
 
             let categoryMatches = allOptions.filter((item, index) => {
-                return allOptions.indexOf(item) != index
+                return allOptions.indexOf(item) !== index
             })
 
             matches.push(...categoryMatches);

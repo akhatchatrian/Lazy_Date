@@ -15,9 +15,9 @@ router.post("/data", (req, res) => {
     const yelpData = req.body.yelpInfo
     const collectionData = req.body.collectionInfo
 
-    const newDateCollection = new DateCollection = ({
+    const newDateCollection = new DateCollection({
         collectionName: req.body.collectionName,
-        user: req.user.id,
+        user: req.user.id, // Should this be req.body.user.id?
         yelpInfo: {
             searchParams: yelpData.searchParams,
             conditions: {
