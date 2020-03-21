@@ -5,10 +5,10 @@ const DateCollectionSchema = new Schema({
   // collectionName: {
   //   type: String
   // },
-  // user: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'users'
-  // },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
+  },
   yelpInfo: {
     searchParams: {
       type: String

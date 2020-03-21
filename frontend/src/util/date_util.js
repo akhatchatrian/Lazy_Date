@@ -4,6 +4,6 @@ export const createDateCollection = (dateCollection) => {
   return axios.post('/api/date/data', dateCollection)
 };
 
-export const getDateCollection = params => {
-  return axios.get(`/api/date/data/${params.user.id}`)
+export const getDateCollection = userId => {
+  return axios.get(`/api/date/data/${userId}`)
 }

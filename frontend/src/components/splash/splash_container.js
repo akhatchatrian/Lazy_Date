@@ -8,7 +8,6 @@ const msp = state => ({
 })
 
 const mdp = dispatch => ({
-    yelpSearch: () => dispatch(yelpSearch()),
     clearErrors: () => dispatch(clearErrors())
 })
 
