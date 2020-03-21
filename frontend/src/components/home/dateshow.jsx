@@ -15,7 +15,7 @@ class DateShow extends React.Component {
 
     componentDidMount() {
         // Need to add post request for Date Collections 
-
+        this.props.createDateCollection(this.formData)
         this.props.yelpSearch(this.formData.yelpInfo)
     }
 

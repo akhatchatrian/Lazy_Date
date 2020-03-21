@@ -1,37 +1,36 @@
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DateCollectionSchema = new Schema({
-  collectionName: {
-    type: String
-  },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'users'
-  },
+  // collectionName: {
+  //   type: String
+  // },
+  // user: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'users'
+  // },
   yelpInfo: {
     searchParams: {
       type: String
     },
     conditions: {
       age: {
-        type: Integer
+        type: Number
       },
       location: {
         type: String
       },
       price: {
-        type: Integer
+        type: Number
       } 
     }
   },
   collectionInfo: {
     intimacy: {
-      type: Integer
+      type: Number
     },
     adventurous: {
-      type: Integer
+      type: Number
     },
     interests: Array,
     age: Boolean,
@@ -39,7 +38,7 @@ const DateCollectionSchema = new Schema({
       type: String
     },
     price: {
-      type: Integer
+      type: Number
     } 
   }
 });
