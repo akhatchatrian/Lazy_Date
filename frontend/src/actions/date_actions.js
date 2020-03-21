@@ -14,8 +14,8 @@ export const createDateCollection = (dateData) => dispatch => (
     )
 )
 
-export const getDateCollection = (user) => dispatch => (
-    DATEUtil.getDateCollection.apply(user).then(response =>
+export const getDateCollection = (userId) => dispatch => (
+    DATEUtil.getDateCollection(userId).then(response =>
         dispatch(recieveDateData(response.data))
     )
 )

@@ -5,10 +5,6 @@ import Footer from "../footer";
 
 class Splash extends React.Component {
 
-    componentDidMount() {
-        this.props.yelpSearch();
-    }
-
     render() {
         return (
           <main className="main-bg">

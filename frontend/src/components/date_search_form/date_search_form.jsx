@@ -86,8 +86,14 @@ class DateSearchForm extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.props.getDateCollection(this.props.currentUser.id)
+    }
+
     formSubmission() {
-        return {
+        
+        const formData = {
+            user: this.props.currentUser.id,
             yelpInfo: {
                 searchParams: this.state.options.join(","),
                 conditions: this.state.conditions
@@ -101,6 +107,8 @@ class DateSearchForm extends React.Component {
                 price: this.state.conditions.price
             }
         }
+
+        this.props.createDateCollection(formData)
     }
 
     render() {
@@ -152,10 +160,3 @@ class DateSearchForm extends React.Component {
 export default DateSearchForm;
 
 
-{/* <Redirect
-  to={{
-    pathname: "/login",
-    search: "?utm=your+face",
-    state: { referrer: currentLocation }
-  }}
-/> */}

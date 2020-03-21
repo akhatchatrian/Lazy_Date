@@ -17,7 +17,7 @@ router.post("/data", (req, res) => {
 
     const newDateCollection = new DateCollection({
         // collectionName: req.body.collectionName,
-        // user: req.user.id,
+        user: req.body.user,
         yelpInfo: {
             searchParams: yelpData.searchParams,
             conditions: {
@@ -31,16 +31,16 @@ router.post("/data", (req, res) => {
             adventurous: collectionData.adventurous,
             interests: collectionData.interests,
             location: collectionData.location,
-            price: collectionData.location
+            price: collectionData.price
         }
     })
 
     newDateCollection.save()
-        .then(res => {
-            return res.data
+        .then(response => {
+            return res.json(response.data)
         }).catch(error => {
             console.log(error);
-            return error;
+            return res.status(500).json(error);
         });
 });
 
