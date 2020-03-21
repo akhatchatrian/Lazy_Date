@@ -23,8 +23,28 @@ class Basics extends React.Component {
     }
 
     handlePrice(e) {
+
+        let newPrice;
+        switch (e.currentTarget.value) {
+            case "1":
+                newPrice = "1"
+                break;
+            case "2":
+                newPrice = "1,2"
+                break;
+            case "3":
+                newPrice = "1,2,3"
+                break;
+            case "4":
+                newPrice = "1,2,3,4"
+                break;
+            default:
+                return "1"
+                break;
+        }
+
         this.setState({
-            price: e.currentTarget.value
+            price: newPrice
         })
     }
 

@@ -107,8 +107,8 @@ class DateSearchForm extends React.Component {
                 price: this.state.conditions.price
             }
         }
-
-        this.props.createDateCollection(formData)
+        
+        return formData;
     }
 
     render() {
