@@ -137,14 +137,14 @@
     position: absolute;
    
     left:43%;
-    right:0px;
+    right:10px;
     font-size: 14px;
     margin: 12px 0px 0px;
     background-color: white;
     height: 40%;
     top: 15%;
-        border-radius: 15px;
-    
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px rgb(202, 191, 191);
 }
 
 .why-text p {

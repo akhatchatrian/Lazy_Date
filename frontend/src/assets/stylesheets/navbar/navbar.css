@@ -34,13 +34,12 @@ html, body {
     align-items: center;
     width: 100%;
     top: 0;
-    /* margin-bottom: 10%; */
     height: auto;
     background-color: transparent;
 }
 
 .navbar-reg {
-     display: flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -102,8 +101,9 @@ html, body {
 }
 
 .login-logout-btn:hover {
-    /* background-color: #F08B8F;
-    border: 1.5px solid #F08B8F;
-    color: #F08B8F; */
+    /* background-color: #F08B8F; */
+    /* border: 2px solid #15beff; */
+    /* color: #F08B8F; */
+    /* opacity: 0.8; */
     cursor: pointer;
 }

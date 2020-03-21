@@ -57,7 +57,6 @@ class Splash extends React.Component {
                   has become a battle cry for the lazy, busy, clueless, and 
                   simply curious. A loud declaration that everyone deserves the
                    perfect date, even if they don’t know what that is yet.  
-
                 </p>
             
               
