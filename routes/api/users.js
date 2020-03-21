@@ -9,6 +9,8 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 
 
+router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+
 // Private Auth Route
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
   res.json({
@@ -18,22 +20,6 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
-router.patch('/updateDates/', (req, res) => {
-
-  User.findById(req.body.user.id, function (err, user) {
-    user.savedDates.push(req.body.date)
-    
-    user.update()
-    .then(response => {
-        return res.json(response.data)
-    }).catch(error => {
-        console.log(error);
-        return res.status(500).json(error);
-    });
-  })
-  
-});
-  
 // This is for USER REGISTRATION
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
