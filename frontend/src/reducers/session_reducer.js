@@ -26,7 +26,6 @@ export default function(state = initialState, action) {
         isSignedIn: true
       };
     case UPDATE_CURRENT_USER:
-      console.log(state)
       return {
         ...state,
         savedDates: action.currentUser.savedDates
