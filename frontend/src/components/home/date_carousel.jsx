@@ -184,15 +184,15 @@ class DateCarousel extends React.Component {
               <div className="date-detailed-info">
                 <h3 className="detail-name">{currentDate.name}</h3>
                 <p className="detail-cats">{catTitles}</p>
-                {currentDate.rating ? (
-                  <div className="detail-rating">
-                    {" "}
-                    {this.getStars(currentDate.rating)}
-                  </div>
-                ) : null}
-                <p className="detail-price">
-                  {this.getDollars(currentDate.price)}
-                </p>
+                  {currentDate.rating ? (
+                    <div className="detail-rating">
+                      {" "}
+                      {this.getStars(currentDate.rating)}
+                    </div>
+                  ) : null}
+                  <p className="detail-price">
+                    {this.getDollars(currentDate.price)}
+                  </p>
                 <p className="detail-phone">{currentDate.display_phone}</p>
 
                 <div className="date-address">

@@ -15,8 +15,8 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    padding: 0px 2% 0px 2%;
-    margin-right: 30px;
+    /* padding: 0px 2% 0px 2%; */
+    margin-right: 60px;
     /* border: 1px solid green; */
 }
 
@@ -153,6 +153,10 @@
 
 .date-detailed-info {
     position: relative;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
     margin: 0;
     /* border: 1px solid red; */
 }
@@ -223,7 +227,7 @@
     height: 600px;
     width: 800px;
     margin-top: 50px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     /* padding: 5px; */
     /* border-style: none; */
 
