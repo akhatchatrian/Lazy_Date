@@ -214,7 +214,20 @@
     margin: 0;
 }
 
+.date-map > iframe {
+    height: 100%;
+    width: 100%;
+}
 
+.date-map {
+    height: 600px;
+    width: 800px;
+    margin-top: 50px;
+    border: 1px solid blue;
+    /* padding: 5px; */
+    /* border-style: none; */
+
+}
 
 
 

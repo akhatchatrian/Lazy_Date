@@ -42,7 +42,7 @@ class DateShow extends React.Component {
 
         return (
           <div className="date-show-container">
-            {businesses.length === 0 ? (
+            {businesses.length === 0 || businesses === undefined ? (
               <div className='no-results-container'>
                   <p>Sorry, date could not be generated with your selected options</p>
                   <p>Please try again with different parameters.</p>
