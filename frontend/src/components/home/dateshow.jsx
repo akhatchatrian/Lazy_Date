@@ -66,6 +66,21 @@ class DateShow extends React.Component {
                     /> 
             </div>
         )
+        // return (
+        //   <div className="date-show-container">
+        //     {businesses.length === 0 || businesses === undefined ? (
+        //       <div className='no-results-container'>
+        //           <p>Sorry, date could not be generated with your selected options</p>
+        //           <p>Please try again with different parameters.</p>
+        //           <a href="#/date"><button class="create-date-btn">Create a new Date</button></a>
+        //       </div>
+        //     ) : (
+        //       <DateCarousel dates={businesses} />
+        //     )}
+
+        //     {/* {this.deepMind()} */}
+        //   </div>
+        // );
     }
 
 }
