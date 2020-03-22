@@ -19,12 +19,6 @@ class DateShow extends React.Component {
             return smartRating2 - smartRating1;
         })
         
-        const userData = {
-            currentUser: this.props.currentUser.id,
-            dateEvents: results.slice(0, 5)
-        }
-        
-        this.props.updateUser(userData)
 
         return results.slice(0, 5);
     }
@@ -55,14 +49,15 @@ class DateShow extends React.Component {
         // );
         return(
             <div className='date-show-container'>
-                <div>Here be the Date Show page</div>
+                {/* <div>Here be the Date Show page</div> */}
                 <DateCarousel 
                         currentUser={this.props.currentUser}
                         userUpdate={this.props.userUpdate}
                         formData={this.formData}
                         createDateCollection={this.props.createDateCollection} 
                         yelpData={this.props.yelpData} 
-                        results={this.deepMind()} 
+                        dates={this.deepMind()} 
+                        // dates={businesses}
                     /> 
             </div>
         )

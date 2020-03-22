@@ -1,5 +1,5 @@
 import React from "react"
-import "../../assets/stylesheets/date-questionnare/intimacy.scss";
+// import "../../assets/stylesheets/date-questionnare/intimacy.scss";
 class Intimacy extends React.Component {
 
     constructor(props) {
