@@ -4,7 +4,6 @@ import "../../assets/stylesheets/splash/splash.css";
 import Footer from "../footer";
 
 class Splash extends React.Component {
-
     render() {
         return (
           <main className="main-bg">
