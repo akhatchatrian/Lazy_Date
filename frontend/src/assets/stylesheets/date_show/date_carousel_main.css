@@ -30,7 +30,7 @@
 }
 
 .date-main-header > h3 {
-    color: rgb(126, 126, 126);
+    color: rgb(100, 100, 100);
     /* font-size: 24px; */
     font-size: 26px;
     margin: 5px;
@@ -158,12 +158,12 @@
 }
 
 .detail-name {
-    color: rgb(126, 126, 126);
+    color: rgb(58, 58, 58);
     font-size: 24px;
 }
 
 .detail-cats {
-    color: rgb(126, 126, 126);
+    color: rgb(58, 58, 58);
     font-size: 16px;
 }
 
@@ -192,8 +192,12 @@
     color: #F08B8F;
 }
 
+.detail-phone{
+    color: rgb(58, 58, 58);
+}
 
 .date-address {
+    color: rgb(58, 58, 58);
     position: absolute;
     right: 0;
     top: 0;
