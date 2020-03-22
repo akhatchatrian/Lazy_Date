@@ -45,7 +45,6 @@ class DateShow extends React.Component {
 
         return (
           <div className="date-show-container">
-            <div>Here be the Date Show page</div>
             {businesses.length === 0 ? (
               <div className='no-results-container'>
                   <p>Sorry, date could not be generated with your selected options</p>
