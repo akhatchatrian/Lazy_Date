@@ -1,7 +1,6 @@
 import React from "react";
 import SignupFormContainer from '../../components/login_signup/signup_form_container';
 import "../../assets/stylesheets/splash/splash.css";
-import Footer from "../footer";
 
 class Splash extends React.Component {
     render() {
@@ -56,7 +55,6 @@ class Splash extends React.Component {
               </div>
 
             </div>
-            <Footer />
           </main>
         );
     }

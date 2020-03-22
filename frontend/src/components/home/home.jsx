@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import Footer from "../footer";
 import "../../assets/stylesheets/home/home.css"
 
 class Home extends Component {
@@ -83,16 +82,16 @@ class Home extends Component {
           <div className="moods-container">
             <h2>Moods</h2>
             <div className="moods-container-main">
-              <div className="mood-box"></div>
-              <div className="mood-box"></div>
-              <div className="mood-box"></div>
-              <div className="mood-box"></div>
-              <div className="mood-box"></div>
-              <div className="mood-box"></div>
+
+              <div className="mood-box" id="easy-night-out" ></div>
+              <div className="mood-box" id="" ></div>
+              <div className="mood-box" id="adrenaline-rush" ></div>
+              <div className="mood-box" id="feelin-fancy" ></div>
+              <div className="mood-box" id="" ></div>
+              <div className="mood-box" id="mystery" ></div>
             </div>
           </div>
         </section>
-        <Footer />
       </main>
     );
   }

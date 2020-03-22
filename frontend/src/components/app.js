@@ -6,6 +6,7 @@ import NavbarContainer from './navbar/navbar_container';
 import DateSearchFormContainer from "./date_search_form/date_search_form_container";
 import HomeContainer from './home/home_container';
 import DateShowContainer from './home/date_show_container'
+import Footer from "./footer";
 
 // Change component link to actual home/splash page
 const App = () => (
@@ -18,6 +19,7 @@ const App = () => (
             <ProtectedRoute exact path="/date/browse" component={DateShowContainer} />
             {/* <AuthRoute exact path="/home" component={HomeContainer} /> */}
         </Switch>
+        <Footer />
     </div>
 );
 
