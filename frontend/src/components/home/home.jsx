@@ -21,15 +21,19 @@ class Home extends Component {
 
   }
 
-  componentDidMount() {
+  componentWillUpdate() {
 
     // debugger
-
+    console.log("Home re-mounted")
     if (this.state.currentTab === "0") {
+      let activeTab = document.getElementById("0")
+      activeTab.classList.remove("tab-inactive")
       let inactiveTab = document.getElementById("1")
       inactiveTab.classList.add("tab-inactive")
     } else {
-      let inactiveTab = document.getElementById("0")  //Why no werk
+      let activeTab = document.getElementById("1")
+      activeTab.classList.remove("tab-inactive")
+      let inactiveTab = document.getElementById("0")
       inactiveTab.classList.add("tab-inactive")
     }
   }
