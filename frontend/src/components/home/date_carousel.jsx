@@ -44,7 +44,7 @@ class DateCarousel extends React.Component {
 
         const star = <i className="fas fa-star"></i>;
         const halfstar = <i className="fas fa-star-half"></i>;
-        debugger
+        // debugger
         let stars = []
         for (let i = 0; i < rating-1; i++) {
             stars.push(star)

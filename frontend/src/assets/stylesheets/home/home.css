@@ -1,14 +1,119 @@
-.home-container {
-    position: absolute;
-    display: flex;
-    height: 500px;
-    width: 500px;
-}
-
-.home{
+.home {
     border: 1px solid blue;
 }
 
+.home-dashboard {
+    display: flex;
+    margin: 0 100px 0 30px;
+}
+
+.dash-sidebar {
+    height: 700px;
+    width: 320px;
+}
+
+.tabs-container {
+    display: flex;
+    color: white;
+}
+
+.tab-left {
+    background-color:green;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 0 0 0;
+    font-family: 'Raleway', 'sans-serif';
+    cursor: pointer;
+}
+
+.tab-right {
+    background-color: #FFE3E3;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 20px 0 0;
+    font-family: 'Raleway', 'sans-serif';
+    cursor: pointer;
+}
+
+.tab-inactive {
+    margin-top: 10px;
+    opacity: .7;
+}
+
+.datesTab {
+    height: 650px;
+    width: 100%;
+    background-color: green;
+}
+
+.collectionsTab {
+    height: 650px;
+    width: 100%;
+    background-color: #FFE3E3;
+}
+
+.dash-display-container {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    width: 1100px;
+    margin-left: 100px;
+}
+
+.dash-main-display-container {
+    background-color: blue;
+    border-radius: 30px;
+    width: 100%;
+    height: 570px;
+}
+
+.dash-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 130px;
+}
+
+.dashbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.titlebar-text {
+    font-family: 'Raleway', 'sans-serif';
+    font-size: 60px;
+    display: inline-block;
+    position: relative;
+    bottom: 0px;
+}
+
 .create-date-btn {
-    
+    background-color: #15beff;
+    border-radius: 5px;
+    border-style: none;
+    font-family: 'Raleway', 'san-serif';
+    font-size: 20px;
+    height: 80px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-bottom {
+    width: 100%;
+}
+
+.moods-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 600px;
+    height: 400px;
+    background-color: red;
 }

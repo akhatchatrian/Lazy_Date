@@ -1,5 +1,5 @@
 import React from "react"
-import "../../assets/stylesheets/date-questionnare/intimacy.scss";
+// import "../../assets/stylesheets/date-questionnare/intimacy.scss";
 class Intimacy extends React.Component {
 
     constructor(props) {
@@ -85,17 +85,15 @@ class Intimacy extends React.Component {
          let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
 
         return (
-            <div>How comfortable do you feel with your partner?
+            <div>How well do you know your date?
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="1" />
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="2" />
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="3" />
 
-<<<<<<< Updated upstream
                 {nextButton}
-=======
-                <button onClick={this.continue}>Next</button>
-                        <form>
-                                    <h2>Radio Buttons</h2>
+
+                <form>
+                    <h2>Radio Buttons</h2>
                     <div class="inputGroup">
                         <input id="radio1" name="radio" type="radio"/>
                         <label for="radio1">Yes</label>
@@ -105,7 +103,6 @@ class Intimacy extends React.Component {
                         <label for="radio2">No</label>
                     </div>
                 </form>
->>>>>>> Stashed changes
             </div>
         )
     }

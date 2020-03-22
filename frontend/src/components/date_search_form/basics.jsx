@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/stylesheets/date-questionnare/basics.scss";
+// import "../../assets/stylesheets/date-questionnare/basics.scss";
 class Basics extends React.Component {
     constructor(props) {
         super(props);
@@ -60,16 +60,13 @@ class Basics extends React.Component {
     }
 
     render() {
-<<<<<<< Updated upstream
 
-        const checkStatus = () => {
-           return this.state.location !== "" && this.state.price !== 0
-        }
+      const checkStatus = () => {
+        return this.state.location !== "" && this.state.price !== 0
+      }
 
-        let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+      let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> )
 
-        return(
-=======
         return (
           <div className="xop-section">
             <ul className="xop-grid">
@@ -165,7 +162,6 @@ class Basics extends React.Component {
               </li>
             </ul>
 
->>>>>>> Stashed changes
             <form>
               <h2>This is the Basics Page</h2>
 
@@ -207,11 +203,7 @@ class Basics extends React.Component {
                 />
               </label>
 
-<<<<<<< Updated upstream
                 {nextButton}
-=======
-              <button onClick={this.continue}>Next</button>
->>>>>>> Stashed changes
             </form>
           </div>
         );

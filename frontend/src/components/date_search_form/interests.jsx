@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/stylesheets/date-questionnare/interests.scss";
+// import "../../assets/stylesheets/date-questionnare/interests.scss";
 
 class Interests extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Interests extends React.Component {
     }
 
     continue() {
-        if (this.state.categories.length != 0) {
+        if (this.state.categories.length !== 0) {
             this.props.updateState(this.state.categories);
             this.props.nextStep()
         } else {
@@ -44,17 +44,6 @@ class Interests extends React.Component {
          let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
 
         return (
-<<<<<<< Updated upstream
-            <div>
-                <input type="checkbox" value="nightLife" onClick={this.updateValues} /> Nightlife
-                <input type="checkbox" value="artsEntertainment" onClick={this.updateValues} /> Arts & Entertainment
-                <input type="checkbox" value="food" onClick={this.updateValues} /> Food
-                <input type="checkbox" value="activeLifestyle" onClick={this.updateValues} /> Active Lifestyle
-
-                {nextButton}
-            </div>
-        )
-=======
           <div className="xop-section">
             <ul className="xop-grid">
               <li>
@@ -134,10 +123,9 @@ class Interests extends React.Component {
               onClick={this.updateValues}
             />{" "}
             Active Lifestyle
-            <button onClick={this.continue}>Continue</button>
+            {nextButton}
           </div>
         );
->>>>>>> Stashed changes
     }
 }
 
