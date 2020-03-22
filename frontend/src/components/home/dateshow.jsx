@@ -25,7 +25,6 @@ class DateShow extends React.Component {
     }
 
     render() {
-
         if (!this.props.yelpData || Object.values(this.props.yelpData).length === 0) {
             return null
         }
