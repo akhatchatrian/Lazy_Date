@@ -1,5 +1,5 @@
 import React from "react"
-
+import "../../assets/stylesheets/date-questionnare/intimacy.scss";
 class Intimacy extends React.Component {
 
     constructor(props) {
@@ -90,7 +90,22 @@ class Intimacy extends React.Component {
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="2" />
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="3" />
 
+<<<<<<< Updated upstream
                 {nextButton}
+=======
+                <button onClick={this.continue}>Next</button>
+                        <form>
+                                    <h2>Radio Buttons</h2>
+                    <div class="inputGroup">
+                        <input id="radio1" name="radio" type="radio"/>
+                        <label for="radio1">Yes</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input id="radio2" name="radio" type="radio"/>
+                        <label for="radio2">No</label>
+                    </div>
+                </form>
+>>>>>>> Stashed changes
             </div>
         )
     }

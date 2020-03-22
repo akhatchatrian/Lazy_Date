@@ -1,0 +1,120 @@
+.xop-section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 6% 2%;
+}
+
+.xop-grid {
+    margin: 20px 0 0 0;
+    padding: 0; 
+    list-style: none;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.xop-grid::after {
+    clear: both;
+}
+
+.xop-grid::after, .xop-box:before {
+    content: '';
+    display: table;
+}
+
+.xop-grid li {
+    width: 328px;
+    height: 328px;
+    display: inline-block;
+    margin: 20px;
+}
+
+.xop-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-transition: 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    transition: 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+}
+
+.xop-box:hover {
+    transform: scale(1.05)
+}
+
+.xop-img-1 {
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)),
+    url(../../images/couplesky.jpg);
+    background-size: cover;
+    width: 328px;
+    height: 328px;
+}
+
+.xop-img-2 {
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)),
+    url(../../images/night-romantic.jpg);
+    background-size: cover;
+}
+
+.xop-img-3 {
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)),
+    url(../../images/couplecontrast.jpg);
+    background-size: cover;
+}
+
+.xop-img-4 {
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)),
+    url(../../images/hand.jpg);
+    background-size: cover;
+}
+
+.xop-info {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+}
+
+.xop-info h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    color:  #e69494;
+    font-size: 42px;
+    margin: 0 30px; 
+    padding: 100px 0 0 0; 
+    line-height: 1.5;
+}
+
+.xop-info p {
+    font-family:Arial, Helvetica, sans-serif ;
+    color:  #e69494;
+}
+
+.interests-input {
+    height: inherit;
+    width: inherit;
+    opacity: 100%;
+}
+
+control-me::after {
+    content: "";
+    font-size: 100px;
+}
+#toggle:checked ~ .control-me::after {
+    content: "";
+}
+
+// label {
+//     background: #A5D6A7;
+//     padding: 0.5rem 1rem;
+//     border-radius: 0.5rem;
+// }
+
+.visually-hidden {
+    position: absolute;
+    left: -100vw;
+    
+    /* Note, you may want to position the checkbox over top the label and set the opacity to zero instead. It can be better for accessibilty on some touch devices for discoverability. */
+}
