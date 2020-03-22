@@ -44,17 +44,6 @@ class Interests extends React.Component {
          let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
 
         return (
-<<<<<<< Updated upstream
-            <div>
-                <input type="checkbox" value="nightLife" onClick={this.updateValues} /> Nightlife
-                <input type="checkbox" value="artsEntertainment" onClick={this.updateValues} /> Arts & Entertainment
-                <input type="checkbox" value="food" onClick={this.updateValues} /> Food
-                <input type="checkbox" value="activeLifestyle" onClick={this.updateValues} /> Active Lifestyle
-
-                {nextButton}
-            </div>
-        )
-=======
           <div className="xop-section">
             <ul className="xop-grid">
               <li>
@@ -137,7 +126,6 @@ class Interests extends React.Component {
             <button onClick={this.continue}>Continue</button>
           </div>
         );
->>>>>>> Stashed changes
     }
 }
 

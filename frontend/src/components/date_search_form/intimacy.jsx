@@ -90,9 +90,6 @@ class Intimacy extends React.Component {
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="2" />
                 <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="3" />
 
-<<<<<<< Updated upstream
-                {nextButton}
-=======
                 <button onClick={this.continue}>Next</button>
                         <form>
                                     <h2>Radio Buttons</h2>
@@ -105,7 +102,6 @@ class Intimacy extends React.Component {
                         <label for="radio2">No</label>
                     </div>
                 </form>
->>>>>>> Stashed changes
             </div>
         )
     }
