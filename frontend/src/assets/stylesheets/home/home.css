@@ -1,8 +1,8 @@
 .home {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: flex;
     flex-direction: column;
-    height: 1000px;
+    /* background-color: #FF9994; */
 }
 
 .home-dashboard {
@@ -17,11 +17,11 @@
 
 .tabs-container {
     display: flex;
-    color: white;
+    color: black;
 }
 
 .tab-left {
-    background-color:green;
+    background-color:#FFE3E3;
     width: 50%;
     display: flex;
     align-items: center;
@@ -29,6 +29,7 @@
     border-radius: 20px 0 0 0;
     font-family: 'Raleway', 'sans-serif';
     cursor: pointer;
+    font-weight: 700;
 }
 
 .tab-right {
@@ -40,17 +41,19 @@
     border-radius: 0 20px 0 0;
     font-family: 'Raleway', 'sans-serif';
     cursor: pointer;
+    font-weight: 700;
 }
 
 .tab-inactive {
     margin-top: 10px;
     opacity: .7;
+    font-weight: 400;
 }
 
 .datesTab {
     height: 650px;
     width: 100%;
-    background-color: green;
+    background-color: #FFE3E3;
 }
 
 .collectionsTab {
@@ -108,17 +111,42 @@
     justify-content: center;
 }
 
+.create-date-btn:hover {
+    opacity: 0.8;
+}
+
 .home-bottom {
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 800px;
-    background-color: red;
+    /* background-color: red; */
+    margin-top: 80px;
 }
 
 .moods-container {
     display: flex;
     flex-direction: column;
+    width: 1000px;
+    height: 600px;
+    /* background-color: green; */
+    font-family: 'Raleway', 'sans-serif';
+}
 
-    width: 600px;
-    height: 400px;
-    background-color: red;
+.moods-container-main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mood-box {
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    background-color: blue;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.mood-box:hover {
+    opacity: .8;
 }

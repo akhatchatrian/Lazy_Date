@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import Footer from "../footer";
 import "../../assets/stylesheets/home/home.css"
 
 class Home extends Component {
@@ -21,19 +22,17 @@ class Home extends Component {
 
   }
 
-  componentWillUpdate() {
+  componentDidUpdate() {
 
-    // debugger
-    console.log("Home re-mounted")
     if (this.state.currentTab === "0") {
       let activeTab = document.getElementById("0")
-      activeTab.classList.remove("tab-inactive")
       let inactiveTab = document.getElementById("1")
+      activeTab.classList.remove("tab-inactive")
       inactiveTab.classList.add("tab-inactive")
     } else {
       let activeTab = document.getElementById("1")
-      activeTab.classList.remove("tab-inactive")
       let inactiveTab = document.getElementById("0")
+      activeTab.classList.remove("tab-inactive")
       inactiveTab.classList.add("tab-inactive")
     }
   }
@@ -51,7 +50,7 @@ class Home extends Component {
               <div className="tab-left" id="0" onClick={this.toggleTabs}>
                 <p>My Dates</p>
               </div>
-              <div className="tab-right" id="1" onClick={this.toggleTabs}>
+              <div className="tab-right tab-inactive" id="1" onClick={this.toggleTabs}>
                 <p>My Collections</p>
               </div>
             </div>
@@ -79,18 +78,21 @@ class Home extends Component {
             </div>
           </div>
         </section>
-
+      
         <section className="home-bottom">
           <div className="moods-container">
             <h2>Moods</h2>
-            <div className="mood-box"></div>
-            <div className="mood-box"></div>
-            <div className="mood-box"></div>
-            <div className="mood-box"></div>
-            <div className="mood-box"></div>
-            <div className="mood-box"></div>
+            <div className="moods-container-main">
+              <div className="mood-box"></div>
+              <div className="mood-box"></div>
+              <div className="mood-box"></div>
+              <div className="mood-box"></div>
+              <div className="mood-box"></div>
+              <div className="mood-box"></div>
+            </div>
           </div>
         </section>
+        <Footer />
       </main>
     );
   }
