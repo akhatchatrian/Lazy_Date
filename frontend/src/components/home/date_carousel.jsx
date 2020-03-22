@@ -91,7 +91,7 @@ class DateCarousel extends React.Component {
             <div className="date-main-container">
               <div className="date-main-header">
                 <h3>{dates[this.state.currentDateIdx].name}</h3>
-                <h3>{dates[this.state.currentDateIdx].categories[0].title}</h3>
+                <p>{dates[this.state.currentDateIdx].categories[0].title}</p>
                 {this.getStars(dates[this.state.currentDateIdx].rating)}
               </div>
               <div className="date-main-img-container">
