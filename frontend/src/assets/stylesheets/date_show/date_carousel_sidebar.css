@@ -1,0 +1,113 @@
+.date-list-sidebar {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 25%;
+    margin-right: 5px;
+    /* border: 1px solid red; */
+}
+
+.date-listing {
+    /* position: absolute; */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 5px;
+    padding: 15px 0px 15px 15px;
+    width: 100%;
+    border: 1px solid gainsboro;
+    box-shadow: 0px 0.2px 0.2px 0.2px #e2e2e2;
+    /* border: 1px solid green; */
+}
+
+.date-listing:not(:first-child) {
+    margin-top: 15px;
+}
+
+.start-animation {
+    /* transition-delay: 0.5s; */
+    animation: listing-in;
+    animation-fill-mode:forwards;
+    animation-duration: 2s;
+}
+
+.end-animation {
+      /* transition-delay: 0.5s; */
+    animation: listing-out;
+    animation-fill-mode:forwards;
+    animation-duration: 2s;
+}
+
+.date-listing:hover > .date-img, .active-listing > .date-img{
+    opacity: 1
+}
+
+@keyframes listing-in {
+  0%   {margin-left: 0}
+  20%  {margin-left: -30px;
+        transform: scale(1.02);}
+    100% {margin-left: -30px;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes listing-out {
+    0% {margin-left: -30px;
+        transform: scale(1.02);}
+    20% {margin-left: 0;
+        transform: scale(1);}
+    100%   {margin-left: 0;
+    transform: scale(1);}
+}
+
+.active-listing {
+    opacity: 1;
+    border: 1px solid #F08B8F;
+}
+
+/* .active-listing > .date-img {
+    opacity: 1;
+} */
+
+
+
+
+
+.date-img {
+    display: flex;
+    object-fit: contain;
+    object-fit: cover;
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    /* max-height: 100px;
+    max-width: 100px; */
+    /* margin: 3px; */
+    opacity: 0.6;
+}
+
+.date-info-blurb {
+    margin: 0px 0px 0px 10px;
+    line-height: 1;
+    height: 100%;
+    width: auto;
+}
+
+.date-info-blurb > h3 {
+    font-size: 18px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.date-info-blurb > p {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+

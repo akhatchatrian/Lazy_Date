@@ -36,7 +36,8 @@ class DateShow extends React.Component {
             return null
         }
 
-        const businesses = this.props.yelpData.businesses;
+        // const businesses = this.props.yelpData.businesses;
+        const businesses = this.deepMind();
        
 
         return (
