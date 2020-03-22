@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_USER_LOGOUT, RECEIVE_USER_SIGN_IN } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, RECEIVE_USER_LOGOUT, RECEIVE_USER_SIGN_IN, UPDATE_CURRENT_USER } from '../actions/session_actions';
 
 const initialState = {
   isAuthenticated: false,
@@ -11,7 +11,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
-        user: action.currentUser
+        user: action.currentUser,
+        savedDates: action.currentUser.savedDates
       };
     case RECEIVE_USER_LOGOUT:
       return {
@@ -24,6 +25,12 @@ export default function(state = initialState, action) {
         isAuthenticated: !!action.currentUser,
         isSignedIn: true
       };
+    case UPDATE_CURRENT_USER:
+      console.log(state)
+      return {
+        ...state,
+        savedDates: action.currentUser.savedDates
+      }
     default:
       return state;
   }

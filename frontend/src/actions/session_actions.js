@@ -6,7 +6,7 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
-
+export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
 
 // We'll dispatch this when our user signs in
 export const receiveCurrentUser = currentUser => ({
@@ -14,11 +14,17 @@ export const receiveCurrentUser = currentUser => ({
     currentUser
 });
 
+
+export const updateCurrentUser = currentUser => ({
+    type: UPDATE_CURRENT_USER,
+    currentUser
+});
+
 // This will be used to redirect the user to the login page upon signup
 export const receiveUserSignIn = () => ({
     type: RECEIVE_USER_SIGN_IN
 });
-  
+
 // We dispatch this one to show authentication errors on the frontend
 export const receiveErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
@@ -53,9 +59,9 @@ export const login = user => dispatch => (
         const decoded = jwt_decode(token);
         dispatch(receiveCurrentUser(decoded))
     })
-    .catch(err => {
-        dispatch(receiveErrors(err.response.data));
-    })
+        .catch(err => {
+            dispatch(receiveErrors(err.response.data));
+        })
 )
 
 export const logout = () => dispatch => {
@@ -64,9 +70,10 @@ export const logout = () => dispatch => {
     dispatch(logoutUser())
 };
 
-export const updateUser = userData  => {
+export const updateUser = userData => dispatch => {
     APIUtil.updateUser(userData)
-        .then(user => receiveCurrentUser(user))
+        .then(res => dispatch(updateCurrentUser(res.data)))
+        .catch(err => dispatch(receiveErrors(err)))
 }
 
 export const clearErrors = () => dispatch => dispatch(removeErrors())
