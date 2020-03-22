@@ -12,7 +12,6 @@ router.get('/data/:user_id', (req, res) => {
 });
 
 router.post("/data", (req, res) => {
-    debugger
     const yelpData = req.body.yelpInfo
     const collectionData = req.body.collectionInfo
 

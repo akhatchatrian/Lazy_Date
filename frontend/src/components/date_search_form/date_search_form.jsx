@@ -86,10 +86,6 @@ class DateSearchForm extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.props.getDateCollection(this.props.currentUser.id)
-    }
-
     formSubmission() {
         
         const formData = {
@@ -108,7 +104,8 @@ class DateSearchForm extends React.Component {
             }
         }
 
-        this.props.createDateCollection(formData)
+        this.props.yelpSearch(formData.yelpInfo)
+        
         return formData;
     }
 

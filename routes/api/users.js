@@ -10,7 +10,7 @@ const passport = require('passport');
 
 
 // Private Auth Route
-router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({
     id: req.user.id,
     name: req.user.name,
@@ -18,22 +18,25 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
-router.patch('/updateDates/', (req, res) => {
+router.patch('/updateDate', (req, res) => {
 
-  User.findById(req.body.user.id, function (err, user) {
-    user.savedDates.push(req.body.date)
-    
-    user.update()
-    .then(response => {
-        return res.json(response.data)
+  User.findById(req.body.currentUser, function (err, user) {
+    if (err) {
+      return res.status(500).json(err);
+    }
+    if (req.body.dateEvents.length > 0) {
+      user.savedDates.push(req.body.dateEvents)
+    }
+    user.save().then(response => {
+      return res.json(response.data)
     }).catch(error => {
-        console.log(error);
-        return res.status(500).json(error);
+      console.log(error);
+      return res.status(500).json(error);
     });
   })
-  
+
 });
-  
+
 // This is for USER REGISTRATION
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -81,7 +84,7 @@ router.post("/register", (req, res) => {
 // This is for USER LOGIN
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
-  
+
   if (!isValid) {
     return res.status(400).json(errors);
   }
