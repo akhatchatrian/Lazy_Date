@@ -111,7 +111,7 @@
 
 .signup-btn:hover {
     cursor: pointer;
-    background-color:#b4b4b4;
+    opacity: 0.8
 }
 
 

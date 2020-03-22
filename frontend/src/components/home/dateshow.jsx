@@ -1,5 +1,7 @@
 import React from "react";
 import DateCarousel from './date_carousel.jsx';
+import { Link } from "react-router-dom";
+
 
 class DateShow extends React.Component {
 
@@ -10,6 +12,10 @@ class DateShow extends React.Component {
 
     componentDidMount() {
         this.props.yelpSearch(this.formData.yelpInfo)
+    }
+
+    componentWillUpdate(){
+        // this.props.yelpSearch(this.props.session.sessionDate)
     }
 
     deepMind() {
@@ -29,18 +35,24 @@ class DateShow extends React.Component {
             return null
         }
 
-        return(
-            <div className='date-show-container'>
-                <div>Here be the Date Show page</div>
-                {/* {this.deepMind()} */}
-                {/* <DateCarousel 
-                        formData={this.formData}
-                        createDateCollection={this.props.createDateCollection} 
-                        yelpData={this.state.yelpData} 
-                        results={this.deepMind()} 
-                    /> // Not sure what yelp state is called, will update later */}
-            </div>
-        )
+        const businesses = this.props.yelpData.businesses;
+       
+
+        return (
+          <div className="date-show-container">
+            {businesses.length === 0 ? (
+              <div className='no-results-container'>
+                  <p>Sorry, date could not be generated with your selected options</p>
+                  <p>Please try again with different parameters.</p>
+                  <a href="#/date"><button class="create-date-btn">Create a new Date</button></a>
+              </div>
+            ) : (
+              <DateCarousel dates={businesses} />
+            )}
+
+            {/* {this.deepMind()} */}
+          </div>
+        );
     }
 
 }

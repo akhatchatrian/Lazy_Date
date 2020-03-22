@@ -4,7 +4,6 @@ import "../../assets/stylesheets/splash/splash.css";
 import Footer from "../footer";
 
 class Splash extends React.Component {
-
     render() {
         return (
           <main className="main-bg">
@@ -44,20 +43,13 @@ class Splash extends React.Component {
               <div className='why-text'>
                   <h1 className='why-title'>Why LazyDate?</h1>
                 <p>
-                  Though meeting people has never been so easy.Dating is still hard. 
-                  Like really hard. Especially nowadays. People are busy, they are 
-                  lazy, or they’re just plain old clueless. It seems like between 
-                  work, family, and friends, it is harder than ever to put the 
-                  effort into your dating life that it deserves. Enter LazyDate. 
-                  <br>
-
-                  </br>
-                  Lazydate was first founded with the hope of solving the 
-                  timeless question, “what is the perfect date?”. Now, LazyDate 
-                  has become a battle cry for the lazy, busy, clueless, and 
-                  simply curious. A loud declaration that everyone deserves the
-                   perfect date, even if they don’t know what that is yet.  
-
+                  Finding a compatible partner using modern dating apps is easier than ever.
+                  However, creating an original and enjoyable date night is becoming more and
+                  more difficult given the overwhelming choice of restaurant, movie and activity
+                  options available to people through apps such as Yelp and Eventbrite. Lazy Date
+                  aims to solve this dilemma by providing our users a customized and tailored date
+                  experience. By removing the stress of decision making we allow you to focus on
+                  the more enjoyable aspects of your night out.
                 </p>
             
               

@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../assets/stylesheets/navbar/login_form.css';
 
-
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
