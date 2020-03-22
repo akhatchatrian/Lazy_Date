@@ -21,6 +21,10 @@ class Home extends Component {
 
   }
 
+  componentDidMount() {
+    this.props.getDateCollection(this.props.currentUser.id)
+  }
+
   componentDidUpdate() {
 
     if (this.state.currentTab === "0") {
@@ -37,8 +41,16 @@ class Home extends Component {
   }
 
   render() {
-    let currentTab = this.state.currentTab === "0" ? ( <div className="datesTab">{/* Iterate through current user's dates here */}</div> ) :  
-                                                 ( <div className="collectionsTab"> {/* Iterate through current user's collections */} </div>);
+
+    let currentTab = this.state.currentTab === "0" ? 
+    
+    ( <div className="datesTab">
+        {/* Iterate through current user's dates here */}
+      </div> )
+    :  // OR
+    ( <div className="collectionsTab">
+        {/* Iterate through current user's collections */}
+      </div>);
 
     return (
       <main className="home">
