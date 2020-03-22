@@ -15,6 +15,10 @@ class DateCarousel extends React.Component {
         this.handlePrevious = this.handlePrevious.bind(this);
     }
 
+    // everythingSubmit() {
+    //   this.props.userUpdate(this.state.props.dates)
+    //   this.props.createDateCollection(this.props.formData)
+    // }
 
     componentDidUpdate(){
         if (!this.state.dates) this.setState({dates: this.props.dates})
@@ -44,7 +48,7 @@ class DateCarousel extends React.Component {
 
         const star = <i className="fas fa-star"></i>;
         const halfstar = <i className="fas fa-star-half"></i>;
-        debugger
+    
         let stars = []
         for (let i = 0; i < rating-1; i++) {
             stars.push(star)

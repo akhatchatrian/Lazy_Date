@@ -6,11 +6,9 @@ class DateShow extends React.Component {
     constructor(props) {
         super(props)
         this.formData = this.props.location.state; //Object from DateSearchForm containing yelpInfo and collectionInfo keys.
+
     }
 
-    componentDidMount() {
-        this.props.yelpSearch(this.formData.yelpInfo)
-    }
 
     deepMind() {
         const results = this.props.yelpData.businesses
@@ -20,6 +18,13 @@ class DateShow extends React.Component {
             let smartRating2 = (venue2.rating * venue2.review_count + 6) / (venue2.review_count + 2);
             return smartRating2 - smartRating1;
         })
+        
+        const userData = {
+            currentUser: this.props.currentUser.id,
+            dateEvents: results.slice(0, 5)
+        }
+        
+        this.props.updateUser(userData)
 
         return results.slice(0, 5);
     }
@@ -32,13 +37,14 @@ class DateShow extends React.Component {
         return(
             <div className='date-show-container'>
                 <div>Here be the Date Show page</div>
-                {/* {this.deepMind()} */}
-                {/* <DateCarousel 
+                <DateCarousel 
+                        currentUser={this.props.currentUser}
+                        userUpdate={this.props.userUpdate}
                         formData={this.formData}
                         createDateCollection={this.props.createDateCollection} 
-                        yelpData={this.state.yelpData} 
+                        yelpData={this.props.yelpData} 
                         results={this.deepMind()} 
-                    /> // Not sure what yelp state is called, will update later */}
+                    /> 
             </div>
         )
     }

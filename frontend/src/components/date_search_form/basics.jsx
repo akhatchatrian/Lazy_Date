@@ -60,7 +60,6 @@ class Basics extends React.Component {
     }
 
     render() {
-<<<<<<< Updated upstream
 
         const checkStatus = () => {
            return this.state.location !== "" && this.state.price !== 0
@@ -69,103 +68,6 @@ class Basics extends React.Component {
         let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
 
         return(
-=======
-        return (
-          <div className="xop-section">
-            <ul className="xop-grid">
-              <li>
-                <div className="xop-box xop-img-1">
-                  <h3>The Basics</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-2">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-3">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-4">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-            </ul>
-            <ul className="xop-grid">
-              <li>
-                <div className="xop-box xop-img-1">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-2">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-3">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-4">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-            </ul>
-
->>>>>>> Stashed changes
             <form>
               <h2>This is the Basics Page</h2>
 
@@ -207,13 +109,8 @@ class Basics extends React.Component {
                 />
               </label>
 
-<<<<<<< Updated upstream
                 {nextButton}
-=======
-              <button onClick={this.continue}>Next</button>
->>>>>>> Stashed changes
             </form>
-          </div>
         );
     }
 }
