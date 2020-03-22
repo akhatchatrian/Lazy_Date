@@ -60,101 +60,14 @@ class Basics extends React.Component {
     }
 
     render() {
-        return (
-          <div className="xop-section">
-            <ul className="xop-grid">
-              <li>
-                <div className="xop-box xop-img-1">
-                  <h3>The Basics</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-2">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-3">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-4">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-            </ul>
-            <ul className="xop-grid">
-              <li>
-                <div className="xop-box xop-img-1">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-2">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-3">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-4">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-            </ul>
 
+        const checkStatus = () => {
+           return this.state.location !== "" && this.state.price !== 0
+        }
+
+        let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+
+        return(
             <form>
               <h2>This is the Basics Page</h2>
 
@@ -196,9 +109,8 @@ class Basics extends React.Component {
                 />
               </label>
 
-              <button onClick={this.continue}>Next</button>
+                {nextButton}
             </form>
-          </div>
         );
     }
 }
