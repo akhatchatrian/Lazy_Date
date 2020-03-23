@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/stylesheets/date-questionnare/adventurous.scss";
+import "../../assets/stylesheets/date-questionnare/adventurous.css";
 class Adventurous extends React.Component {
 
     constructor(props) {
