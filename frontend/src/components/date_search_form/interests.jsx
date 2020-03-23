@@ -41,19 +41,29 @@ class Interests extends React.Component {
             return this.state.categories.length > 0;
          }
  
-         let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+      let nextButton = checkStatus() ? (<button class='interests-next-button' onClick={this.continue}>Next</button>) : (<button class='interests-next-button'>Next</button> );
 
-        return (
-            <div>
-                <input type="checkbox" value="nightLife" onClick={this.updateValues} /> Nightlife
-                <input type="checkbox" value="artsEntertainment" onClick={this.updateValues} /> Arts & Entertainment
-                <input type="checkbox" value="food" onClick={this.updateValues} /> Food
-                <input type="checkbox" value="activeLifestyle" onClick={this.updateValues} /> Active Lifestyle
+        return (         
+            <div class='body-6'>
+              <h1 class='basics-title'>What are we looking to do?</h1>
+              <h5>Select at least one</h5>
+                <div class="form__group field">
+                    <label class='interests-label'>
+                    <input type = "radio" class="option-input radio" value="nightLife" onClick={this.updateValues} /> Nightlife
+                    <input type="radio" class="option-input radio" value="artsEntertainment" onClick={this.updateValues} /> Arts & Entertainment
+          
+                    <input type = "radio" class="option-input radio" value="food" onClick={this.updateValues} /> Food
+                    <input type = "radio" class="option-input radio" value="activeLifestyle" onClick={this.updateValues} /> Active Lifestyle
+              
 
+                    </label>
                 {nextButton}
-            </div>
-        )
+              </div>
+            </div>         
+        );
+        
     }
 }
 
 export default Interests;
+

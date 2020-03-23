@@ -16,7 +16,6 @@ class Home extends Component {
     this.changeMainDate = this.changeMainDate.bind(this);
 
     this.toggleTabs = this.toggleTabs.bind(this);
-    this.getMood = this.getMood.bind(this);
   }
 
  
@@ -25,14 +24,12 @@ class Home extends Component {
     this.props.getDateCollection(this.props.currentUser.id);
   }
 
-
-
   componentDidUpdate() {
-    if (this.state.currentTab === "0") {
-      let activeTab = document.getElementById("0");
-      let inactiveTab = document.getElementById("1");
-      activeTab.classList.remove("tab-inactive");
-      inactiveTab.classList.add("tab-inactive");
+    if (this.state.currentTab === "0") { // This can be optimized later
+      let activeTab = document.getElementById("0")
+      let inactiveTab = document.getElementById("1")
+      activeTab.classList.remove("tab-inactive")
+      inactiveTab.classList.add("tab-inactive")
     } else {
       let activeTab = document.getElementById("1");
       let inactiveTab = document.getElementById("0");
@@ -62,21 +59,6 @@ class Home extends Component {
   toggleTabs(e) {
     if (e.currentTarget.id !== this.state.currentTab) {
       this.setState({ currentTab: e.currentTarget.id });
-    }
-  }
-
-  getMood(moodName) {
-    switch (moodName) {
-      case "easy-night-out":
-        return {};
-      case "feelin-fancy":
-        return {};
-      case "adrenaline-rush":
-        return {};
-      case "mystery":
-        return {};
-      default:
-        return null;
     }
   }
 
@@ -204,17 +186,79 @@ class Home extends Component {
           <div className="moods-container">
             <h2>Moods</h2>
             <div className="moods-container-main">
-              {/* <Link className="mood-box" to={{
-              pathname: "/date/browse",
-              state: { dates: this.getMood("easy-night-out") }
-            }}></Link> */}
 
-              <div className="mood-box" id="easy-night-out"></div>
-              <div className="mood-box" id=""></div>
-              <div className="mood-box" id="adrenaline-rush"></div>
-              <div className="mood-box" id="feelin-fancy"></div>
-              <div className="mood-box" id=""></div>
-              <div className="mood-box" id="mystery"></div>
+              <Link id="easy-night-out" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: { 
+                    searchParams: "usedbooks,movietheatres,tapas,paintandsip,lakes,museums,aquariums",
+                    conditions: {
+                      age: false,
+                      location: "San Francisco",
+                      price: "1,2"
+                    }
+                }
+              }}>Easy Night Out</Link>
+
+              <Link id="adrenaline-rush" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: {
+                  searchParams: "bungeejumping,gun_ranges,challengecourses,skydiving,axethrowing",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: "1,2,3,4"
+                  }
+                }
+              }}>Adrenaline Rush</Link>
+
+              <Link id="feelin-fancy" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: { 
+                  searchParams: "winetastingroom,cheesetastingclasses,winetasteclasses,fondue",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: 4
+                  }
+                }
+              }}>Feelin' Fancy</Link>
+
+
+              <Link id="artistic" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: {
+                  searchParams: "artclasses,photoclasses,dancestudio",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: "2,3"
+                  }
+                }
+              }}>Artistic</Link>
+
+              <Link id="lets-get-weird" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: {
+                  searchParams: "psychic_astrology,axethrowing,cabarets,stripclubs",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: 2
+                  }
+                }
+              }}>Let's Get Weird</Link>
+
+              <Link id="mystery" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: { 
+                  searchParams: "popuprestaurants,streetvendors,comedyclubs,escapegames,mini_golf,planetarium,virtualrealitycenters,popupshops",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: "1,2,3"
+                  }
+                }
+              }}>Mystery</Link>
             </div>
           </div>
         </section>

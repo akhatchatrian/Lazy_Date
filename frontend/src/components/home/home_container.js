@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import Home from './home';
 import { getDateCollection } from "../../actions/date_actions";
 import { receiveCurrentUser } from '../../actions/session_actions';
+import { yelpSearch } from "../../actions/yelp_actions"
 
 
 const msp = (state, ownProps) => {
@@ -17,7 +18,8 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
   getDateCollection: userId => dispatch(getDateCollection(userId)),
-  receiveCurrentUser: user => dispatch(receiveCurrentUser(user))
+  receiveCurrentUser: user => dispatch(receiveCurrentUser(user)),
+  yelpSearch: yelpData => dispatch(yelpSearch(yelpData))
 });
 
 export default connect(msp, mdp)(Home);

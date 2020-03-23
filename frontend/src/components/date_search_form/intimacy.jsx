@@ -82,16 +82,45 @@ class Intimacy extends React.Component {
             return this.state.levelChoice > 0;
          }
  
-         let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+        let nextButton = checkStatus() ? (<button class='intimacy-next-button' onClick={this.continue}>Next</button> ) : ( <button class='intimacy-next-button'>Next</button> );
 
-        return (
-            <div>How well do you know your date?
-                <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="1" />
-                <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="2" />
-                <input onClick={this.handleCheck} name="intimacyRating" type="radio" value="3" />
-
-                {nextButton}
-            </div>
+        return (            
+                <div class='body-3'>
+                    <h1 class='basics-title'>How comfortable do you feel with your partner?</h1>
+                        <div class="form__group field">
+                            <label class='intimacy-label'>
+                            <input 
+                            onClick={this.handleCheck} 
+                            name="intimacyRating" 
+                            type="radio" 
+                            value="1" 
+                            class="option-input radio"
+                            />
+                            We've just met
+                            </label>
+                            <label class='intimacy-label'>
+                            <input 
+                            onClick={this.handleCheck} 
+                            name="intimacyRating" 
+                            type="radio" 
+                            value="2"
+                            class="option-input radio" 
+                            />
+                            They're aware of my strangeness
+                            </label>
+                            <label class='intimacy-label'>
+                            <input 
+                            onClick={this.handleCheck} 
+                            name="intimacyRating" 
+                            type="radio" 
+                            value="3"
+                            class="option-input radio" 
+                            />
+                            We've merged into the same person
+                            </label>
+                            {nextButton}
+                        </div>
+                    </div>
         )
     }
 }

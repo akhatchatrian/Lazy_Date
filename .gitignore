@@ -1,4 +1,5 @@
-/config/keys.js
 /node_modules
 .env
-/frontend/src/frontend_config/key.js 
+/frontend/src/frontend_config/key.js
+/front/src/frontend_config/keys_dev.js
+/config/keys_dev

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../../assets/stylesheets/date-questionnare/adventurous.css";
 class Adventurous extends React.Component {
 
     constructor(props) {
@@ -89,16 +89,41 @@ class Adventurous extends React.Component {
             return this.state.adventurousLevel > 0
          }
  
-         let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+        let nextButton = checkStatus() ? (<button class='adventurous-next-button' onClick={this.continue}>Next</button>) : (<button class='adventurous-next-button'>Next</button> );
 
         return (
-            <div>How adventurous are you feeling?
-                <input onClick={this.handleCheck} name="adventurousRating" type="radio" value="1" />
-                <input onClick={this.handleCheck} name="adventurousRating" type="radio" value="2" />
-                <input onClick={this.handleCheck} name="adventurousRating" type="radio" value="3" />
-
-                {nextButton}
-            </div>
+            <form class='basics-form'>
+                <div class='body-5'>
+                    <h1 class='basics-title'>How adventurous are you feeling?</h1>
+                    <div class="form__group field">        
+                        <input 
+                        onClick={this.handleCheck} 
+                        name="adventurousRating" 
+                        type="radio" 
+                        value="1"
+                        class="option-input radio" 
+                        />
+                        Hungover on a rainy Sunday
+                        <input 
+                        onClick={this.handleCheck} 
+                        name="adventurousRating" 
+                        type="radio" 
+                        value="2"
+                        class="option-input radio" 
+                        />
+                        Ready to try something new
+                        <input 
+                        onClick={this.handleCheck} 
+                        name="adventurousRating" 
+                        type="radio" 
+                        value="3"
+                        class="option-input radio" 
+                        />
+                        My body wants to break free
+                        {nextButton}
+                    </div>
+                </div>
+            </form>
         )
     }
 }

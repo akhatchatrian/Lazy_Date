@@ -1,5 +1,5 @@
-.interests-next-button {
-      box-sizing: border-box;
+.adventurous-next-button {
+     box-sizing: border-box;
     width: 100%;
     height: 50px;
     border-style: none;
@@ -9,51 +9,29 @@
     border-radius: 3px;
     font-size: 30px;
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 5px;
     margin-bottom: 5px;
     font-family: 'Raleway', sans-serif;
 }
 
 
-
-
-.body-6 {
-background-image: url("../../images/interests.jpg");
-background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 85vh;
-  color: white;
-  font-weight: bold;
-  background-color: transparent;
-  font-family: 'Raleway', sans-serif;
-  overflow-y: hidden;
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
 }
-
-
-
-
-.interests-label {
-
-    margin-left: 100px;
-      color: white;
-      font-weight: bold;
-      font: 40px;
-      font-family: 'Raleway', sans-serif;
-      margin-bottom: 20px;
-}
-
 
 .option-input {
-    margin-left: 20px;
-    font-weight: bold;
-      font: 30px;
-      font-family: 'Raleway', sans-serif;
-          background-color: transparent;
-    border-color: white;
- 
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -67,8 +45,7 @@ background-size: cover;
   height: 40px;
   width: 40px;
   transition: all 0.15s ease-out 0s;
-  background: white;
-  font-weight: bold;
+  background: #cbd1d8;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -77,19 +54,14 @@ background-size: cover;
   outline: none;
   position: relative;
   z-index: 1000;
-    //   background-color: transparent;
-    // border-color: white;
-    // border-style: ridge;
 }
-
 .option-input:hover {
-  background:white;
+  background: #9faab7;
 }
 .option-input:checked {
   background: #FF9994;
 }
 .option-input:checked::before {
-    
   height: 40px;
   width: 40px;
   position: absolute;
@@ -98,9 +70,6 @@ background-size: cover;
   font-size: 26.66667px;
   text-align: center;
   line-height: 40px;
-    background-color: transparent;
-    
-   
 }
 .option-input:checked::after {
   -webkit-animation: click-wave 0.65s;
@@ -111,15 +80,27 @@ background-size: cover;
   display: block;
   position: relative;
   z-index: 100;
-  
 }
 .option-input.radio {
-    border-style: solid;
-    background-color: transparent;
-    border-color: white;
   border-radius: 50%;
 }
 .option-input.radio::after {
   border-radius: 50%;
 }
 
+
+
+.body-5 {
+background-image: url("../../images/hazy.jpg");
+background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  font-family: 'Raleway', sans-serif;
+  overflow-y: hidden;
+}
