@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/frontend_config/key.js
+/src/frontend_config/map_api_key.js
 /.pnp
 .pnp.js
 
