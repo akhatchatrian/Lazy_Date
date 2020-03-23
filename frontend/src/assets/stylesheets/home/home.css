@@ -152,10 +152,53 @@
     background-color: blue;
     cursor: pointer;
     border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mood-box:hover {
     opacity: .8;
+}
+
+#easy-night-out {
+    background-image: url("../../images/easy-night-2.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#adrenaline-rush {
+    background-image: url("../../images/adrenaline.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#feelin-fancy{
+    background-image: url("../../images/fancy-date.png");
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+
+#artistic {
+    background-image: url("../../images/artsy-date.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#lets-get-weird {
+    background-image: url("../../images/weird.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#mystery {
+    background-image: url("../../images/mystery.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .date-item-container {
