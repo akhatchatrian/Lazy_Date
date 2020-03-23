@@ -19,6 +19,8 @@ class DateCarousel extends React.Component {
     this.handlePrevious = this.handlePrevious.bind(this);
     this.handleMouseIn = this.handleMouseEnter.bind(this);
     this.handleMouseOut = this.handleMouseLeave.bind(this);
+
+    this.saveCollection = this.saveCollection.bind(this);
   }
 
   // componentDidMount() {
@@ -89,8 +91,29 @@ class DateCarousel extends React.Component {
     };
   }
 
-  saveCollection(){
+  saveCollection() {
     // save current dates + user's collectionName
+
+    const currentDate = this.props.dates[this.state.currentDateIdx];
+    console.log(currentDate);
+
+    const user = {
+      currentUser: this.props.currentUser.id,
+      dateEvents: [currentDate]
+    }
+
+    this.props.updateUser(user)
+
+    const dateObj = {
+      collectionName: this.state.collectionName,
+      user: this.props.currentUser.id,
+      yelpInfo: this.props.formData.yelpInfo,
+      collectionInfo: this.props.formData.collectionInfo
+    }
+
+    this.props.createDateCollection(dateObj)
+
+    console.log(this.state);
   }
 
   getStars(rating) {
@@ -129,14 +152,14 @@ class DateCarousel extends React.Component {
   }
 
   getParams(string) {
-    const reserved =[	'!', '*', "\'", '(', ')', ';', ':', '@', '&', '=', '+', '$', ',', '/', '?', '%', '#', '[', ']']
+    const reserved = ['!', '*', "\'", '(', ')', ';', ':', '@', '&', '=', '+', '$', ',', '/', '?', '%', '#', '[', ']']
     const words = string.split(" ");
     const params = []
     // const params =
     //   words.slice(0, words.length - 1).map(word => word + "+") +
     //   words.slice(words.length - 1);
-    words.forEach((word, idx)=> {
-      if (idx === words.length-1){
+    words.forEach((word, idx) => {
+      if (idx === words.length - 1) {
         params.push(word)
       } else if (reserved.includes(word)) {
         params.push("")
@@ -153,7 +176,7 @@ class DateCarousel extends React.Component {
         frameborder="0"
         src={`https://www.google.com/maps/embed/v1/place?key=${
           keys.MAP_API_KEY
-        }&q=
+          }&q=
         ${this.getParams(currentDate.name)},
         ${this.getParams(currentDate.location.city)}, 
         ${currentDate.location.zip_code}`}
