@@ -82,6 +82,7 @@ border-bottom: white;
 .basics-body-1 {
 background-image: url("../../images/couplesky.jpg");
 background-size:cover;
+background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -251,6 +252,11 @@ background-size:cover;
     margin-top: 5px;
     margin-bottom: 5px;
     font-family: 'Raleway', sans-serif;
+    outline:none;
+}
+
+.next-button:hover {
+  cursor: pointer;
 }
 
 // CHECKBOX

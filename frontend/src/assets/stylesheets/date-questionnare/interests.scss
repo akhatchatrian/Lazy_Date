@@ -12,14 +12,19 @@
     margin-top: 50px;
     margin-bottom: 5px;
     font-family: 'Raleway', sans-serif;
+    outline:none;
 }
 
+.interests-next-button:hover {
+  cursor: pointer;
+}
 
 
 
 .body-6 {
 background-image: url("../../images/interests.jpg");
 background-size: cover;
+background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;

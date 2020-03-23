@@ -1,5 +1,5 @@
 import React from "react";
-// import "../../assets/stylesheets/date-questionnare/basics.scss";
+import "../../assets/stylesheets/date-questionnare/basics.scss";
 
 class Basics extends React.Component {
     constructor(props) {

@@ -12,8 +12,12 @@
     margin-top: 5px;
     margin-bottom: 5px;
     font-family: 'Raleway', sans-serif;
+    outline: none;
 }
 
+.adventurous-next-button:hover {
+  cursor: pointer;
+}
 
 @keyframes click-wave {
   0% {
@@ -93,6 +97,7 @@
 .body-5 {
 background-image: url("../../images/hazy.jpg");
 background-size: cover;
+background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,5 +1,5 @@
 import React from "react";
-// import "../../assets/stylesheets/date-questionnare/interests.scss";
+import "../../assets/stylesheets/date-questionnare/interests.scss";
 
 class Interests extends React.Component {
     constructor(props) {

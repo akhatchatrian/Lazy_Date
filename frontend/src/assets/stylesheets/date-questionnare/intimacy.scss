@@ -81,6 +81,7 @@
 .body-3 {
     background-image: url("../../images/couplecontrast.jpg");
     background-size: cover;
+    background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -111,7 +112,13 @@
     // margin-bottom: 5px;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
+    outline: none;
 }
+
+.intimacy-next-button:hover {
+  cursor: pointer;
+}
+
 
 .intimacy-label {
   font-size: 25px;
