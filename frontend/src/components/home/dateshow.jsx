@@ -29,14 +29,13 @@ class DateShow extends React.Component {
 
         return (
             <div className='date-show-container'>
-                <div>Here be the Date Show page</div>
                 <DateCarousel
                     currentUser={this.props.currentUser}
                     updateUser={this.props.updateUser}
                     formData={this.formData}
                     createDateCollection={this.props.createDateCollection}
                     yelpData={this.props.yelpData}
-                    results={this.deepMind(this.props.yelpData)}
+                    dates={this.deepMind(this.props.yelpData)}
                 />
             </div>
         )

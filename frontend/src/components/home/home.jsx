@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import HomeCarousel from './home_carousel';
 import "../../assets/stylesheets/home/home.css"
 
 class Home extends Component {
@@ -39,7 +40,7 @@ class Home extends Component {
   render() {
     let currentTab = this.state.currentTab === "0" ? ( <div className="datesTab">{/* Iterate through current user's dates here */}</div> ) :  
                                                  ( <div className="collectionsTab"> {/* Iterate through current user's collections */} </div>);
-
+    debugger
     return (
       <main className="home">
         <section className="home-dashboard">
@@ -70,8 +71,8 @@ class Home extends Component {
             </div>
             <div className="dash-main-display-container">
               <div className="home-prev-button"></div> 
+                  <HomeCarousel />
               <div className="dash-main-display">
-
               </div>
               <div className="home-next-button"></div>
             </div>
