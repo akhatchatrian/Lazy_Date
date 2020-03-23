@@ -6,7 +6,8 @@ const msp = (state, ownProps) => ({
   loggedIn: state.session.isAuthenticated,
   currentUser: state.session.user,
   errors: state.errors.session
-  // Get user's most recent dates
+  // Get current user's saved dates
+  // Get current user's saved collections
   // Get new date options
 });
 

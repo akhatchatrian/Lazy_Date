@@ -6,6 +6,7 @@ class DateShow extends React.Component {
     constructor(props) {
         super(props)
         this.formData = this.props.location.state; //Object from DateSearchForm containing yelpInfo and collectionInfo keys.
+
     }
 
 
@@ -17,6 +18,7 @@ class DateShow extends React.Component {
             let smartRating2 = (venue2.rating * venue2.review_count + 6) / (venue2.review_count + 2);
             return smartRating2 - smartRating1;
         })
+        
 
         return results.slice(0, 5)
     }

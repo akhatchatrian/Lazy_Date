@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/stylesheets/date-questionnare/interests.scss";
+// import "../../assets/stylesheets/date-questionnare/interests.scss";
 
 class Interests extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Interests extends React.Component {
     }
 
     continue() {
-        if (this.state.categories.length != 0) {
+        if (this.state.categories.length !== 0) {
             this.props.updateState(this.state.categories);
             this.props.nextStep()
         } else {
