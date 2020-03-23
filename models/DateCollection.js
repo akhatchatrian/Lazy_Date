@@ -21,7 +21,7 @@ const DateCollectionSchema = new Schema({
         type: String
       },
       price: {
-        type: Number
+        type: String
       } 
     }
   },
@@ -38,7 +38,7 @@ const DateCollectionSchema = new Schema({
       type: String
     },
     price: {
-      type: Number
+      type: String
     } 
   }
 });

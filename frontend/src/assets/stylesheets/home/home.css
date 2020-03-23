@@ -54,12 +54,16 @@
     height: 650px;
     width: 100%;
     background-color: #FFE3E3;
+    overflow: scroll;
+    font-family: 'Raleway', 'sans-serif'
 }
 
 .collectionsTab {
     height: 650px;
     width: 100%;
     background-color: #FFE3E3;
+    overflow: scroll;
+    font-family: 'Raleway', 'sans-serif'
 }
 
 .dash-display-container {
@@ -149,4 +153,13 @@
 
 .mood-box:hover {
     opacity: .8;
+}
+
+.date-item-container {
+    display: flex;
+}
+
+.saved-date-thumbnail {
+    height: 50px;
+    width: 50px;
 }

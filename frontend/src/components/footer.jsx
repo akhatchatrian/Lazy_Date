@@ -8,33 +8,33 @@ export default () => (
 
         </div>
         <div className="footer-right">
-            <div className="author-box" >
-                <a href="https://github.com/akhatchatrian">
+            <a href="https://github.com/akhatchatrian">
+                <div className="author-box" >
                     <i className="fab fa-github fa-2x"></i>
-                </a>
-                <p>Arman Khatchatrian</p>
-            </div>
+                    <p>Arman Khatchatrian</p>
+                </div>
+            </a>
 
-            <div className="author-box" >
-                <a href="https://github.com/ehecker">
+            <a href="https://github.com/ehecker">
+                <div className="author-box" >
                     <i className="fab fa-github fa-2x"></i>
-                </a>
-                <p>Ezra Hecker</p>
-            </div>
+                    <p>Ezra Hecker</p>
+                </div>
+            </a>
 
-            <div className="author-box" >
-                <a href="https://github.com/ilyadubinski">
+            <a href="https://github.com/ilyadubinski">
+                <div className="author-box" >
                     <i className="fab fa-github fa-2x"></i>
-                </a>
-                <p>Ilya Dubinski</p>
-            </div>
+                    <p>Ilya Dubinski</p>
+                </div>
+            </a>
 
-            <div className="author-box" >
-                <a href="https://github.com/echu18">
+            <a href="https://github.com/echu18">
+                <div className="author-box" >
                     <i className="fab fa-github fa-2x"></i>
-                </a>
-                <p>Jamie Chu</p>
-            </div>
+                    <p>Jamie Chu</p>
+                </div>
+            </a>
         </div>
     </footer>
 );

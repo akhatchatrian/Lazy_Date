@@ -1,5 +1,6 @@
 import React from "react";
 // import "../../assets/stylesheets/date-questionnare/basics.scss";
+
 class Basics extends React.Component {
     constructor(props) {
         super(props);
@@ -66,6 +67,7 @@ class Basics extends React.Component {
       }
 
       let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> )
+      
 
         return(
             <form>
