@@ -9,7 +9,7 @@ const msp = (state, ownProps) => {
       currentUser: state.session.user,
       errors: state.errors.session,
       userDates: state.session.user.savedDates,
-      userCollections: state.date
+      userCollections: Object.values(state.date)
       // Get new date options
     }
 };

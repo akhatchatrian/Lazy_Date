@@ -11,7 +11,8 @@ class DateCarousel extends React.Component {
       prevDateIdx: null,
       currentDateIdx: 0,
       hoverIdx: null,
-      collectionName: ""
+      collectionName: "",
+      // savedDates: []
     };
 
     this.changeMainDate = this.changeMainDate.bind(this);
@@ -20,6 +21,8 @@ class DateCarousel extends React.Component {
     this.handleMouseIn = this.handleMouseEnter.bind(this);
     this.handleMouseOut = this.handleMouseLeave.bind(this);
 
+
+    // this.handleCheckbox = this.handleCheckbox.bind(this);
     this.saveCollection = this.saveCollection.bind(this);
   }
 
@@ -91,9 +94,26 @@ class DateCarousel extends React.Component {
     };
   }
 
+  // handleCheckbox(idx){
+  //   const checkedIdx = idx;
+  //   const currentStateDates = this.state.savedDates;
+  //   const currentListing = this.props.dates[checkedIdx];
+
+  //   if (currentStateDates.includes(currentListing)) {
+  //     currentStateDates.splice(currentStateDates.indexOf(currentListing), 1);
+  //   } else {
+  //     currentStateDates.push(currentListing)
+  //   }
+
+  //   this.setState(currentStateDates);
+  // }
+
+  // alreadyLiked(idx) {
+  //   return this.state.savedDates.include(this.props.dates[idx]);
+  // }
+
   saveCollection() {
     // save current dates + user's collectionName
-
     const currentDate = this.props.dates[this.state.currentDateIdx];
     console.log(currentDate);
 
@@ -101,7 +121,7 @@ class DateCarousel extends React.Component {
       currentUser: this.props.currentUser.id,
       dateEvents: [currentDate]
     }
-
+    
     this.props.updateUser(user)
 
     const dateObj = {
@@ -112,7 +132,6 @@ class DateCarousel extends React.Component {
     }
 
     this.props.createDateCollection(dateObj)
-
     console.log(this.state);
   }
 
@@ -184,6 +203,10 @@ class DateCarousel extends React.Component {
       ></iframe>
     );
   }
+
+
+
+
 
   render() {
     const { dates } = this.props;
@@ -268,9 +291,9 @@ class DateCarousel extends React.Component {
               className="collection-field"
               type="text"
               onChange={this.handleInput("collectionName")}
-              placeholder="Name your collection!"
+              placeholder="Name this mood"
             />
-            <button onClick={this.saveCollection}>Save collection</button>
+            <button onClick={this.saveCollection}>Save Mood</button>
           </label>
 
           <h3>Here are Your Date Results:</h3>
@@ -289,6 +312,14 @@ class DateCarousel extends React.Component {
                   <h3>{date.name}</h3>
                   <p>{date.categories[0].title}</p>
                 </div>
+
+                {/* <label for='listing-checkbox'>
+                  {this.alreadyLiked(idx) ? (
+                    <i class="fas fa-heart"></i>
+                  ) : ("") }
+
+                  <input type="checkbox" id={idx} onClick={this.handleCheckbox(idx)}/>
+                </label> */}
               </div>
             );
           })}

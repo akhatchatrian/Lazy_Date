@@ -8,12 +8,17 @@
 
 .hc-img-container {
     display: flex;
+    justify-content: center;
     position: relative;
     height: 100%; 
     width: 60%;
     border: 1px solid yellowgreen;
 }
 
+.hc-img-container > img {
+    height: 100%;
+    width: auto;
+}
 
 
 

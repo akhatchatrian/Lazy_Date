@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../assets/stylesheets/home/home_carousel.css'
-// import DateCarousel from './date_carousel';
+import DateCarousel from './date_carousel';
 
 class HomeCarousel extends React.Component {
   constructor(props) {
@@ -17,10 +17,14 @@ class HomeCarousel extends React.Component {
 //   }
 
   render() {
+    if (!this.props) return null;
+
+    const {currentDateIdx, prevDateIdx, dates, handleNext, handlePrevious} = this.props;
     // const getStars = DateCarousel.getStars.bind(this);
     // const getDollars = DateCarousel.getDollars.bind(this);
     // const handleNext = DateCarousel.handleNext.bind(this);
     // const handlePrevious = DateCarousel.handlePrevious.bind(this);
+    const currentDate = dates[currentDateIdx];
 
     return (
       <div className="home-carousel">
@@ -37,23 +41,21 @@ class HomeCarousel extends React.Component {
             </div>
           </div>
 
-          <div className="hc-main-img">
-            {/* <img src={currentDate.image_url} /> */}
-          </div>
+            <img src={currentDate.image_url} />
         </div>
 
         
         <div className="hc-detailed-info">
           <div className="hc-main-header">
-            {/* <h3>{currentDate.name}</h3>
-                        <p>{currentDate.categories[0].title}</p> */}
+            <h3>{currentDate.name}</h3>
+                        <p>{currentDate.categories[0].title}</p>
 
-            {/* {currentDate.rating ? (
+            {currentDate.rating ? (
               <div className="star-rating">
                 {" "}
-                {this.getStars(currentDate.rating)} ({currentDate.review_count})
+                {/* {this.getStars(currentDate.rating)} ({currentDate.review_count}) */}
               </div>
-            ) : null} */}
+            ) : null}
           </div>
         </div>
       </div>
