@@ -19,6 +19,7 @@ class Home extends Component {
     this.getMood = this.getMood.bind(this);
   }
 
+ 
   componentDidMount() {
     // this.props.receiveCurrentUser(this.props.currentUser);
     this.props.getDateCollection(this.props.currentUser.id);
@@ -91,6 +92,8 @@ class Home extends Component {
         return 3;
       case 4:
         return 4;
+      default:
+        return 1;
     }
   }
 
@@ -102,10 +105,8 @@ class Home extends Component {
     return interests.map(interest => this.getName(interest));
   }
   render() {
-    // let currentTab = this.state.currentTab === "0" ? ( <div className="datesTab">{/* Iterate through current user's dates here */}</div> ) :
-    //                                              ( <div className="collectionsTab"> {/* Iterate through current user's collections */} </div>);
     if (!this.props.userDates || !this.props.userCollections) return null;
-    debugger;
+    
     let currentTab =
       this.state.currentTab === "0" ? (
         <div className="datesTab">
@@ -135,14 +136,14 @@ class Home extends Component {
                   <p>{collection.collectionInfo.intimacy}</p>
                   <p>{collection.collectionInfo.adventurous}</p> */}
 
-                  <div>
+                  <div className='col-item'>
                     {collection.collectionName ? (
                       collection.collectionName
                     ) : (
                       <div>
                         <p>Search:</p>
                         Location:{" "}
-                        {collection.collectionInfo.location ? collection.collectionInfo.location.toUpperCase() : null}
+                        {!collection.collectionInfo ? null : collection.collectionInfo.location ? collection.collectionInfo.location.toUpperCase() : null}
                         ,{" "}
                         {this.getInterests(collection.collectionInfo.interests)}
                         , Price:{" "}
@@ -160,7 +161,7 @@ class Home extends Component {
       ) : null;
 
     return (
-      <main className="home">
+      <main className="home ">
         <section className="home-dashboard">
           <div className="dash-sidebar">
             <div className="tabs-container">
@@ -176,15 +177,14 @@ class Home extends Component {
               </div>
             </div>
             <div className="sidebar-display">{currentTab}</div>
-            <div></div>
           </div>
 
           <div className="dash-display-container">
             <div className="dash-titlebar">
-              {/* <p className="titlebar-text">Welcome back, Romeo</p> */}
-              <p className="titlebar-text">
-                Welcome back, {this.getName(this.props.currentUser.name)}
-              </p>
+              <section className="titlebar-text">
+                <h3>Welcome back, {this.getName(this.props.currentUser.name)}</h3>
+                  <p>Your recently saved dates:</p>
+              </section>
               <Link className="create-date-btn" to={`/date`}>
                 <p>Generate Date Ideas</p>
               </Link>

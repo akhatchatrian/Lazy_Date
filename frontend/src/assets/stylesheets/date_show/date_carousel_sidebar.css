@@ -22,6 +22,10 @@
     /* border: 1px solid green; */
 }
 
+.date-list-sidebar:hover {
+    cursor: pointer;
+}
+
 .date-listing:not(:first-child) {
     margin-top: 15px;
 }

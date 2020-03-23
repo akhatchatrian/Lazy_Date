@@ -25,8 +25,7 @@ class Navbar extends React.Component {
     }
 
     redirectToHome() {
-        this.props.receiveCurrentUser(this.props.currentUser);
-
+      
         this.props.history.push('/home/')
     }
 
