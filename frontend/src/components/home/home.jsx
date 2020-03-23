@@ -20,7 +20,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.receiveCurrentUser(this.props.currentUser);
+    // this.props.receiveCurrentUser(this.props.currentUser);
     this.props.getDateCollection(this.props.currentUser.id);
   }
 
