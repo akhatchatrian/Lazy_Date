@@ -30,7 +30,6 @@ class DateShow extends React.Component {
 
         return (
             <div className='date-show-container'>
-                <div>Here be the Date Show page</div>
                 <DateCarousel
                     currentUser={this.props.currentUser}
                     updateUser={this.props.updateUser}
