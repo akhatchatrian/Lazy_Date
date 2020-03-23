@@ -10,19 +10,15 @@ class Home extends Component {
     this.state = {
       currentTab: "0"
     }
-
     this.toggleTabs = this.toggleTabs.bind(this);
-    this.getMood = this.getMood.bind(this);
   }
 
   componentDidMount() {
     this.props.getDateCollection(this.props.currentUser.id)
-    // debugger
   }
 
   componentDidUpdate() {
-
-    if (this.state.currentTab === "0") {
+    if (this.state.currentTab === "0") { // This can be optimized later
       let activeTab = document.getElementById("0")
       let inactiveTab = document.getElementById("1")
       activeTab.classList.remove("tab-inactive")
@@ -38,70 +34,6 @@ class Home extends Component {
   toggleTabs(e) {
     if (e.currentTarget.id !== this.state.currentTab) {
       this.setState({currentTab: e.currentTarget.id})
-    }
-
-  }
-
-  getMood(moodName) {
-    let searchTerms;
-    switch (moodName) {
-      case "easy-night-out":
-        searchTerms = {
-          searchParams: "bars,danceclubs,jazzandblues,musicvenues",
-          conditions: {
-            age: false,
-            location: "San Francisco",
-            price: 2
-          }
-        }
-        this.props.yelpSearch(searchTerms);
-        break;
-      case "feelin-fancy":
-        searchTerms = {
-          searchParams: "",
-          conditions: {
-            age: false,
-            location: "San Francisco",
-            price: 4
-          }
-        }
-        this.props.yelpSearch(searchTerms);
-        break;
-      case "adrenaline-rush":
-        searchTerms = {
-          searchParams: "bungeejumping,gun_ranges,challengecourses",
-          conditions: {
-            age: false,
-            location: "San Francisco",
-            price: "2,3,4"
-          }
-        }
-        this.props.yelpSearch(searchTerms);
-        break;
-      case "mystery":
-        searchTerms = {
-          searchParams: "",
-          conditions: {
-            age: false,
-            location: "San Francisco",
-            price: 2
-          }
-        }
-        this.props.yelpSearch(searchTerms);
-        break;
-      case "Artistic":
-        searchTerms = {
-          searchParams: "artclasses,photoclasses",
-          conditions: {
-            age: false,
-            location: "San Francisco",
-            price: 2
-          }
-        }
-        this.props.yelpSearch(searchTerms);
-        break;
-      default:
-        return null
     }
   }
 
@@ -152,9 +84,6 @@ class Home extends Component {
             <div className="sidebar-display">
               {currentTab}
             </div>
-            <div>
-
-            </div>
           </div>
 
           <div className="dash-display-container">
@@ -179,28 +108,78 @@ class Home extends Component {
             <h2>Moods</h2>
             <div className="moods-container-main">
 
-            <Link className="mood-box" to={{
-              pathname: "/date/browse",
-              state: { dates: this.getMood("easy-night-out") }
-            }}></Link>
+              <Link id="easy-night-out" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: { 
+                    searchParams: "usedbooks,movietheatres,tapas,paintandsip,lakes,museums,aquariums",
+                    conditions: {
+                      age: false,
+                      location: "San Francisco",
+                      price: "1,2"
+                    }
+                }
+              }}>Easy Night Out</Link>
+
+              <Link id="adrenaline-rush" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: {
+                  searchParams: "bungeejumping,gun_ranges,challengecourses,skydiving,axethrowing",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: "1,2,3,4"
+                  }
+                }
+              }}>Adrenaline Rush</Link>
+
+              <Link id="feelin-fancy" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: { 
+                  searchParams: "winetastingroom,cheesetastingclasses,winetasteclasses,fondue",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: 4
+                  }
+                }
+              }}>Feelin' Fancy</Link>
 
 
-            <Link className="mood-box" to={{
-              pathname: "/date/browse",
-              state: { dates: this.getMood("adrenaline-rush") }
-            }}></Link>
+              <Link id="artistic" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: {
+                  searchParams: "artclasses,photoclasses,dancestudio",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: "2,3"
+                  }
+                }
+              }}>Artistic</Link>
 
-            <Link className="mood-box" to={{
-              pathname: "/date/browse",
-              state: { dates: this.getMood("feelin-fancy") }
-            }}></Link>
+              <Link id="lets-get-weird" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: {
+                  searchParams: "psychic_astrology,axethrowing,cabarets,stripclubs",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: 2
+                  }
+                }
+              }}>Let's Get Weird</Link>
 
-            <Link className="mood-box" to={{
-              pathname: "/date/browse",
-              state: { dates: this.getMood("mystery") }
-            }}></Link>
-
-
+              <Link id="mystery" className="mood-box" to={{
+                pathname: "/date/browse",
+                state: { 
+                  searchParams: "popuprestaurants,streetvendors,comedyclubs,escapegames,mini_golf,planetarium,virtualrealitycenters,popupshops",
+                  conditions: {
+                    age: false,
+                    location: "San Francisco",
+                    price: "1,2,3"
+                  }
+                }
+              }}>Mystery</Link>
             </div>
           </div>
         </section>

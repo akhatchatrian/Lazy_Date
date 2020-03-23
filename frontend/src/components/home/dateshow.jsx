@@ -6,16 +6,14 @@ class DateShow extends React.Component {
     constructor(props) {
         super(props)
         this.formData = this.props.location.state; //Object from DateSearchForm containing yelpInfo and collectionInfo keys.
+    }
 
+    componentDidMount() {
+        this.props.yelpSearch(this.formData)
     }
 
     deepMind(yelpData) {
-        let results;
-        if (this.props.otherData) {
-            results = this.props.otherData
-        } else {
-            results = yelpData.businesses 
-        }
+        let results = yelpData.businesses;
 
         results.sort((venue1 , venue2) => {
             // Laplace's Rule of Succession
