@@ -43,23 +43,63 @@ class Home extends Component {
   }
 
   getMood(moodName) {
+    let searchTerms;
     switch (moodName) {
       case "easy-night-out":
-        return {
-
+        searchTerms = {
+          searchParams: "bars,danceclubs,jazzandblues,musicvenues",
+          conditions: {
+            age: false,
+            location: "San Francisco",
+            price: 2
+          }
         }
+        this.props.yelpSearch(searchTerms);
+        break;
       case "feelin-fancy":
-        return {
-
+        searchTerms = {
+          searchParams: "",
+          conditions: {
+            age: false,
+            location: "San Francisco",
+            price: 4
+          }
         }
+        this.props.yelpSearch(searchTerms);
+        break;
       case "adrenaline-rush":
-        return {
-
+        searchTerms = {
+          searchParams: "bungeejumping,gun_ranges,challengecourses",
+          conditions: {
+            age: false,
+            location: "San Francisco",
+            price: "2,3,4"
+          }
         }
+        this.props.yelpSearch(searchTerms);
+        break;
       case "mystery":
-        return {
-
+        searchTerms = {
+          searchParams: "",
+          conditions: {
+            age: false,
+            location: "San Francisco",
+            price: 2
+          }
         }
+        this.props.yelpSearch(searchTerms);
+        break;
+      case "Artistic":
+        searchTerms = {
+          searchParams: "artclasses,photoclasses",
+          conditions: {
+            age: false,
+            location: "San Francisco",
+            price: 2
+          }
+        }
+        this.props.yelpSearch(searchTerms);
+        break;
       default:
         return null
     }
@@ -139,17 +179,28 @@ class Home extends Component {
             <h2>Moods</h2>
             <div className="moods-container-main">
 
-            {/* <Link className="mood-box" to={{
+            <Link className="mood-box" to={{
               pathname: "/date/browse",
               state: { dates: this.getMood("easy-night-out") }
-            }}></Link> */}
+            }}></Link>
 
-              <div className="mood-box" id="easy-night-out" ></div>
-              <div className="mood-box" id=""></div>
-              <div className="mood-box" id="adrenaline-rush" ></div>
-              <div className="mood-box" id="feelin-fancy" ></div>
-              <div className="mood-box" id="" ></div>
-              <div className="mood-box" id="mystery" ></div>
+
+            <Link className="mood-box" to={{
+              pathname: "/date/browse",
+              state: { dates: this.getMood("adrenaline-rush") }
+            }}></Link>
+
+            <Link className="mood-box" to={{
+              pathname: "/date/browse",
+              state: { dates: this.getMood("feelin-fancy") }
+            }}></Link>
+
+            <Link className="mood-box" to={{
+              pathname: "/date/browse",
+              state: { dates: this.getMood("mystery") }
+            }}></Link>
+
+
             </div>
           </div>
         </section>
