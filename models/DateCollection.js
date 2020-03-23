@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DateCollectionSchema = new Schema({
-  // collectionName: {
-  //   type: String
-  // },
+  collectionName: {
+    type: String
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: 'users'
@@ -21,7 +21,7 @@ const DateCollectionSchema = new Schema({
         type: String
       },
       price: {
-        type: Number
+        type: String
       } 
     }
   },
@@ -38,7 +38,7 @@ const DateCollectionSchema = new Schema({
       type: String
     },
     price: {
-      type: Number
+      type: String
     } 
   }
 });

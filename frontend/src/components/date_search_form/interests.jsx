@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/stylesheets/date-questionnare/interests.scss";
+// import "../../assets/stylesheets/date-questionnare/interests.scss";
 
 class Interests extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Interests extends React.Component {
     }
 
     continue() {
-        if (this.state.categories.length != 0) {
+        if (this.state.categories.length !== 0) {
             this.props.updateState(this.state.categories);
             this.props.nextStep()
         } else {
@@ -43,8 +43,7 @@ class Interests extends React.Component {
  
       let nextButton = checkStatus() ? (<button class='interests-next-button' onClick={this.continue}>Next</button>) : (<button class='interests-next-button'>Next</button> );
 
-        return (
-         
+        return (         
             <div class='body-6'>
               <h1 class='basics-title'>What are we looking to do?</h1>
               <h5>Select at least one</h5>
@@ -55,14 +54,14 @@ class Interests extends React.Component {
           
                     <input type = "radio" class="option-input radio" value="food" onClick={this.updateValues} /> Food
                     <input type = "radio" class="option-input radio" value="activeLifestyle" onClick={this.updateValues} /> Active Lifestyle
-                  
+              
 
                     </label>
                 {nextButton}
               </div>
-            </div>
-         
+            </div>         
         );
+        
     }
 }
 

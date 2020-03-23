@@ -1,130 +1,332 @@
 import React from 'react';
-import '../../assets/stylesheets/date_show/date_carousel.css';
-
+import '../../assets/stylesheets/date_show/date_carousel_sidebar.css';
+import '../../assets/stylesheets/date_show/date_carousel_main.css';
+const keys = require('../../frontend_config/map_api_key');
 
 class DateCarousel extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            dates: this.props.dates,
-            currentDateIdx: 0,
+  constructor(props) {
+    super(props);
+    this.state = {
+      dates: this.props.dates,
+      prevDateIdx: null,
+      currentDateIdx: 0,
+      hoverIdx: null,
+      collectionName: "",
+      // savedDates: []
+    };
+
+    this.changeMainDate = this.changeMainDate.bind(this);
+    this.handleNext = this.handleNext.bind(this);
+    this.handlePrevious = this.handlePrevious.bind(this);
+    this.handleMouseIn = this.handleMouseEnter.bind(this);
+    this.handleMouseOut = this.handleMouseLeave.bind(this);
+
+
+    // this.handleCheckbox = this.handleCheckbox.bind(this);
+    this.saveCollection = this.saveCollection.bind(this);
+  }
+
+  // componentDidMount() {
+  //     this.setState({currentDateIdx: 0})
+  // everythingSubmit() {
+  //   this.props.userUpdate(this.state.props.dates)
+  //   this.props.createDateCollection(this.props.formData)
+  // }
+
+  componentDidUpdate() {
+    if (!this.state.dates) this.setState({ dates: this.props.dates });
+    // document.getElementById(`${this.state.currentDateIdx}`).classList.add("active-listing");
+  }
+
+  changeMainDate(idx) {
+    document
+      .getElementById(`${this.state.currentDateIdx}`)
+      .classList.remove("active-listing");
+    document.getElementById(`${idx}`).classList.add("active-listing");
+
+    this.setState({
+      prevDateIdx: this.state.currentDateIdx,
+      currentDateIdx: idx
+    });
+  }
+
+  handleClick(e) {
+    this.changeMainDate(e.currentTarget.id);
+  }
+
+  handleMouseEnter(e) {
+    // e.preventDefault();
+    if (this.state.hoverIdx)
+      document
+        .getElementById(`${this.state.hoverIdx}`)
+        .classList.remove("end-animation");
+
+    this.setState({ hoverIdx: e.currentTarget.id });
+    document
+      .getElementById(`${e.currentTarget.id}`)
+      .classList.add("start-animation");
+  }
+
+  handleMouseLeave(e) {
+    document
+      .getElementById(`${this.state.hoverIdx}`)
+      .classList.remove("start-animation");
+    document
+      .getElementById(`${this.state.hoverIdx}`)
+      .classList.add("end-animation");
+  }
+
+  handleNext() {
+    let newDateIdx = (this.state.currentDateIdx + 1) % this.state.dates.length;
+    this.changeMainDate(newDateIdx);
+  }
+
+  handlePrevious() {
+    let newDateIdx =
+      (this.state.currentDateIdx + this.state.dates.length - 1) %
+      this.state.dates.length;
+    this.changeMainDate(newDateIdx);
+  }
+
+  handleInput(type) {
+    return e => {
+      this.setState({ [type]: e.target.value });
+    };
+  }
+
+  // handleCheckbox(idx){
+  //   const checkedIdx = idx;
+  //   const currentStateDates = this.state.savedDates;
+  //   const currentListing = this.props.dates[checkedIdx];
+
+  //   if (currentStateDates.includes(currentListing)) {
+  //     currentStateDates.splice(currentStateDates.indexOf(currentListing), 1);
+  //   } else {
+  //     currentStateDates.push(currentListing)
+  //   }
+
+  //   this.setState(currentStateDates);
+  // }
+
+  // alreadyLiked(idx) {
+  //   return this.state.savedDates.include(this.props.dates[idx]);
+  // }
+
+  saveCollection() {
+    // save current dates + user's collectionName
+    const currentDate = this.props.dates[this.state.currentDateIdx];
+    console.log(currentDate);
+
+    const user = {
+      currentUser: this.props.currentUser.id,
+      dateEvents: [currentDate]
+    }
+    
+    this.props.updateUser(user)
+
+    const dateObj = {
+      collectionName: this.state.collectionName,
+      user: this.props.currentUser.id,
+      yelpInfo: this.props.formData.yelpInfo,
+      collectionInfo: this.props.formData.collectionInfo
+    }
+
+    this.props.createDateCollection(dateObj)
+    console.log(this.state);
+  }
+
+  getStars(rating) {
+    if (!rating) return null;
+
+    const star = <i className="fas fa-star"></i>;
+    const halfstar = <i className="fas fa-star-half"></i>;
+
+    let stars = [];
+    for (let i = 0; i < rating - 1; i++) {
+      stars.push(star);
+    }
+
+    if (!Number.isInteger(rating)) stars.push(halfstar);
+
+    return stars;
+  }
+
+  getDollars(price) {
+    const dollarColor = <i className="fas dollar-color fa-dollar-sign"></i>;
+    const dollarGray = <i className="fas dollar-gray fa-dollar-sign"></i>;
+    const priceArr = price.split("");
+    let dollars = [];
+
+    for (let i = 0; i < priceArr.length; i++) {
+      dollars.push(dollarColor);
+    }
+
+    if (dollars.length < 4) {
+      for (let i = 0; i < 4 - priceArr.length; i++) {
+        dollars.push(dollarGray);
+      }
+    }
+
+    return <div className="dollars-rating">{dollars}</div>;
+  }
+
+  getParams(string) {
+    const reserved = ['!', '*', "\'", '(', ')', ';', ':', '@', '&', '=', '+', '$', ',', '/', '?', '%', '#', '[', ']']
+    const words = string.split(" ");
+    const params = []
+    // const params =
+    //   words.slice(0, words.length - 1).map(word => word + "+") +
+    //   words.slice(words.length - 1);
+    words.forEach((word, idx) => {
+      if (idx === words.length - 1) {
+        params.push(word)
+      } else if (reserved.includes(word)) {
+        params.push("")
+      } else {
+        params.push(word + '+')
+      }
+    })
+    return params.join("");
+  }
+
+  googleMap(currentDate) {
+    return (
+      <iframe
+        frameborder="0"
+        src={`https://www.google.com/maps/embed/v1/place?key=${
+          keys.MAP_API_KEY
+          }&q=
+        ${this.getParams(currentDate.name)},
+        ${this.getParams(currentDate.location.city)}, 
+        ${currentDate.location.zip_code}`}
+        allowfullscreen
+      ></iframe>
+    );
+  }
+
+
+
+
+
+  render() {
+    const { dates } = this.props;
+    if (!dates) return null;
+    const currentDate = dates[this.state.currentDateIdx];
+
+
+    const catTitles = currentDate.categories
+      .map((cat, idx) => {
+        if (idx !== currentDate.categories.length - 1) {
+          return cat.title + ", ";
+        } else {
+          return cat.title;
         }
+      })
+      .join("");
 
-        this.changeMainDate = this.changeMainDate.bind(this);
-        this.handleNext = this.handleNext.bind(this);
-        this.handlePrevious = this.handlePrevious.bind(this);
-    }
+    if (!catTitles) return null;
 
+    return (
+      <div className="date-carousel">
+        <div className="date-main-container">
+          <div className="date-main-header">
+            <h3>{currentDate.name}</h3>
+            <p>{currentDate.categories[0].title}</p>
+            {currentDate.rating ? (
+              <div className="star-rating">
+                {" "}
+                {this.getStars(currentDate.rating)} ({currentDate.review_count})
+              </div>
+            ) : null}
+          </div>
 
-    componentDidUpdate(){
-        if (!this.state.dates) this.setState({dates: this.props.dates})
-    }
+          <div className="date-main-img-container">
+            <div className="arrow-icons">
+              <div className="left-arrow-icon" onClick={this.handlePrevious}>
+                <i className="fas fa-chevron-left"></i>
+                {/* <button>Previous</button> */}
+              </div>
 
-    changeMainDate(idx) {
-        this.setState({ currentDateIdx: idx });
-    }
-
-    handleHover(e) {
-        // e.preventDefault();
-        this.changeMainDate(e.currentTarget.id);
-    }
-
-    handleNext() {
-        let newDateIdx = ((this.state.currentDateIdx + 1) % this.state.dates.length);
-        this.changeMainDate(newDateIdx);
-    }
-
-    handlePrevious() {
-        let newDateIdx = (this.state.currentDateIdx + this.state.dates.length - 1) % this.state.dates.length;
-        this.changeMainDate(newDateIdx);
-    }
-
-    getStars(rating) {
-        if (!rating) return null;
-
-        const star = <i className="fas fa-star"></i>;
-        const halfstar = <i className="fas fa-star-half"></i>;
-        debugger
-        let stars = []
-        for (let i = 0; i < rating-1; i++) {
-            stars.push(star)
-        }
-
-        if (!Number.isInteger(rating)) stars.push(halfstar);
-        
-        return (<div className='star-rating'>{stars}</div>)
-    }
-
-    render() {
-        const { dates } = this.props;
-
-        if (!dates) return null;
-
-        
-
-
-        return (
-          <div className="date-carousel">
-            <div className="date-list-sidebar">
-              {dates.map((date, idx) => {
-                return (
-                  <div
-                    className="date-listing"
-                    id={idx}
-                    key={idx}
-                    onMouseOver={e => this.handleHover(e)}
-                  >
-                    <img className="date-img" src={date.image_url} />
-                    <div className="date-info-blurb">
-                      <h3>{date.name}</h3>
-                      <p>
-                        Rating: {date.rating + "  "}({date.review_count}{" "}
-                        Reviews)
-                      </p>
-                      <p>Category: {date.categories[0].title}</p>
-                    </div>
-                  </div>
-                );
-              })}
+              <div className="right-arrow-icon" onClick={this.handleNext}>
+                <i className="fas fa-chevron-right"></i>
+                {/* <button>Next</button> */}
+              </div>
             </div>
 
-            <div className="date-main-container">
-              <div className="date-main-header">
-                <h3>{dates[this.state.currentDateIdx].name}</h3>
-                <h3>{dates[this.state.currentDateIdx].categories[0].title}</h3>
-                {this.getStars(dates[this.state.currentDateIdx].rating)}
-              </div>
-              <div className="date-main-img-container">
-                <div className="arrow-icons">
-                  <div
-                    className="left-arrow-icon"
-                    onClick={this.handlePrevious}
-                  >
-                    <i className="fas fa-chevron-left"></i>
-                    {/* <button>Previous</button> */}
-                  </div>
-
-                  <div className="right-arrow-icon" onClick={this.handleNext}>
-                    <i className="fas fa-chevron-right"></i>
-                    {/* <button>Next</button> */}
-                  </div>
-                </div>
-                <img
-                  className="date-main-img"
-                  src={dates[this.state.currentDateIdx].image_url}
-                />
-              </div>
-
-              <div className="date-detailed-info">
-                <h3>{dates[this.state.currentDateIdx].name}</h3>
-                <h3>{dates[this.state.currentDateIdx].categories[0].title}</h3>
-                <h3>{dates[this.state.currentDateIdx].price}</h3>
-                <h3>{dates[this.state.currentDateIdx].rating}</h3>
-              </div>
+            <div className="date-main-img">
+              <img src={currentDate.image_url} />
             </div>
           </div>
-        );
-    }
+
+          <div className="date-detailed-info">
+            <h3 className="detail-name">{currentDate.name}</h3>
+            <p className="detail-cats">{catTitles}</p>
+            {currentDate.rating ? (
+              <div className="detail-rating">
+                {" "}
+                {this.getStars(currentDate.rating)}
+              </div>
+            ) : null}
+            <p className="detail-price">{this.getDollars(currentDate.price)}</p>
+            <p className="detail-phone">{currentDate.display_phone}</p>
+
+            <div className="date-address">
+              <h3>Location:</h3>
+              <p>{currentDate.location.address1}</p>
+              <p>{currentDate.location.city}</p>
+              <p>{currentDate.location.zip_code}</p>
+            </div>
+
+            <div className="date-map">
+              {currentDate.name && currentDate.location.address1
+                ? this.googleMap(currentDate)
+                : ""}
+            </div>
+          </div>
+        </div>
+
+        <div className="date-list-sidebar">
+          <label>
+            <input
+              className="collection-field"
+              type="text"
+              onChange={this.handleInput("collectionName")}
+              placeholder="Name this mood"
+            />
+            <button onClick={this.saveCollection}>Save Mood</button>
+          </label>
+
+          <h3>Here are Your Date Results:</h3>
+          {dates.map((date, idx) => {
+            return (
+              <div
+                className="date-listing"
+                id={idx}
+                key={idx}
+                onClick={e => this.handleClick(e)}
+                onMouseEnter={e => this.handleMouseEnter(e)}
+                onMouseLeave={e => this.handleMouseLeave(e)}
+              >
+                <img className="date-img" src={date.image_url} />
+                <div className="date-info-blurb">
+                  <h3>{date.name}</h3>
+                  <p>{date.categories[0].title}</p>
+                </div>
+
+                {/* <label for='listing-checkbox'>
+                  {this.alreadyLiked(idx) ? (
+                    <i class="fas fa-heart"></i>
+                  ) : ("") }
+
+                  <input type="checkbox" id={idx} onClick={this.handleCheckbox(idx)}/>
+                </label> */}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default DateCarousel;

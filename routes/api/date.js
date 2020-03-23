@@ -12,12 +12,11 @@ router.get('/data/:user_id', (req, res) => {
 });
 
 router.post("/data", (req, res) => {
-    debugger
     const yelpData = req.body.yelpInfo
     const collectionData = req.body.collectionInfo
 
     const newDateCollection = new DateCollection({
-        // collectionName: req.body.collectionName,
+        collectionName: req.body.collectionName,
         user: req.body.user,
         yelpInfo: {
             searchParams: yelpData.searchParams,
@@ -38,7 +37,7 @@ router.post("/data", (req, res) => {
 
     newDateCollection.save()
         .then(response => {
-            return res.json(response.data)
+            return res.json(newDateCollection)
         }).catch(error => {
             console.log(error);
             return res.status(500).json(error);

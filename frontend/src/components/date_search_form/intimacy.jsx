@@ -1,5 +1,5 @@
 import React from "react"
-import "../../assets/stylesheets/date-questionnare/intimacy.scss";
+// import "../../assets/stylesheets/date-questionnare/intimacy.scss";
 class Intimacy extends React.Component {
 
     constructor(props) {
@@ -84,8 +84,7 @@ class Intimacy extends React.Component {
  
         let nextButton = checkStatus() ? (<button class='intimacy-next-button' onClick={this.continue}>Next</button> ) : ( <button class='intimacy-next-button'>Next</button> );
 
-        return (
-            
+        return (            
                 <div class='body-3'>
                     <h1 class='basics-title'>How comfortable do you feel with your partner?</h1>
                         <div class="form__group field">
@@ -122,7 +121,6 @@ class Intimacy extends React.Component {
                             {nextButton}
                         </div>
                     </div>
-         
         )
     }
 }

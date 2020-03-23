@@ -1,5 +1,6 @@
 import React from "react";
-import "../../assets/stylesheets/date-questionnare/basics.scss";
+// import "../../assets/stylesheets/date-questionnare/basics.scss";
+
 class Basics extends React.Component {
     constructor(props) {
         super(props);
@@ -61,9 +62,9 @@ class Basics extends React.Component {
 
     render() {
 
-        const checkStatus = () => {
-           return this.state.location !== "" && this.state.price !== 0
-        }
+      const checkStatus = () => {
+        return this.state.location !== "" && this.state.price !== 0
+      }
 
         let nextButton = checkStatus() ? ( <button class='next-button' onClick={this.continue}>Next</button> ) : ( <button class='next-button'>Next</button> );
 
@@ -160,7 +161,7 @@ class Basics extends React.Component {
 
              
             </form>
-      
+     
         );
     }
 }

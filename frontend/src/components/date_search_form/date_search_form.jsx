@@ -66,8 +66,8 @@ class DateSearchForm extends React.Component {
         this.setState({intimacy: intimacyLevel})
     }
 
-    updateAdventurous(adventruousLevel) {
-        this.setState({adventurous: adventruousLevel})
+    updateAdventurous(adventurousLevel) {
+        this.setState({adventurous: adventurousLevel})
     }
 
     nextStep() {
@@ -84,10 +84,6 @@ class DateSearchForm extends React.Component {
                 currentStep: prevState.currentStep - 1
             }))
         }
-    }
-
-    componentDidMount() {
-        this.props.getDateCollection(this.props.currentUser.id)
     }
 
     formSubmission() {
@@ -108,7 +104,8 @@ class DateSearchForm extends React.Component {
             }
         }
 
-        this.props.createDateCollection(formData)
+
+        this.props.yelpSearch(formData.yelpInfo)
         return formData;
     }
 

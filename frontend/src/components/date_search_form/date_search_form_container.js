@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import DateSeachForm from "./date_search_form";
+import DateSearchForm from "./date_search_form";
 import { yelpSearch } from "../../actions/yelp_actions";
 import { getDateCollection, createDateCollection } from "../../actions/date_actions";
 
@@ -14,4 +14,4 @@ const mdp = dispatch => ({
 
 });
 
-export default connect(msp, mdp)(DateSeachForm);
+export default connect(msp, mdp)(DateSearchForm);
