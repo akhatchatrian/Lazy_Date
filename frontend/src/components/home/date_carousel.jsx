@@ -187,9 +187,9 @@ class DateCarousel extends React.Component {
 
   render() {
     const { dates } = this.props;
+    if (!dates) return null;
     const currentDate = dates[this.state.currentDateIdx];
 
-    if (!dates || !currentDate) return null;
 
     const catTitles = currentDate.categories
       .map((cat, idx) => {

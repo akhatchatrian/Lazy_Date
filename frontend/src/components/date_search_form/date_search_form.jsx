@@ -106,7 +106,6 @@ class DateSearchForm extends React.Component {
 
 
         this.props.yelpSearch(formData.yelpInfo)
-        
         return formData;
     }
 
