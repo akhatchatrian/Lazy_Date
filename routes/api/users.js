@@ -25,17 +25,10 @@ router.patch('/updateDate', (req, res) => {
       return res.status(500).json(err);
     }
     if (req.body.dateEvents.length > 0) {
-<<<<<<< HEAD
-      user.savedDates.push(...req.body.dateEvents)
-    }
-    user.save().then(() => {
-      return res.json(user)
-=======
       user.savedDates.push(req.body.dateEvents)
     }
     user.save().then(response => {
       return res.json(response.data)
->>>>>>> efae63aee8a341fbcb92d9f16aed57fdf1aac085
     }).catch(error => {
       console.log(error);
       return res.status(500).json(error);
