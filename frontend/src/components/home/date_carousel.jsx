@@ -130,12 +130,22 @@ class DateCarousel extends React.Component {
   }
 
   getParams(string) {
+    const reserved =[	'!', '*', "\'", '(', ')', ';', ':', '@', '&', '=', '+', '$', ',', '/', '?', '%', '#', '[', ']']
     const words = string.split(" ");
-    const params =
-      words.slice(0, words.length - 1).map(word => word + "+") +
-      words.slice(words.length - 1);
-
-    return params;
+    const params = []
+    // const params =
+    //   words.slice(0, words.length - 1).map(word => word + "+") +
+    //   words.slice(words.length - 1);
+    words.forEach((word, idx)=> {
+      if (idx === words.length-1){
+        params.push(word)
+      } else if (reserved.includes(word)) {
+        params.push("")
+      } else {
+        params.push(word + '+')
+      }
+    })
+    return params.join("");
   }
 
   googleMap(currentDate) {
