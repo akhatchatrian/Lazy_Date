@@ -66,53 +66,102 @@ class Basics extends React.Component {
         return this.state.location !== "" && this.state.price !== 0
       }
 
-      let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> )
-      
+        let nextButton = checkStatus() ? ( <button class='next-button' onClick={this.continue}>Next</button> ) : ( <button class='next-button'>Next</button> );
 
         return(
-            <form>
-              <h2>This is the Basics Page</h2>
+            <form class='basics-form'>
+              <div class='basics-body-1'>
+                <h1 class='basics-title'>Let's Start</h1>
+            
+                <div class="form__group field">
+                    <input 
+                    onChange={this.handleLocation} 
+                    type="text" class="form__field" 
+                    placeholder="Location" 
+                    name="location" 
+                    id='location' 
+                    autocomplete="off" 
+                    required 
+                    />
+                    <label 
+                    for="location" 
+                    class="form__label">
+                    Location
+                    </label>
+                </div>
+              
+            
+              <div class="form__group field">
+                <div class="form__group field">
+                  <label class='age-text'>
+                    Are you and your date over the age of 21?
+                    <input 
+                    onClick={this.handleAge} 
+                    type="radio" 
+                    class="option-input radio"
+                    />
+                  </label>
 
-              <label>
-                Location:
-                <input onChange={this.handleLocation} type="text" />
-              </label>
+                </div>
+                </div>
+              
+                  <br></br>
+          
+              <div class="form__group field">
+                  <label class='price-label'>
+                  Price Range:
+                  <label>
+                    <input
+                    onClick={this.handlePrice}
+                    name="priceRange"
+                    type="radio"
+                    value="1"
+                    class="option-input radio"
+                    />
+                    $
+                  </label>
 
-              <label>
-                Are you and your date over the age of 21?
-                <input onClick={this.handleAge} type="checkbox" />
-              </label>
+                  <label class='price-label'>
+                    <input
+                    onClick={this.handlePrice}
+                    name="priceRange"
+                    type="radio"
+                    value="2"
+                    class="option-input radio"
+                    />
+                    $$
+                    </label>
 
-              <label>
-                Price Range:
-                <input
-                  onClick={this.handlePrice}
-                  name="priceRange"
-                  type="radio"
-                  value="1"
-                />
-                <input
-                  onClick={this.handlePrice}
-                  name="priceRange"
-                  type="radio"
-                  value="2"
-                />
-                <input
-                  onClick={this.handlePrice}
-                  name="priceRange"
-                  type="radio"
-                  value="3"
-                />
-                <input
-                  onClick={this.handlePrice}
-                  name="priceRange"
-                  type="radio"
-                  value="4"
-                />
-              </label>
+                  <label class='price-label'>
+                    <input
+                    onClick={this.handlePrice}
+                    name="priceRange"
+                    type="radio"
+                    value="3"
+                    class="option-input radio"
+                    />
+                    $$$
+                  </label>
 
-                {nextButton}
+                <label class='price-label'>
+                    <input
+                    onClick={this.handlePrice}
+                    name="priceRange"
+                    type="radio"
+                    value="4"
+                    class="option-input radio"
+                    />
+                    $$$$
+                </label>
+            </label>
+
+            {nextButton}
+            </div>
+              </div>
+
+             
             </form>
+     
         );
     }
 }

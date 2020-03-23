@@ -1,0 +1,297 @@
+$primary: #FF9994;
+$secondary: #db79d3;
+$white: #fff;
+$gray: #9b9b9b;
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+//   width: 50%;
+line-height: 3;
+border-bottom: white;
+}
+
+.form__field {
+    color:white;
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid white;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $primary;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+      border-bottom-color: white;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  border-bottom: white;
+}
+
+ .form__field:focus {
+   ~ .form__label {
+     position: absolute;
+     top: 0;
+     display: block;
+     transition: 0.2s;
+     font-size: 1rem;
+     color: white;
+     font-weight:700;    
+   }
+   padding-bottom: 6px;  
+   font-weight: 700;
+   border-width: 3px;
+   border-image: linear-gradient(to right, white);
+   border-image-slice: 1;
+ }
+/* reset input */
+ .form__field{
+   &:required,&:invalid { box-shadow:none; }
+   color:white;
+   font-family: 'Raleway', sans-serif;
+   background-color: transparent;
+ }
+
+
+.age-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20.8px;
+    color: white;
+}
+
+.basics-body-1 {
+background-image: url("../../images/couplesky.jpg");
+background-size:cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: transparent;
+  font-family: 'Raleway', sans-serif;
+  line-height: 3;
+}
+// .basics-body-2 {
+//    background-color: red;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   font-size: 1.5rem;
+// //   background-color: transparent;
+//   font-family: 'Raleway', sans-serif;
+//   line-height: 3;
+// //   border-radius: 15px;
+// //     box-shadow: 4px 4px 4px rgb(202, 191, 191);
+// }
+// .basics-body-3 {
+
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   font-size: 1.5rem;
+// //   background-color: transparent;
+//   font-family: 'Raleway', sans-serif;
+//   line-height: 3;
+//   background-color: green;
+// }
+
+.basics-title {
+ 
+  font-size: 1.5rem;
+  background-color: transparent;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 40px;
+}
+
+
+.basics-title-subtext {
+    color: #9b9b9b;
+  font-size: 20px;
+}
+
+
+// RADIO
+
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
+
+.option-input {
+    font-weight: bold;
+      font: 30px;
+      font-family: 'Raleway', sans-serif;
+          background-color: transparent;
+    border-color: white;
+ 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  transition: all 0.15s ease-out 0s;
+  background: white;
+  font-weight: bold;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+    //   background-color: transparent;
+    // border-color: white;
+    // border-style: ridge;
+}
+
+.option-input:hover {
+  background:white;
+}
+.option-input:checked {
+  background: #FF9994;
+}
+.option-input:checked::before {
+    
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 40px;
+    background-color: transparent;
+    
+   
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #FF9994;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+  
+}
+.option-input.radio {
+    border-style: solid;
+    background-color: transparent;
+    border-color: white;
+  border-radius: 50%;
+}
+.option-input.radio::after {
+  border-radius: 50%;
+}
+
+
+
+
+.price-label {
+    
+    margin-left: 50px;
+      color: white;
+      font-weight: bold;
+      font: 30px;
+      font-family: 'Raleway', sans-serif;
+}
+
+.next-button {
+    
+      box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    border-style: none;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Raleway', sans-serif;
+}
+
+// CHECKBOX
+
+input[type="checkbox"] + .age-text {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+//   font: 14px/20px 'Open Sans', Arial, sans-serif;
+  color: red;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + .age-text:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + .age-text:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #6cc0e5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + .age-text:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
