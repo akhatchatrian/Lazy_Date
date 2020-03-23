@@ -37,7 +37,7 @@ router.post("/data", (req, res) => {
 
     newDateCollection.save()
         .then(response => {
-            return res.json(response.data)
+            return res.json(newDateCollection)
         }).catch(error => {
             console.log(error);
             return res.status(500).json(error);

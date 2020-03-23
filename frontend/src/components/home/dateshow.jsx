@@ -19,6 +19,7 @@ class DateShow extends React.Component {
             return smartRating2 - smartRating1;
         })
         
+        this.props.createDateCollection(this.formData)
 
         return results.slice(0, 5)
     }
@@ -37,7 +38,7 @@ class DateShow extends React.Component {
                     formData={this.formData}
                     createDateCollection={this.props.createDateCollection}
                     yelpData={this.props.yelpData}
-                    results={this.deepMind(this.props.yelpData)}
+                    dates={this.deepMind(this.props.yelpData)}
                 />
             </div>
         )

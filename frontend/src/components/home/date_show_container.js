@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import DateShow from './dateshow';
 import { yelpSearch } from "../../actions/yelp_actions";
-import { createDateCollection, getDateCollection } from '../../util/date_util';
+import { createDateCollection } from '../../actions/date_actions';
 import { updateUser } from '../../actions/session_actions';
 
 
