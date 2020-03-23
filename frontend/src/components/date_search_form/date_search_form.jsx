@@ -66,8 +66,8 @@ class DateSearchForm extends React.Component {
         this.setState({intimacy: intimacyLevel})
     }
 
-    updateAdventurous(adventruousLevel) {
-        this.setState({adventurous: adventruousLevel})
+    updateAdventurous(adventurousLevel) {
+        this.setState({adventurous: adventurousLevel})
     }
 
     nextStep() {

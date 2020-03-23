@@ -6,7 +6,6 @@ class DateShow extends React.Component {
     constructor(props) {
         super(props)
         this.formData = this.props.location.state; //Object from DateSearchForm containing yelpInfo and collectionInfo keys.
-
     }
 
 
