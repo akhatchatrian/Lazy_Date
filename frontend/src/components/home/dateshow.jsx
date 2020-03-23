@@ -10,8 +10,9 @@ class DateShow extends React.Component {
     }
 
 
-    deepMind(yelpData) {
-        const results = yelpData.businesses
+    // deepMind(yelpData) {
+    deepMind() {
+        const results = this.props.yelpData.businesses
         results.sort((venue1 , venue2) => {
             // Laplace's Rule of Succession
             let smartRating1 = (venue1.rating * venue1.review_count + 6) / (venue1.review_count + 2);
@@ -53,7 +54,8 @@ class DateShow extends React.Component {
                         formData={this.formData}
                         createDateCollection={this.props.createDateCollection} 
                         yelpData={this.props.yelpData} 
-                        dates={this.deepMind(this.props.yelpData)} 
+                        // dates={this.deepMind(this.props.yelpData)} 
+                        dates={this.deepMind()} 
                     /> 
             </div>
         )
