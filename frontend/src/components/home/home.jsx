@@ -14,16 +14,17 @@ class Home extends Component {
     };
 
     this.changeMainDate = this.changeMainDate.bind(this);
-    this.handleNext = this.handleNext.bind(this);
-    this.handlePrevious = this.handlePrevious.bind(this);
+
     this.toggleTabs = this.toggleTabs.bind(this);
     this.getMood = this.getMood.bind(this);
   }
 
   componentDidMount() {
+    this.props.receiveCurrentUser(this.props.currentUser);
     this.props.getDateCollection(this.props.currentUser.id);
-    // debugger
   }
+
+
 
   componentDidUpdate() {
     if (this.state.currentTab === "0") {
@@ -55,17 +56,7 @@ class Home extends Component {
     this.changeMainDate(e.currentTarget.id);
   }
 
-  handleNext() {
-    let newDateIdx = (this.state.currentDateIdx + 1) % this.state.dates.length;
-    this.changeMainDate(newDateIdx);
-  }
 
-  handlePrevious() {
-    let newDateIdx =
-      (this.state.currentDateIdx + this.state.dates.length - 1) %
-      this.state.dates.length;
-    this.changeMainDate(newDateIdx);
-  }
 
   toggleTabs(e) {
     if (e.currentTarget.id !== this.state.currentTab) {
@@ -120,7 +111,11 @@ class Home extends Component {
         <div className="datesTab">
           {this.props.userDates.map((date, idx) => {
             return (
-              <div id={idx} className="date-item-container">
+              <div
+                id={idx}
+                className="date-item-container"
+                onClick={e => this.handleClick(e)}
+              >
                 <img className="saved-date-thumbnail" src={date.image_url} />
                 <p>{date.name}</p>
               </div>
@@ -147,7 +142,8 @@ class Home extends Component {
                       <div>
                         <p>Search:</p>
                         Location:{" "}
-                        {collection.collectionInfo.location.toUpperCase()},{" "}
+                        {collection.collectionInfo.location ? collection.collectionInfo.location.toUpperCase() : null}
+                        ,{" "}
                         {this.getInterests(collection.collectionInfo.interests)}
                         , Price:{" "}
                         {this.getPrice(collection.collectionInfo.price)},

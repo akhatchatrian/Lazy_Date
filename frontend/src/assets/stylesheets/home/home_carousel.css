@@ -1,8 +1,8 @@
 .home-carousel {
     display: flex;
-    flex-wrap: nowrap;
-    height: 100%;
-    width: 100%;
+    justify-content: space-between;
+    height: 90%;
+    width: 95%;
     border: 1px solid pink;
 }
 
@@ -17,7 +17,7 @@
 
 .hc-img-container > img {
     height: 100%;
-    width: auto;
+    max-width: 100%;
 }
 
 
@@ -66,6 +66,7 @@
 .hc-detailed-info {
     display: flex;
     height: 100%;
+    min-width: 40%;
     width: auto;
     border: 1px solid orange;
 }

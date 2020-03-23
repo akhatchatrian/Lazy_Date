@@ -75,6 +75,9 @@
 }
 
 .dash-main-display-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: blue;
     border-radius: 30px;
     width: 100%;

@@ -35,8 +35,8 @@ class Navbar extends React.Component {
 
         const loginLogoutDisplay = loggedIn ? (
           <div className="navbar-right-loggedin">
-            <p>Welcome back, {this.props.currentUser.name.slice(0, 1).toUpperCase() + this.props.currentUser.name.slice(1).toLowerCase()}!</p>
-            <p className="user-profile-btn">User Profile </p>
+            <p id='hide'>Welcome back, {this.props.currentUser.name.slice(0, 1).toUpperCase() + this.props.currentUser.name.slice(1).toLowerCase()}!</p>
+            <p className="user-profile-btn" id='hide'>User Profile </p>
             <p className="login-logout-btn" onClick={this.logOutAndClear}>
               Log out
             </p>
