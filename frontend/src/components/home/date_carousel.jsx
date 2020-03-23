@@ -2,7 +2,7 @@ import React from 'react';
 import '../../assets/stylesheets/date_show/date_carousel_sidebar.css';
 import '../../assets/stylesheets/date_show/date_carousel_main.css';
 // const MAP_API_KEY =  '../../../../config/keys_prod.js'
-const keys = require('../../frontend_config/key');
+const keys = require('../../frontend_config/map_api_key');
 
 class DateCarousel extends React.Component {
   constructor(props) {
