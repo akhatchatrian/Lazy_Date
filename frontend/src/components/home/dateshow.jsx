@@ -20,57 +20,26 @@ class DateShow extends React.Component {
         })
         
 
-        return results.slice(0, 5);
+        return results.slice(0, 5)
     }
 
     render() {
         if (!this.props.yelpData || Object.values(this.props.yelpData).length === 0) {
             return null
-        }       
+        }
 
-        // return (
-        //   <div className="date-show-container">
-        //     {businesses.length === 0 ? (
-        //       <div className='no-results-container'>
-        //           <p>Sorry, date could not be generated with your selected options</p>
-        //           <p>Please try again with different parameters.</p>
-        //           <a href="#/date"><button class="create-date-btn">Create a new Date</button></a>
-        //       </div>
-        //     ) : (
-        //       <DateCarousel dates={businesses} />
-        //     )}
-
-        //     {/* {this.deepMind()} */}
-        //   </div>
-        // );
-        return(
+        return (
             <div className='date-show-container'>
-                {/* <div>Here be the Date Show page</div> */}
-                <DateCarousel 
-                        currentUser={this.props.currentUser}
-                        userUpdate={this.props.userUpdate}
-                        formData={this.formData}
-                        createDateCollection={this.props.createDateCollection} 
-                        yelpData={this.props.yelpData} 
-                        dates={this.deepMind(this.props.yelpData)} 
-                    /> 
+                <DateCarousel
+                    currentUser={this.props.currentUser}
+                    updateUser={this.props.updateUser}
+                    formData={this.formData}
+                    createDateCollection={this.props.createDateCollection}
+                    yelpData={this.props.yelpData}
+                    dates={this.deepMind(this.props.yelpData)}
+                />
             </div>
         )
-        // return (
-        //   <div className="date-show-container">
-        //     {businesses.length === 0 || businesses === undefined ? (
-        //       <div className='no-results-container'>
-        //           <p>Sorry, date could not be generated with your selected options</p>
-        //           <p>Please try again with different parameters.</p>
-        //           <a href="#/date"><button class="create-date-btn">Create a new Date</button></a>
-        //       </div>
-        //     ) : (
-        //       <DateCarousel dates={businesses} />
-        //     )}
-
-        //     {/* {this.deepMind()} */}
-        //   </div>
-        // );
     }
 
 }

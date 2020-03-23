@@ -6,8 +6,11 @@ const keys = require('../../config/keys');
 router.post("/data", (req, res) => {
     getYelpData(req).then(response =>
         res.json(response)
-    )
+    ).catch(error => {
+        res.status(500).json(error);
+    })
 });
+
 
 function getYelpData(request) {
     const conditions = request.body.conditions;
@@ -26,7 +29,29 @@ function getYelpData(request) {
         return response.data;
     }).catch(error => {
         console.log(error);
-        return error;
+        throw error;
+    });
+}
+
+router.get("/data/:bizId", (req, res) => {
+    getBizData(req).then(response =>
+        res.json(response)
+    ).catch(error => {
+        res.status(500).json(error);
+    })
+});
+
+function getBizData(request) {
+    
+    return axios.get(`https://api.yelp.com/v3/businesses/${request.params.bizId}`, {
+        headers: {
+            'Authorization': keys.yelpAPI
+        }
+    }).then(response => {
+        return response.data;
+    }).catch(error => {
+        console.log(error);
+        throw error;
     });
 }
 

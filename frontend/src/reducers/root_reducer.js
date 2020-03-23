@@ -7,7 +7,8 @@ import date from './date_reducer'
 const RootReducer = combineReducers({
   session,
   errors,
-  yelp
+  yelp,
+  date
 });
 
 export default RootReducer;
