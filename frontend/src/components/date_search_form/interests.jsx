@@ -41,104 +41,30 @@ class Interests extends React.Component {
             return this.state.categories.length > 0;
          }
  
-         let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+      let nextButton = checkStatus() ? (<button class='interests-next-button' onClick={this.continue}>Next</button>) : (<button class='interests-next-button'>Next</button> );
 
         return (
-<<<<<<< Updated upstream
-            <div>
-                <input type="checkbox" value="nightLife" onClick={this.updateValues} /> Nightlife
-                <input type="checkbox" value="artsEntertainment" onClick={this.updateValues} /> Arts & Entertainment
-                <input type="checkbox" value="food" onClick={this.updateValues} /> Food
-                <input type="checkbox" value="activeLifestyle" onClick={this.updateValues} /> Active Lifestyle
+         
+            <div class='body-6'>
+              <h1 class='basics-title'>What are we looking to do?</h1>
+              <h5>Select at least one</h5>
+                <div class="form__group field">
+                    <label class='interests-label'>
+                    <input type = "radio" class="option-input radio" value="nightLife" onClick={this.updateValues} /> Nightlife
+                    <input type="radio" class="option-input radio" value="artsEntertainment" onClick={this.updateValues} /> Arts & Entertainment
+          
+                    <input type = "radio" class="option-input radio" value="food" onClick={this.updateValues} /> Food
+                    <input type = "radio" class="option-input radio" value="activeLifestyle" onClick={this.updateValues} /> Active Lifestyle
+                  
 
+                    </label>
                 {nextButton}
+              </div>
             </div>
-        )
-=======
-          <div className="xop-section">
-            <ul className="xop-grid">
-              <li>
-                <div className="xop-box xop-img-1">
-                  <h3>The Basics</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-2">
-                    <label>Nightlife</label>
-                  <input
-                    type="checkbox"
-                    value="nightLife"
-                    onClick={this.updateValues}
-                    className='visually-hidden'
-                    id='toggle'
-                  />{" "}
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                  <div className='control-me'></div>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-3">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-4">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-            </ul>
-            <input
-              type="checkbox"
-              value="nightLife"
-              onClick={this.updateValues}
-            />{" "}
-            Nightlife
-            <input
-              type="checkbox"
-              value="artsEntertainment"
-              onClick={this.updateValues}
-            />{" "}
-            Arts & Entertainment
-            <input
-              type="checkbox"
-              value="food"
-              onClick={this.updateValues}
-            />{" "}
-            Food
-            <input
-              type="checkbox"
-              value="activeLifestyle"
-              onClick={this.updateValues}
-            />{" "}
-            Active Lifestyle
-            <button onClick={this.continue}>Continue</button>
-          </div>
+         
         );
->>>>>>> Stashed changes
     }
 }
 
 export default Interests;
+

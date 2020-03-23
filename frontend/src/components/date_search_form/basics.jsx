@@ -60,160 +60,107 @@ class Basics extends React.Component {
     }
 
     render() {
-<<<<<<< Updated upstream
 
         const checkStatus = () => {
            return this.state.location !== "" && this.state.price !== 0
         }
 
-        let nextButton = checkStatus() ? ( <button onClick={this.continue}>Next</button> ) : ( <button>Next</button> );
+        let nextButton = checkStatus() ? ( <button class='next-button' onClick={this.continue}>Next</button> ) : ( <button class='next-button'>Next</button> );
 
         return(
-=======
-        return (
-          <div className="xop-section">
-            <ul className="xop-grid">
-              <li>
-                <div className="xop-box xop-img-1">
-                  <h3>The Basics</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
+            <form class='basics-form'>
+              <div class='basics-body-1'>
+                <h1 class='basics-title'>Let's Start</h1>
+            
+                <div class="form__group field">
+                    <input 
+                    onChange={this.handleLocation} 
+                    type="text" class="form__field" 
+                    placeholder="Location" 
+                    name="location" 
+                    id='location' 
+                    autocomplete="off" 
+                    required 
+                    />
+                    <label 
+                    for="location" 
+                    class="form__label">
+                    Location
+                    </label>
                 </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-2">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-3">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-4">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-            </ul>
-            <ul className="xop-grid">
-              <li>
-                <div className="xop-box xop-img-1">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-2">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-3">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="xop-box xop-img-4">
-                  <h3>Paint</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea comm
-                  </p>
-                </div>
-              </li>
-            </ul>
+              
+            
+              <div class="form__group field">
+                <div class="form__group field">
+                  <label class='age-text'>
+                    Are you and your date over the age of 21?
+                    <input 
+                    onClick={this.handleAge} 
+                    type="radio" 
+                    class="option-input radio"
+                    />
+                  </label>
 
->>>>>>> Stashed changes
-            <form>
-              <h2>This is the Basics Page</h2>
+                </div>
+                </div>
+              
+                  <br></br>
+          
+              <div class="form__group field">
+                  <label class='price-label'>
+                  Price Range:
+                  <label>
+                    <input
+                    onClick={this.handlePrice}
+                    name="priceRange"
+                    type="radio"
+                    value="1"
+                    class="option-input radio"
+                    />
+                    $
+                  </label>
 
-              <label>
-                Location:
-                <input onChange={this.handleLocation} type="text" />
-              </label>
+                  <label class='price-label'>
+                    <input
+                    onClick={this.handlePrice}
+                    name="priceRange"
+                    type="radio"
+                    value="2"
+                    class="option-input radio"
+                    />
+                    $$
+                    </label>
 
-              <label>
-                Are you and your date over the age of 21?
-                <input onClick={this.handleAge} type="checkbox" />
-              </label>
+                  <label class='price-label'>
+                    <input
+                    onClick={this.handlePrice}
+                    name="priceRange"
+                    type="radio"
+                    value="3"
+                    class="option-input radio"
+                    />
+                    $$$
+                  </label>
 
-              <label>
-                Price Range:
-                <input
-                  onClick={this.handlePrice}
-                  name="priceRange"
-                  type="radio"
-                  value="1"
-                />
-                <input
-                  onClick={this.handlePrice}
-                  name="priceRange"
-                  type="radio"
-                  value="2"
-                />
-                <input
-                  onClick={this.handlePrice}
-                  name="priceRange"
-                  type="radio"
-                  value="3"
-                />
-                <input
-                  onClick={this.handlePrice}
-                  name="priceRange"
-                  type="radio"
-                  value="4"
-                />
-              </label>
+                <label class='price-label'>
+                    <input
+                    onClick={this.handlePrice}
+                    name="priceRange"
+                    type="radio"
+                    value="4"
+                    class="option-input radio"
+                    />
+                    $$$$
+                </label>
+            </label>
 
-<<<<<<< Updated upstream
-                {nextButton}
-=======
-              <button onClick={this.continue}>Next</button>
->>>>>>> Stashed changes
+            {nextButton}
+            </div>
+              </div>
+
+             
             </form>
-          </div>
+      
         );
     }
 }

@@ -96,7 +96,7 @@
 }
 
 .hiw-img-3 {
-    Background-image: url(/static/media/love.4bcb72cf.png);
+    Background-image: url("../../images/love.png");
     background-size: cover;
     border-radius: 0 0 5px 5px;
     height: 300px;
