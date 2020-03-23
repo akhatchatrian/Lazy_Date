@@ -120,11 +120,11 @@ class DateCarousel extends React.Component {
     googleMap(currentDate){
       return (
       <iframe
-        // width="800"
-        // height="600"
         frameborder="0"
-        //   src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyA2z_k9bULEPpZqD_JJjt6Q4z9rWQ45TJo&q=${this.getParams(currentDate.name)},${this.getParams(currentDate.location.city)}, ${currentDate.location.zip_code}`}
-        src={`https://www.google.com/maps/embed/v1/place?key=${keys.MAP_API_KEY}&q=${this.getParams(currentDate.name)},${this.getParams(currentDate.location.city)}, ${currentDate.location.zip_code}`}
+        src={`https://www.google.com/maps/embed/v1/place?key=${keys.MAP_API_KEY}&q=
+        ${this.getParams(currentDate.name)},
+        ${this.getParams(currentDate.location.city)}, 
+        ${currentDate.location.zip_code}`}
         allowfullscreen
       ></iframe>
       )
@@ -212,7 +212,9 @@ class DateCarousel extends React.Component {
             </div>
 
             <div className="date-list-sidebar">
-              <h3>Your Results:</h3>
+                    <input type="text"/>
+
+              <h3>Here are Your Date Results:</h3>
               {dates.map((date, idx) => {
                 return (
                   <div
