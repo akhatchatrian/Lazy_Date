@@ -177,30 +177,37 @@
 
 /* Demo user login style + animation */
 /* 
-.demo-autofill-container {
-    display: flex;
-    border: 1px solid blue;
+.hidden {
+    display: none;
 }
 
-.demo-autofill .demo-email{
+.visible {
+    display: inline-block;
+}
+
+.email-label {
+    position: relative;
+}
+
+#demo-email { 
+    position: absolute;
+    display: inline-block;
+	border-right: .1em solid black;
+	width: 16.5em;
+	width: 10em; 
+    width: 20ch;
     overflow: hidden;
-    border-right: .15em solid gray;
     white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
+	margin: 2em 1em;
+	white-space: nowrap;
+    overflow: hidden;
+    top: 15px;
 
-    animation:
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
+
+	animation: typing 5s steps(21, end),
+	blink-caret .5s step-end infinite alternate;
 }
 
 
-@keyframes typing {
-    from {width: 0}
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to {border-color: transparent}
-    50% { border-color: gainsboro}
-} */
+@keyframes typing { from { width: 0; } }
+@keyframes blink-caret { 50% { border-color: transparent; } } */

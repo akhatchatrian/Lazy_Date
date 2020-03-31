@@ -9,7 +9,7 @@ class LoginForm extends React.Component {
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.loginDemoUser = this.loginDemoUser.bind(this);
+        this.loginDemoUser = this.loginDemoUser.bind(this);
     }
 
     handleSubmit(e) {
@@ -24,12 +24,12 @@ class LoginForm extends React.Component {
         };
     }
 
-    // loginDemoUser(){
-    //     this.setState({
-    //         email: 'DemoUser',
-    //         password: '123456'
-    //     })
-    // }
+    loginDemoUser(){
+        this.setState({
+            email: 'DemoUser@lazydate.com',
+            password: '123456'
+        })
+    }
 
     
     render() {
