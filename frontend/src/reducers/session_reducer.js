@@ -12,7 +12,6 @@ export default function(state = initialState, action) {
         ...state,
         isAuthenticated: !!action.currentUser,
         user: action.currentUser,
-        savedDates: action.currentUser.savedDates
       };
     case RECEIVE_USER_LOGOUT:
       return {
@@ -28,8 +27,9 @@ export default function(state = initialState, action) {
     case UPDATE_CURRENT_USER:
       return {
         ...state,
-        savedDates: action.currentUser.savedDates
-      }
+        // savedDates: action.currentUser.savedDates
+        user: action.currentUser
+      };
     default:
       return state;
   }

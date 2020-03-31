@@ -20,7 +20,10 @@ class Home extends Component {
 
  
   componentDidMount() {
+    
+    this.props.getCurrentUser()
     // this.props.receiveCurrentUser(this.props.currentUser);
+    // this.setState(this.state.savedDates = this.props.userDates)
     this.props.getDateCollection(this.props.currentUser.id);
   }
 

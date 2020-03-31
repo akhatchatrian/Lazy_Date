@@ -20,3 +20,7 @@ export const login = (userData) => {
 export const updateUser = userData => {
   return axios.patch('/api/users/updateDate', userData)
 }
+
+export const getCurrentUser = () => {
+  return axios.get('/api/users/currentUser')
+}

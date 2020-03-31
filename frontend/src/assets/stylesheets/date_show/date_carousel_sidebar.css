@@ -10,7 +10,7 @@
 }
 
 .date-listing {
-    /* position: absolute; */
+    position: relative;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
@@ -22,9 +22,29 @@
     /* border: 1px solid green; */
 }
 
+
+
 .date-list-sidebar:hover {
     cursor: pointer;
 }
+
+
+.collection-field {
+    margin: 20px 5px 20px 5px;
+}
+
+.collection-field input[type="text"] {
+    width: 60%;
+    height: auto;
+    outline: none;
+    margin-right: 20px;
+}
+
+/* .collection-field input[type="text"]::placeholder {
+    color: rgb(250, 218, 250);
+} */
+
+
 
 .date-listing:not(:first-child) {
     margin-top: 15px;
@@ -115,3 +135,51 @@
 }
 
 
+.fa-heart {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    top: 30%;
+    right: 2%;
+    /* border: 1px solid red; */
+}
+
+.filled-heart {
+    animation: ease-in;
+    font-size: 36px;
+    color: #F08B8F;
+}
+
+.empty-heart {
+    font-size: 24px;
+    color: rgb(228, 228, 228);
+    opacity: 0.6;
+}
+
+
+.saved-to-favs, .removed-from-favs {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 5%;
+    right: -30%;
+    font-size: 18px;
+    color: grey;
+    height: 50px;
+    width: auto;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.display-msg {
+    display: flex;
+}

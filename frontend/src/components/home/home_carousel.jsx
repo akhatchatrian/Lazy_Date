@@ -18,16 +18,22 @@ class HomeCarousel extends React.Component {
 
   componentDidMount(){
     this.setState({dates: this.props.dates, currentDateIdx: this.props.currentDateIdx})
+    // this.setState({currentDateIdx: this.props.currentDateIdx})
+    debugger
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.currentDateIdx !== this.props.currentDateIdx) {
       this.setState({ currentDateIdx: this.props.currentDateIdx });
     }
+
   }
-  //   componentDidUpdate() {
-  //     if (!this.state.dates) this.setState({ dates: this.props.dates });
-  //   }
+
+  componentWillReceiveProps(nextProps){
+    if (this.state.dates !== nextProps.dates) {
+      this.setState({ dates: nextProps.dates})
+    }
+  }
 
   changeMainDate(idx) {
     // document

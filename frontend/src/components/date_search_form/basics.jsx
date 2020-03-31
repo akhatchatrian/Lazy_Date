@@ -80,7 +80,7 @@ class Basics extends React.Component {
                     placeholder="Location" 
                     name="location" 
                     id='location' 
-                    autocomplete="off" 
+                    autoComplete="off" 
                     required 
                     />
                     <label 

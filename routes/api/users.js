@@ -18,9 +18,19 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
   });
 })
 
+router.get('/currentUser', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({
+    id: req.user.id,
+    name: req.user.name,
+    email: req.user.email,
+    savedDates: req.user.savedDates
+  });
+})
+
 router.patch('/updateDate', (req, res) => {
 
   User.findById(req.body.currentUser, function (err, user) {
+    debugger
     if (err) {
       return res.status(500).json(err);
     }

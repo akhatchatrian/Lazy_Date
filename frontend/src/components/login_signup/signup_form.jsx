@@ -18,7 +18,7 @@ class SignupForm extends React.Component {
     }
 
     loginAfterRegister() {
-      if (!this.props.loggedIn) {
+      if (!this.props.loggedIn && this.props.errors.length === 0) {
         this.props.login({
           email: this.state.email,
           password: this.state.password
@@ -28,12 +28,16 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.props.clearErrors();
+
         const user = Object.assign({}, this.state);
         if (this.state.email !== "" && this.state.password !== "") {
           this.props.signup(user).then(this.loginAfterRegister);  
         } else {
           this.props.signup(user);  
         }
+        // this.props.signup(user);  
+
     }
 
     handleInput(type) {

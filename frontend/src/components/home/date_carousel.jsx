@@ -12,7 +12,7 @@ class DateCarousel extends React.Component {
       currentDateIdx: 0,
       hoverIdx: null,
       collectionName: "",
-      // savedDates: []
+      savedDates: []
     };
 
     this.changeMainDate = this.changeMainDate.bind(this);
@@ -21,8 +21,7 @@ class DateCarousel extends React.Component {
     this.handleMouseIn = this.handleMouseEnter.bind(this);
     this.handleMouseOut = this.handleMouseLeave.bind(this);
 
-
-    // this.handleCheckbox = this.handleCheckbox.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
     this.saveCollection = this.saveCollection.bind(this);
   }
 
@@ -33,9 +32,19 @@ class DateCarousel extends React.Component {
   //   this.props.createDateCollection(this.props.formData)
   // }
 
-  componentDidUpdate() {
-    if (!this.state.dates) this.setState({ dates: this.props.dates });
-    // document.getElementById(`${this.state.currentDateIdx}`).classList.add("active-listing");
+  // componentDidUpdate() {
+  //   if (!this.state.dates) this.setState({ dates: this.props.dates });
+  //   // document.getElementById(`${this.state.currentDateIdx}`).classList.add("active-listing");
+  // }
+
+
+  componentWillUnmount() {
+
+     const user = {
+       currentUser: this.props.currentUser.id,
+       dateEvents: this.state.savedDates
+     };
+     this.props.updateUser(user);
   }
 
   changeMainDate(idx) {
@@ -51,11 +60,12 @@ class DateCarousel extends React.Component {
   }
 
   handleClick(e) {
+    e.preventDefault();
     this.changeMainDate(e.currentTarget.id);
   }
 
   handleMouseEnter(e) {
-    // e.preventDefault();
+    e.preventDefault();
     if (this.state.hoverIdx)
       document
         .getElementById(`${this.state.hoverIdx}`)
@@ -68,6 +78,7 @@ class DateCarousel extends React.Component {
   }
 
   handleMouseLeave(e) {
+    e.preventDefault();
     document
       .getElementById(`${this.state.hoverIdx}`)
       .classList.remove("start-animation");
@@ -94,44 +105,49 @@ class DateCarousel extends React.Component {
     };
   }
 
-  // handleCheckbox(idx){
-  //   const checkedIdx = idx;
-  //   const currentStateDates = this.state.savedDates;
-  //   const currentListing = this.props.dates[checkedIdx];
+  handleCheckbox(e, idx) {
+    e.preventDefault();
+    const checkedIdx = idx;
+    const currentStateDates = this.state.savedDates;
+    const currentListing = this.props.dates[checkedIdx];
 
-  //   if (currentStateDates.includes(currentListing)) {
-  //     currentStateDates.splice(currentStateDates.indexOf(currentListing), 1);
-  //   } else {
-  //     currentStateDates.push(currentListing)
-  //   }
+    if (currentStateDates.includes(currentListing)) {
+      currentStateDates.splice(currentStateDates.indexOf(currentListing), 1);
+    } else {
+      currentStateDates.push(currentListing)
+    }
+    this.setState(currentStateDates);
+  }
 
-  //   this.setState(currentStateDates);
-  // }
+  alreadyLiked(idx) {
+    return this.state.savedDates.includes(this.props.dates[idx]);
+  }
 
-  // alreadyLiked(idx) {
-  //   return this.state.savedDates.include(this.props.dates[idx]);
-  // }
+
+
+
+
 
   saveCollection() {
     // save current dates + user's collectionName
-    const currentDate = this.props.dates[this.state.currentDateIdx];
-    console.log(currentDate);
+    // const currentDate = this.props.dates[this.state.currentDateIdx];
+    // console.log(currentDate);
 
-    const user = {
-      currentUser: this.props.currentUser.id,
-      dateEvents: [currentDate]
-    }
-    
-    this.props.updateUser(user)
+    // const user = {
+    //   currentUser: this.props.currentUser.id,
+    //   dateEvents: [currentDate]
+    // };
+
+    // this.props.updateUser(user);
 
     const dateObj = {
       collectionName: this.state.collectionName,
       user: this.props.currentUser.id,
       yelpInfo: this.props.formData.yelpInfo,
       collectionInfo: this.props.formData.collectionInfo
-    }
+    };
 
-    this.props.createDateCollection(dateObj)
+    this.props.createDateCollection(dateObj);
     console.log(this.state);
   }
 
@@ -171,21 +187,41 @@ class DateCarousel extends React.Component {
   }
 
   getParams(string) {
-    const reserved = ['!', '*', "\'", '(', ')', ';', ':', '@', '&', '=', '+', '$', ',', '/', '?', '%', '#', '[', ']']
+    const reserved = [
+      "!",
+      "*",
+      "'",
+      "(",
+      ")",
+      ";",
+      ":",
+      "@",
+      "&",
+      "=",
+      "+",
+      "$",
+      ",",
+      "/",
+      "?",
+      "%",
+      "#",
+      "[",
+      "]"
+    ];
     const words = string.split(" ");
-    const params = []
+    const params = [];
     // const params =
     //   words.slice(0, words.length - 1).map(word => word + "+") +
     //   words.slice(words.length - 1);
     words.forEach((word, idx) => {
       if (idx === words.length - 1) {
-        params.push(word)
+        params.push(word);
       } else if (reserved.includes(word)) {
-        params.push("")
+        params.push("");
       } else {
-        params.push(word + '+')
+        params.push(word + "+");
       }
-    })
+    });
     return params.join("");
   }
 
@@ -195,7 +231,7 @@ class DateCarousel extends React.Component {
         frameborder="0"
         src={`https://www.google.com/maps/embed/v1/place?key=${
           keys.MAP_API_KEY
-          }&q=
+        }&q=
         ${this.getParams(currentDate.name)},
         ${this.getParams(currentDate.location.city)}, 
         ${currentDate.location.zip_code}`}
@@ -204,15 +240,10 @@ class DateCarousel extends React.Component {
     );
   }
 
-
-
-
-
   render() {
     const { dates } = this.props;
     if (!dates) return null;
     const currentDate = dates[this.state.currentDateIdx];
-
 
     const catTitles = currentDate.categories
       .map((cat, idx) => {
@@ -225,6 +256,13 @@ class DateCarousel extends React.Component {
       .join("");
 
     if (!catTitles) return null;
+
+    // document.getElementsByClassName('fa-heart').addEventListener("click", (e)=> {
+    //   e.preventDefault();
+    //   if (this.alreadyLiked(e.currentTarget.id)) {
+        
+    //   }
+    // })
 
     return (
       <div className="date-carousel">
@@ -286,16 +324,6 @@ class DateCarousel extends React.Component {
         </div>
 
         <div className="date-list-sidebar">
-          <label>
-            <input
-              className="collection-field"
-              type="text"
-              onChange={this.handleInput("collectionName")}
-              placeholder="Name this mood"
-            />
-            <button onClick={this.saveCollection}>Save Mood</button>
-          </label>
-
           <h3>Here are Your Date Results:</h3>
           {dates.map((date, idx) => {
             return (
@@ -313,16 +341,33 @@ class DateCarousel extends React.Component {
                   <p>{date.categories[0].title}</p>
                 </div>
 
-                {/* <label for='listing-checkbox'>
+                <label
+                  for="listing-checkbox"
+                  onClick={e => this.handleCheckbox(e, idx)}
+                >
                   {this.alreadyLiked(idx) ? (
-                    <i class="fas fa-heart"></i>
-                  ) : ("") }
+                    <i class="fas filled-heart fa-heart"></i>
+                  ) : (
+                    <i class="fas empty-heart fa-heart"></i>
+                  )}
+                  {/* <input type="checkbox" id={idx}/> */}
+                </label>
 
-                  <input type="checkbox" id={idx} onClick={this.handleCheckbox(idx)}/>
-                </label> */}
+                <p className='saved-to-favs hidden'>Saved to favorites</p>
+                <p className='removed-from-favs hidden'>Removed from favorites</p>
+
               </div>
             );
           })}
+
+          <label className="collection-field">
+            <input
+              type="text"
+              onChange={this.handleInput("collectionName")}
+              placeholder="Name this mood"
+            />
+            <button onClick={this.saveCollection}>Save Mood</button>
+          </label>
         </div>
       </div>
     );

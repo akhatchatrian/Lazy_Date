@@ -19,7 +19,7 @@
   backface-visibility: hidden;
 }
 
-.signup-form-container {
+/* .signup-form-container {
   background: red;
 }
 
@@ -32,4 +32,4 @@
 
 .is-flipped {
   transform: rotateY(180deg);
-}
+} */
