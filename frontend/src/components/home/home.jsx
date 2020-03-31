@@ -91,7 +91,6 @@ class Home extends Component {
   }
   render() {
     if (!this.props.userDates || !this.props.userCollections) return null;
-    
     let currentTab =
       this.state.currentTab === "0" ? (
         <div className="datesTab">
@@ -121,14 +120,18 @@ class Home extends Component {
                   <p>{collection.collectionInfo.intimacy}</p>
                   <p>{collection.collectionInfo.adventurous}</p> */}
 
-                  <div className='col-item'>
+                  <div className="col-item">
                     {collection.collectionName ? (
                       collection.collectionName
                     ) : (
                       <div>
                         <p>Search:</p>
                         Location:{" "}
-                        {!collection.collectionInfo ? null : collection.collectionInfo.location ? collection.collectionInfo.location.toUpperCase() : null}
+                        {!collection.collectionInfo
+                          ? null
+                          : collection.collectionInfo.location
+                          ? collection.collectionInfo.location.toUpperCase()
+                          : null}
                         ,{" "}
                         {this.getInterests(collection.collectionInfo.interests)}
                         , Price:{" "}
@@ -138,6 +141,28 @@ class Home extends Component {
                       </div>
                     )}
                   </div>
+
+                  <Link
+                    className="similar-date"
+                    to={{
+                      pathname: "/date/browse",
+                      state: {
+                        // user: this.props.currentUser.id,
+                        searchParams: collection.yelpInfo.searchParams,
+                        conditions: {
+                          age: collection.collectionInfo.age === 1? true : false,
+                          location: collection.collectionInfo.location,
+                          price: collection.collectionInfo.price
+                        },
+                        intimacy: collection.collectionInfo.intimacy,
+                        adventurous: collection.collectionInfo.adventurous,
+                        interests: collection.collectionInfo.interests
+                      }
+                    }}
+                  >
+                    {" "}
+                    Generate a similar date >
+                  </Link>
                 </div>
               </div>
             );

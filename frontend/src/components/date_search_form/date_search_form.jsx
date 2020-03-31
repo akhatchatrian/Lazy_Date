@@ -87,7 +87,7 @@ class DateSearchForm extends React.Component {
     }
 
     formSubmission() {
-        
+        debugger
         const formData = {
             user: this.props.currentUser.id,
             yelpInfo: {

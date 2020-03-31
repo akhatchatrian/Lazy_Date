@@ -17,10 +17,11 @@
 }
 
 .hc-img-container > img {
+    object-fit: cover;
     border-radius: 5px;
     height: 100%;
     max-width: 100%;
-    margin: 0px 20px 0px 20px;
+    /* margin: 0px 20px 0px 20px; */
 }
 
 
@@ -78,6 +79,7 @@
     text-align: left;
     height: 100%;
     min-width: 25%;
+    max-width: 35%;
     width: auto;
     /* border: 1px solid orange; */
 }
