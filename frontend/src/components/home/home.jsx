@@ -8,7 +8,7 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      currentTab: "0",
+      currentTab: "dates",
       prevDateIdx: null,
       currentDateIdx: 0
     };
@@ -18,24 +18,23 @@ class Home extends Component {
     this.toggleTabs = this.toggleTabs.bind(this);
   }
 
- 
   componentDidMount() {
-    
-    this.props.getCurrentUser()
+    this.props.getCurrentUser();
     // this.props.receiveCurrentUser(this.props.currentUser);
     // this.setState(this.state.savedDates = this.props.userDates)
     this.props.getDateCollection(this.props.currentUser.id);
   }
 
   componentDidUpdate() {
-    if (this.state.currentTab === "0") { // This can be optimized later
-      let activeTab = document.getElementById("0")
-      let inactiveTab = document.getElementById("1")
-      activeTab.classList.remove("tab-inactive")
-      inactiveTab.classList.add("tab-inactive")
+    if (this.state.currentTab === "dates") {
+      // This can be optimized later
+      let activeTab = document.getElementById("dates");
+      let inactiveTab = document.getElementById("collections");
+      activeTab.classList.remove("tab-inactive");
+      inactiveTab.classList.add("tab-inactive");
     } else {
-      let activeTab = document.getElementById("1");
-      let inactiveTab = document.getElementById("0");
+      let activeTab = document.getElementById("collections");
+      let inactiveTab = document.getElementById("dates");
       activeTab.classList.remove("tab-inactive");
       inactiveTab.classList.add("tab-inactive");
     }
@@ -56,8 +55,6 @@ class Home extends Component {
   handleClick(e) {
     this.changeMainDate(e.currentTarget.id);
   }
-
-
 
   toggleTabs(e) {
     if (e.currentTarget.id !== this.state.currentTab) {
@@ -89,10 +86,34 @@ class Home extends Component {
   getInterests(interests) {
     return interests.map(interest => this.getName(interest));
   }
+
+  handleMouseEnter(e) {
+    e.preventDefault();
+    if (this.state.hoverIdx)
+      document
+        .getElementById(`${this.state.hoverIdx}`)
+        .classList.remove("end-animation");
+
+    this.setState({ hoverIdx: e.currentTarget.id });
+    document
+      .getElementById(`${e.currentTarget.id}`)
+      .classList.add("start-animation");
+  }
+
+  handleMouseLeave(e) {
+    e.preventDefault();
+    document
+      .getElementById(`${this.state.hoverIdx}`)
+      .classList.remove("start-animation");
+    document
+      .getElementById(`${this.state.hoverIdx}`)
+      .classList.add("end-animation");
+  }
+
   render() {
     if (!this.props.userDates || !this.props.userCollections) return null;
     let currentTab =
-      this.state.currentTab === "0" ? (
+      this.state.currentTab === "dates" ? (
         <div className="datesTab">
           {this.props.userDates.map((date, idx) => {
             return (
@@ -100,6 +121,8 @@ class Home extends Component {
                 id={idx}
                 className="date-item-container"
                 onClick={e => this.handleClick(e)}
+                onMouseEnter={e => this.handleMouseEnter(e)}
+                onMouseLeave={e => this.handleMouseLeave(e)}
               >
                 <img className="saved-date-thumbnail" src={date.image_url} />
                 <p>{date.name}</p>
@@ -107,7 +130,7 @@ class Home extends Component {
             );
           })}
         </div>
-      ) : this.state.currentTab === "1" ? ( // OR
+      ) : this.state.currentTab === "collections" ? ( // OR
         <div className="collectionsTab">
           {this.props.userCollections.map(collection => {
             return (
@@ -150,7 +173,8 @@ class Home extends Component {
                         // user: this.props.currentUser.id,
                         searchParams: collection.yelpInfo.searchParams,
                         conditions: {
-                          age: collection.collectionInfo.age === 1? true : false,
+                          age:
+                            collection.collectionInfo.age === 1 ? true : false,
                           location: collection.collectionInfo.location,
                           price: collection.collectionInfo.price
                         },
@@ -175,12 +199,12 @@ class Home extends Component {
         <section className="home-dashboard">
           <div className="dash-sidebar">
             <div className="tabs-container">
-              <div className="tab-left" id="0" onClick={this.toggleTabs}>
+              <div className="tab-left" id="dates" onClick={this.toggleTabs}>
                 <p>My Dates</p>
               </div>
               <div
                 className="tab-right tab-inactive"
-                id="1"
+                id="collections"
                 onClick={this.toggleTabs}
               >
                 <p>My Collections</p>
@@ -192,8 +216,10 @@ class Home extends Component {
           <div className="dash-display-container">
             <div className="dash-titlebar">
               <section className="titlebar-text">
-                <h3>Welcome back, {this.getName(this.props.currentUser.name)}</h3>
-                  <p>Your recently saved dates:</p>
+                <h3>
+                  Welcome back, {this.getName(this.props.currentUser.name)}
+                </h3>
+                <p>Your recently saved dates:</p>
               </section>
               <Link className="create-date-btn" to={`/date`}>
                 <p>Generate Date Ideas</p>
@@ -202,7 +228,13 @@ class Home extends Component {
             <div className="dash-main-display-container">
               <div className="home-prev-button"></div>
 
-              <HomeCarousel currentDateIdx={this.state.currentDateIdx} prevDateIdx={this.state.prevDateIdx} dates={this.props.userDates} handleNext={this.handleNext} handlePrevious={this.handlePrevious}/>
+              <HomeCarousel
+                currentDateIdx={this.state.currentDateIdx}
+                prevDateIdx={this.state.prevDateIdx}
+                dates={this.props.userDates}
+                handleNext={this.handleNext}
+                handlePrevious={this.handlePrevious}
+              />
 
               <div className="dash-main-display"></div>
               <div className="home-next-button"></div>
@@ -214,79 +246,118 @@ class Home extends Component {
           <div className="moods-container">
             <h2>Moods</h2>
             <div className="moods-container-main">
-
-              <Link id="easy-night-out" className="mood-box" to={{
-                pathname: "/date/browse",
-                state: { 
-                    searchParams: "usedbooks,movietheatres,tapas,paintandsip,lakes,museums,aquariums",
+              <Link
+                id="easy-night-out"
+                className="mood-box"
+                to={{
+                  pathname: "/date/browse",
+                  state: {
+                    searchParams:
+                      "usedbooks,movietheatres,tapas,paintandsip,lakes,museums,aquariums",
                     conditions: {
                       age: false,
                       location: "San Francisco",
                       price: "1,2"
                     }
-                }
-              }}>Easy Night Out</Link>
-
-              <Link id="adrenaline-rush" className="mood-box" to={{
-                pathname: "/date/browse",
-                state: {
-                  searchParams: "bungeejumping,gun_ranges,challengecourses,skydiving,axethrowing",
-                  conditions: {
-                    age: false,
-                    location: "San Francisco",
-                    price: "1,2,3,4"
                   }
-                }
-              }}>Adrenaline Rush</Link>
+                }}
+              >
+                Easy Night Out
+              </Link>
 
-              <Link id="feelin-fancy" className="mood-box" to={{
-                pathname: "/date/browse",
-                state: { 
-                  searchParams: "winetastingroom,cheesetastingclasses,winetasteclasses,fondue",
-                  conditions: {
-                    age: false,
-                    location: "San Francisco",
-                    price: 4
+              <Link
+                id="adrenaline-rush"
+                className="mood-box"
+                to={{
+                  pathname: "/date/browse",
+                  state: {
+                    searchParams:
+                      "bungeejumping,gun_ranges,challengecourses,skydiving,axethrowing",
+                    conditions: {
+                      age: false,
+                      location: "San Francisco",
+                      price: "1,2,3,4"
+                    }
                   }
-                }
-              }}>Feelin' Fancy</Link>
+                }}
+              >
+                Adrenaline Rush
+              </Link>
 
-
-              <Link id="artistic" className="mood-box" to={{
-                pathname: "/date/browse",
-                state: {
-                  searchParams: "artclasses,photoclasses,dancestudio",
-                  conditions: {
-                    age: false,
-                    location: "San Francisco",
-                    price: "2,3"
+              <Link
+                id="feelin-fancy"
+                className="mood-box"
+                to={{
+                  pathname: "/date/browse",
+                  state: {
+                    searchParams:
+                      "winetastingroom,cheesetastingclasses,winetasteclasses,fondue",
+                    conditions: {
+                      age: false,
+                      location: "San Francisco",
+                      price: 4
+                    }
                   }
-                }
-              }}>Artistic</Link>
+                }}
+              >
+                Feelin' Fancy
+              </Link>
 
-              <Link id="lets-get-weird" className="mood-box" to={{
-                pathname: "/date/browse",
-                state: {
-                  searchParams: "psychic_astrology,axethrowing,cabarets,stripclubs",
-                  conditions: {
-                    age: false,
-                    location: "San Francisco",
-                    price: 2
+              <Link
+                id="artistic"
+                className="mood-box"
+                to={{
+                  pathname: "/date/browse",
+                  state: {
+                    searchParams: "artclasses,photoclasses,dancestudio",
+                    conditions: {
+                      age: false,
+                      location: "San Francisco",
+                      price: "2,3"
+                    }
                   }
-                }
-              }}>Let's Get Weird</Link>
+                }}
+              >
+                Artistic
+              </Link>
 
-              <Link id="mystery" className="mood-box" to={{
-                pathname: "/date/browse",
-                state: { 
-                  searchParams: "popuprestaurants,streetvendors,comedyclubs,escapegames,mini_golf,planetarium,virtualrealitycenters,popupshops",
-                  conditions: {
-                    age: false,
-                    location: "San Francisco",
-                    price: "1,2,3"
+              <Link
+                id="lets-get-weird"
+                className="mood-box"
+                to={{
+                  pathname: "/date/browse",
+                  state: {
+                    searchParams:
+                      "psychic_astrology,axethrowing,cabarets,stripclubs",
+                    conditions: {
+                      age: false,
+                      location: "San Francisco",
+                      price: 2
+                    }
                   }
-                }
-              }}>Mystery</Link>
+                }}
+              >
+                Let's Get Weird
+              </Link>
+
+              <Link
+                id="mystery"
+                className="mood-box"
+                to={{
+                  pathname: "/date/browse",
+                  state: {
+                    searchParams:
+                      "popuprestaurants,streetvendors,comedyclubs,escapegames,mini_golf,planetarium,virtualrealitycenters,popupshops",
+                    conditions: {
+                      age: false,
+                      location: "San Francisco",
+                      price: "1,2,3"
+                    }
+                  }
+                }}
+              >
+                Mystery
+              </Link>
             </div>
           </div>
         </section>
