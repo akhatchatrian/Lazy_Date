@@ -87,28 +87,28 @@ class Home extends Component {
     return interests.map(interest => this.getName(interest));
   }
 
-  handleMouseEnter(e) {
-    e.preventDefault();
-    if (this.state.hoverIdx)
-      document
-        .getElementById(`${this.state.hoverIdx}`)
-        .classList.remove("end-animation");
+  // handleMouseEnter(e) {
+  //   e.preventDefault();
+  //   if (this.state.hoverIdx)
+  //     document
+  //       .getElementById(`${this.state.hoverIdx}`)
+  //       .classList.remove("end-animation");
 
-    this.setState({ hoverIdx: e.currentTarget.id });
-    document
-      .getElementById(`${e.currentTarget.id}`)
-      .classList.add("start-animation");
-  }
+  //   this.setState({ hoverIdx: e.currentTarget.id });
+  //   document
+  //     .getElementById(`${e.currentTarget.id}`)
+  //     .classList.add("start-animation");
+  // }
 
-  handleMouseLeave(e) {
-    e.preventDefault();
-    document
-      .getElementById(`${this.state.hoverIdx}`)
-      .classList.remove("start-animation");
-    document
-      .getElementById(`${this.state.hoverIdx}`)
-      .classList.add("end-animation");
-  }
+  // handleMouseLeave(e) {
+  //   e.preventDefault();
+  //   document
+  //     .getElementById(`${this.state.hoverIdx}`)
+  //     .classList.remove("start-animation");
+  //   document
+  //     .getElementById(`${this.state.hoverIdx}`)
+  //     .classList.add("end-animation");
+  // }
 
   render() {
     if (!this.props.userDates || !this.props.userCollections) return null;
@@ -121,8 +121,8 @@ class Home extends Component {
                 id={idx}
                 className="date-item-container"
                 onClick={e => this.handleClick(e)}
-                onMouseEnter={e => this.handleMouseEnter(e)}
-                onMouseLeave={e => this.handleMouseLeave(e)}
+                // onMouseEnter={e => this.handleMouseEnter(e)}
+                // onMouseLeave={e => this.handleMouseLeave(e)}
               >
                 <img className="saved-date-thumbnail" src={date.image_url} />
                 <p>{date.name}</p>

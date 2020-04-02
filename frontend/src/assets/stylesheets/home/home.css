@@ -300,6 +300,9 @@
     width: 50px;
     opacity: 0.8;
 }
+.date-item-container:hover {
+    cursor: pointer;
+}
 
 .date-item-container:hover > .saved-date-thumbnail, .active-listing > .saved-date-thumbnail{
     opacity: 1
