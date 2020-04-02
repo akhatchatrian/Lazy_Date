@@ -34,8 +34,7 @@
     "react-loading-screen": "0.0.17",
     "react-lottie": "^1.2.3",
     "react-scripts": "^3.4.0",
-    "validator": "^12.2.0",
-    "webpack": "^4.42.1"
+    "validator": "^12.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
